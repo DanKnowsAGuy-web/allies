@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Energy Plus &amp; Build Plus | Rep Portal</title>
-<meta name="description" content="Authorized rep portal for Energy Plus and Build Plus. Access the latest marketing materials, spec sheets, videos, and links." />
+<title>Energy Plus &amp; Build Plus | Partner Dashboard</title>
+<meta name="description" content="Authorized partner dashboard for Energy Plus and Build Plus. Access the latest marketing materials, spec sheets, videos, and links." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet" />
@@ -863,13 +863,13 @@
       <div class="brand-lockup">Harvest<span class="plus"> +</span></div>
       <div class="brand-sub">Your Provision Strategist</div>
     </div>
-    <div class="brand-portal-label">Rep Portal</div>
+    <div class="brand-portal-label">Partner Dashboard</div>
   </div>
 
   <!-- LOGIN CARD -->
   <main class="card" id="login-screen" aria-labelledby="login-title">
     <div class="card-eyebrow">Authorized Access</div>
-    <h1 class="card-title" id="login-title">Rep Portal</h1>
+    <h1 class="card-title" id="login-title">Partner Dashboard</h1>
     <p class="card-subtitle">Enter your first name to access your resource links and marketing materials.</p>
     <div class="card-rule"></div>
 
@@ -892,7 +892,7 @@
           <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
           Send this message to Dan
         </a>
-        <div class="sms-preview" style="margin-top:0.85rem;">"Hey Dan, I tried to log in to the rep portal to access the marketing materials and technical data and was denied."</div>
+        <div class="sms-preview" style="margin-top:0.85rem;">"Hey Dan, I tried to log in to the partner dashboard to access the marketing materials and technical data and was denied."</div>
       </div>
     </div>
 
@@ -912,7 +912,7 @@
       </div>
       <div class="portal-bar-meta">
         <span class="portal-greeting">Welcome, <em id="welcome-name-display">Rep</em></span>
-        <span class="portal-bar-label">Rep Portal</span>
+        <span class="portal-bar-label">Partner Dashboard</span>
       </div>
     </div>
 
@@ -1022,15 +1022,15 @@
 
 <script>
   /* ---- ACCESS CONTROL ---- */
-  const APPROVED = ["pepper","bryndon","cliff","raul","jody","tammy","garrett","ronson","mount","cj","christian","tom","dave","tony","jeff","bryn","mark","ron","jonathan","wesley","jon","wess","josh"];
-  const DISPLAY  = { pepper:"Pepper", bryndon:"Bryndon", cliff:"Cliff", raul:"Raul", jody:"Jody", tammy:"Tammy", garrett:"Garrett", ronson:"Ronson", mount:"Mount", cj:"CJ", christian:"Christian", tom:"Tom", dave:"Dave", tony:"Tony", jeff:"Jeff", bryn:"Bryn", mark:"Mark", ron:"Ron", jonathan:"Jonathan", wesley:"Wesley", jon:"Jon", wess:"Wess", josh:"Josh" };
+  const APPROVED = ["pepper","bryndon","cliff","raul","jody","tammy","garrett","ronson","mount","cj","christian","tom","dave","tony","jeff","bryn","mark","ron","jonathan","wesley","jon","wess","josh","jim","chandler"];
+  const DISPLAY  = { pepper:"Pepper", bryndon:"Bryndon", cliff:"Cliff", raul:"Raul", jody:"Jody", tammy:"Tammy", garrett:"Garrett", ronson:"Ronson", mount:"Mount", cj:"CJ", christian:"Christian", tom:"Tom", dave:"Dave", tony:"Tony", jeff:"Jeff", bryn:"Bryn", mark:"Mark", ron:"Ron", jonathan:"Jonathan", wesley:"Wesley", jon:"Jon", wess:"Wess", josh:"Josh", jim:"Jim", chandler:"Chandler" };
   const DAN = "8647770688";
   const DAN_EMAIL = "dan@danknowsaguy.org"; // where email-fallback requests go
   // Paste your Formspree form endpoint here (e.g. "https://formspree.io/f/abcdwxyz").
   // While left blank, the modal automatically falls back to email/SMS.
   const FORMSPREE_ENDPOINT = "https://formspree.io/f/mykqjqvp";
-  const MSG = "Hey Dan, I tried to log in to the rep portal to access the marketing materials and technical data and was denied.";
-  const HELP_MSG = "Hey Dan, I'm in the rep portal but I need a resource that isn't listed. Can you help?";
+  const MSG = "Hey Dan, I tried to log in to the partner dashboard to access the marketing materials and technical data and was denied.";
+  const HELP_MSG = "Hey Dan, I'm in the partner dashboard but I need a resource that isn't listed. Can you help?";
 
   document.getElementById('btn-sms').href = "sms:" + DAN + "?body=" + encodeURIComponent(MSG);
   document.getElementById('foot-sms').href = "sms:" + DAN + "?body=" + encodeURIComponent(HELP_MSG);
@@ -1056,6 +1056,7 @@
     doc:   '<svg fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>',
     watch: '<svg fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><polygon points="10 8 16 12 10 16 10 8" fill="currentColor" stroke="none"/></svg>',
     copy:  '<svg fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>',
+    lock:  '<svg fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>',
   };
   const PRIMARY = {
     link:  { verb: 'Open',  icon: ICONS.open },
@@ -1070,15 +1071,15 @@
       { name: 'Partner Platform', kind: 'Website', category: 'web', type: 'link', url: 'https://yourenergyplus.com' },
       { name: 'Commercial Savings', kind: 'Website', category: 'web', type: 'link', url: 'https://bit.ly/commercial-savings', only: ['pepper','raul'] },
       { name: 'Energy Savings',   kind: 'Website', category: 'web', type: 'link', url: 'https://slashyourenergycost.com', except: ['pepper','raul'] },
-      { name: 'Solar Partners',   kind: 'Website', category: 'web', type: 'link', url: 'https://bit.ly/solar-partner', new: true },
-      { name: 'Supermarkets Energy Savings', kind: 'Landing Page', category: 'web', type: 'link', url: 'https://bit.ly/supermarket-energy-savings' },
-      { name: 'Hotel Energy Savings',        kind: 'Landing Page', category: 'web', type: 'link', url: 'https://bit.ly/hotel-energy-savings' },
+      { name: 'Solar Partners',   kind: 'Website', category: 'web', type: 'link', url: 'https://bit.ly/solar-vendor', new: true },
+      { name: 'Supermarkets Energy Savings', kind: 'Landing Page', category: 'web', type: 'link', url: 'https://bit.ly/supermarket-energy', new: true },
+      { name: 'Hotel Energy Savings',        kind: 'Landing Page', category: 'web', type: 'link', url: 'https://bit.ly/hotels-energy', new: true },
       { name: 'Verified Energy Savings — Master Record', kind: 'Master Record', category: 'web', type: 'doc', url: 'https://bit.ly/verified-results', new: true },
     ]},
     { brand: 'Energy Plus', title: 'Tools & Marketing', items: [
       { name: 'Bilingual Calculator',        kind: 'Calculator', category: 'tools',     type: 'link', url: 'https://bit.ly/ep-calc' },
-      { name: 'Supermarkets Energy Savings', kind: 'Landing Page', category: 'marketing', type: 'link', url: 'https://bit.ly/supermarket-energy-savings' },
-      { name: 'Hotel Energy Savings',        kind: 'Landing Page', category: 'marketing', type: 'link', url: 'https://bit.ly/hotel-energy-savings' },
+      { name: 'Supermarkets Energy Savings', kind: 'Landing Page', category: 'marketing', type: 'link', url: 'https://bit.ly/supermarket-energy', new: true },
+      { name: 'Hotel Energy Savings',        kind: 'Landing Page', category: 'marketing', type: 'link', url: 'https://bit.ly/hotels-energy', new: true },
       { name: 'Commercial Savings',          kind: 'Landing Page', category: 'marketing', type: 'link', url: 'https://bit.ly/commercial-savings', only: ['pepper','raul'] },
       { name: 'Hotel / Hospitality — Verified Savings', kind: 'Verified Savings', category: 'reference', type: 'doc', url: 'https://bit.ly/hotel-cs-savings' },
       { name: 'Verified Energy Savings — Master Record', kind: 'Master Record', category: 'reference', type: 'doc', url: 'https://bit.ly/verified-results' },
@@ -1122,6 +1123,7 @@
       { name: 'Calculator Assumptions',            kind: 'Reference',          category: 'reference', type: 'doc',   url: 'https://bit.ly/InPlaceC_Assumptions' },
       { name: 'Technical Overview',                kind: 'Technical Overview', category: 'reference', type: 'doc',   url: 'https://bit.ly/inplace-tech' },
       { name: '(In-Place) Cerro Colorado, Peru',   kind: 'Case Study',         category: 'reference', type: 'link',  url: 'https://bit.ly/inplace-cerro-peru', new: true },
+      { name: 'Data Vault',                        kind: 'Data Vault',         category: 'reference', type: 'link',  url: 'https://bit.ly/4aCb94g', password: 'Prescott2007-Arequipa125.', new: true },
       { name: 'In-Place (Cement Study)',           kind: 'Study',              category: 'reference', type: 'link',  url: 'https://bit.ly/inplace-concrete' },
     ]},
     /* HARVEST PLUS */
@@ -1142,10 +1144,13 @@
   const RM_ORDER = ['live', 'progress', 'planned', 'requested'];
   const RM_STATUS = { live: { label: 'Live' }, progress: { label: 'In Progress' }, planned: { label: 'Planned' }, requested: { label: 'Requested' } };
   const ROADMAP = [
+    { status: 'live', brand: 'Energy Plus', tag: 'New', title: 'Hotel landing page refreshed', text: 'The Hotel Energy Savings page now lives at slashyourenergycost.com/hotels — links under Energy Plus have been updated.', date: 'This week' },
+    { status: 'live', brand: 'Energy Plus', tag: 'New', title: 'Supermarket landing page refreshed', text: 'The Supermarkets Energy Savings page now lives at slashyourenergycost.com/supermarket — links under Energy Plus have been updated.', date: 'This week' },
     { status: 'live', brand: 'Energy Plus', tag: 'New', title: 'Solar Partners landing page is live', text: 'The new Solar Partners site is now linked under Energy Plus → Main Website Links.', date: 'This week' },
     { status: 'live', brand: 'Energy Plus', title: 'Verified Energy Savings — Master Record', text: 'The master record of verified, real-world savings results is now posted under Energy Plus.', date: 'This week' },
     { status: 'live', brand: 'Harvest Plus', tag: 'New', title: 'Harvest+ landing page is live', text: 'The new Harvest+ vertical farming story page is now linked under Harvest Plus → Vertical Farming.', date: 'This week' },
     { status: 'live', brand: 'Harvest Plus', tag: 'New', title: 'AquAlign landing page is live', text: 'Harvest Plus joins the portal. The AquAlign relaunch site, with its full field-trial library, is now linked under Harvest Plus.', date: 'This week' },
+    { status: 'live', brand: 'Build Plus', tag: 'New', title: 'Password-protected Data Vault', text: 'The In-Place Data Vault is now linked under Build Plus. It requires a password — use the Copy password button next to the link, then paste it when prompted.', date: 'This week' },
     { status: 'live', brand: 'Build Plus', title: 'In-Place Cerro Colorado, Peru', text: 'A new Build Plus case study from the Cerro Colorado project in Peru is now available.', date: 'Recent' },
 
     { status: 'progress', group: 'One-Pagers', brand: 'Build Plus',  title: 'In-Place', langs: ['EN', 'ES'] },
@@ -1340,7 +1345,7 @@
       const rows = items.map(it => {
         const prim = PRIMARY[it.type] || PRIMARY.link;
         const copyText = it.name + ' — ' + it.url;
-        const parts = [it.kind].concat(it.code ? [it.code] : []);
+        const parts = [it.kind].concat(it.code ? [it.code] : []).concat(it.password ? ['Password protected'] : []);
         const meta = parts.map(p => `<span>${esc(p)}</span>`).join('<span class="dot"></span>');
         const badge = it.new ? '<span class="asset-new">New</span>'
                     : (it.updated ? '<span class="asset-new asset-upd">Updated</span>' : '');
@@ -1352,6 +1357,7 @@
             </div>
             <div class="asset-actions">
               <a class="act act-primary" href="${esc(it.url)}" target="_blank" rel="noopener" aria-label="${esc(prim.verb)} ${esc(it.name)}">${prim.icon}<span>${esc(prim.verb)}</span></a>
+              ${it.password ? `<button class="act act-copy" type="button" data-copy="${esc(it.password)}" data-toast="Password copied to clipboard" onclick="copyLink(this)" aria-label="Copy password for ${esc(it.name)}">${ICONS.lock}<span class="act-label">Copy password</span></button>` : ''}
               <button class="act act-copy" type="button" data-copy="${esc(copyText)}" onclick="copyLink(this)" aria-label="Copy link for ${esc(it.name)}">${ICONS.copy}<span class="act-label">Copy link</span></button>
             </div>
           </div>`;
@@ -1407,7 +1413,7 @@
     const done = () => {
       btn.classList.add('copied');
       if (label) label.textContent = 'Copied';
-      showToast('Link copied to clipboard');
+      showToast(btn.getAttribute('data-toast') || 'Link copied to clipboard');
       setTimeout(() => { btn.classList.remove('copied'); if (label) label.textContent = orig; }, 2000);
     };
     if (navigator.clipboard && navigator.clipboard.writeText) {
@@ -1470,7 +1476,8 @@
   }
 
   /* ---- ACCESS FLOW ---- */
-  const PASSWORD = "build"; // case-insensitive; same for everyone
+  const PASSWORD = "build"; // case-insensitive; default for everyone
+  const USER_PASSWORDS = { jim: "helm", chandler: "helm" }; // per-name overrides, also case-insensitive
   const LS_KEY = "repPortalUser"; // remembers the signed-in rep so they skip login next visit
 
   // Shared "you're in" path — used by a fresh login and by a remembered session.
@@ -1512,7 +1519,7 @@
     }
 
     // Known name, wrong/empty password -> inline password error
-    if (pw !== PASSWORD) {
+    if (pw !== (USER_PASSWORDS[name] || PASSWORD)) {
       closeError();
       pwError.classList.add('visible');
       shake(pwInput);
@@ -1694,7 +1701,7 @@
     if (p.brand && p.type === 'new') lines.push(`Brand: ${p.brand}`);
     if (p.variant) lines.push(`Requested version: ${p.variant}`);
     if (p.details) lines.push(`Details: ${p.details}`);
-    lines.push(`— Sent from Rep Portal (${p.device}) ${p.submittedAt}`);
+    lines.push(`— Sent from Partner Dashboard (${p.device}) ${p.submittedAt}`);
     return lines.join('\n');
   }
   function mailtoHref(p) { return `mailto:${DAN_EMAIL}?subject=${encodeURIComponent(reqSubject(p))}&body=${encodeURIComponent(reqBody(p))}`; }
