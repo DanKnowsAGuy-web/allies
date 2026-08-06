@@ -487,7 +487,9 @@
   .tk-dec { color: var(--white-faint); font-size: 0.46em; align-self: flex-start; margin-top: 0.22em; letter-spacing: 0; }
 
   /* ---- RESOURCE TABS ---- */
-  .tabs { position: relative; display: flex; gap: 0.3rem; width: 100%; border-bottom: 1px solid var(--gold-rule); margin-bottom: 1.3rem; }
+  .tabs { position: relative; display: flex; gap: 0.3rem; width: 100%; border-bottom: 1px solid var(--gold-rule); margin-bottom: 1.3rem; overflow-x: auto; scrollbar-width: none; }
+  .tabs::-webkit-scrollbar { display: none; }
+  .tab { flex-shrink: 0; white-space: nowrap; }
   .tab {
     background: transparent; border: none;
     color: var(--white-dim); font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; letter-spacing: 0.03em;
@@ -1133,8 +1135,13 @@
     { brand: 'Harvest Plus', title: 'AquAlign', items: [
       { name: 'The AquAlign landing page', kind: 'Landing Page', category: 'web', type: 'link', url: 'https://bit.ly/AquAlign', new: true },
     ]},
+    /* GROUND TRUTH VENTURE STUDIO */
+    { brand: 'Ground Truth Venture Studio', title: 'Ground Truth', items: [
+      { name: 'Investor Landing Page', kind: 'Landing Page', category: 'web', type: 'link', url: 'https://bit.ly/Ground-Truth', new: true },
+      { name: 'One-Pager', kind: 'One-Pager', category: 'reference', type: 'doc', url: 'https://bit.ly/gt-one-pager', new: true },
+    ]},
   ];
-  const BRAND_ORDER = ['Energy Plus', 'Build Plus', 'Harvest Plus', 'ISO Documentation'];
+  const BRAND_ORDER = ['Energy Plus', 'Build Plus', 'Harvest Plus', 'Ground Truth Venture Studio', 'ISO Documentation'];
 
   /* ---- NEWS / UPDATES (edit freely; the column width adapts to how many there are) ---- */
   /* Roadmap pipeline. Each item has a status: 'live' | 'progress' | 'planned' | 'requested'.
