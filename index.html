@@ -1092,13 +1092,13 @@
       { name: 'HVAC Optimizer — 150 Studies', kind: 'Studies',  category: 'hvac', type: 'doc', url: 'https://bit.ly/HVACO150' },
       { name: 'Installation & Demo Guide',  kind: 'Guide',      category: 'hvac', type: 'doc', url: 'https://bit.ly/HVACOptInstallGuide' },
     ]},
-    { brand: 'Energy Plus', title: 'ABMS · Anti-Bribery', tag: 'ISO 37001', items: [
+    { brand: 'ISO Documentation', title: 'ABMS · Anti-Bribery', tag: 'ISO 37001', items: [
       { name: 'Anti-Bribery Policy',                code: 'ABMS-001', kind: 'Policy',        category: 'iso', type: 'doc', url: 'https://bit.ly/anti-bribery_' },
       { name: 'Government Official Due Diligence',  code: 'ABMS-002', kind: 'Due Diligence', category: 'iso', type: 'doc', url: 'https://bit.ly/due-diligence_' },
       { name: 'Referral Commission Agreement',      code: 'ABMS-003', kind: 'Agreement',     category: 'iso', type: 'doc', url: 'https://bit.ly/referral-commission-agreement' },
       { name: 'Commission Gifts Register',          code: 'ABMS-004', kind: 'Register',      category: 'iso', type: 'doc', url: 'https://bit.ly/commission-gifts-reg' },
     ]},
-    { brand: 'Energy Plus', title: 'ISMS · Information Security', tag: 'ISO 27001', items: [
+    { brand: 'ISO Documentation', title: 'ISMS · Information Security', tag: 'ISO 27001', items: [
       { name: 'Information Security Policy',     code: 'ISMS-001', kind: 'Policy',    category: 'iso', type: 'doc', url: 'https://bit.ly/info-security_' },
       { name: 'ISMS Scope Document',             code: 'ISMS-002', kind: 'Scope',     category: 'iso', type: 'doc', url: 'https://bit.ly/ISMS-Scope' },
       { name: 'Asset Inventory & Risk Register', code: 'ISMS-003', kind: 'Register',  category: 'iso', type: 'doc', url: 'https://bit.ly/inventory-risk-register' },
@@ -1107,7 +1107,7 @@
       { name: 'Data Retention & Deletion Policy',code: 'ISMS-006', kind: 'Policy',    category: 'iso', type: 'doc', url: 'https://bit.ly/Data-Retention-Deletion' },
       { name: 'Statement of Applicability',      code: 'ISMS-007', kind: 'Statement', category: 'iso', type: 'doc', url: 'https://bit.ly/isms-statement-applicability' },
     ]},
-    { brand: 'Energy Plus', title: 'QMS · Quality', tag: 'ISO 9001', items: [
+    { brand: 'ISO Documentation', title: 'QMS · Quality', tag: 'ISO 9001', items: [
       { name: 'Quality Policy',          code: 'QMS-001', kind: 'Policy',    category: 'iso', type: 'doc', url: 'https://bit.ly/Quality-Policy_' },
       { name: 'Scope Document',          code: 'QMS-002', kind: 'Scope',     category: 'iso', type: 'doc', url: 'https://bit.ly/scope-doc' },
       { name: 'Risk Register',           code: 'QMS-003', kind: 'Register',  category: 'iso', type: 'doc', url: 'https://bit.ly/risk-register_' },
@@ -1134,7 +1134,7 @@
       { name: 'The AquAlign landing page', kind: 'Landing Page', category: 'web', type: 'link', url: 'https://bit.ly/AquAlign', new: true },
     ]},
   ];
-  const BRAND_ORDER = ['Energy Plus', 'Build Plus', 'Harvest Plus'];
+  const BRAND_ORDER = ['Energy Plus', 'Build Plus', 'Harvest Plus', 'ISO Documentation'];
 
   /* ---- NEWS / UPDATES (edit freely; the column width adapts to how many there are) ---- */
   /* Roadmap pipeline. Each item has a status: 'live' | 'progress' | 'planned' | 'requested'.
@@ -1181,7 +1181,7 @@
 
   /* ---- ESCAPE ---- */
   function esc(s) { return String(s).replace(/[&<>"']/g, m => ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[m])); }
-  function brandMark(name) { return esc(name.replace(/\s*Plus$/, '')) + '<span class="plus"> +</span>'; }
+  function brandMark(name) { return /\sPlus$/.test(name) ? esc(name.replace(/\s*Plus$/, '')) + '<span class="plus"> +</span>' : esc(name); }
 
   /* ---- ROADMAP RENDER (What's New & Next) + CONTEXT-AWARE WIDTH ---- */
   const RM_VOTE_ICON = '<svg viewBox="0 0 24 24" width="10" height="10" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><polyline points="18 15 12 9 6 15"/></svg>';
