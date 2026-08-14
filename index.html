@@ -1068,6 +1068,16 @@
 
   /* ---- RESOURCE DATA (real links) ---- */
   const GROUPS = [
+    /* CPL — Christ Power and Light */
+    { brand: 'CPL', title: 'Landing Pages', items: [
+      { name: 'CPL Hotels',                kind: 'Landing Page', category: 'web', type: 'link', url: 'https://slashyourenergycost.com/hotel-cpl/', new: true },
+      { name: "CPL Sedano's Supermarkets", kind: 'Landing Page', category: 'web', type: 'link', url: 'https://slashyourenergycost.com/supermarket/sedanos-cpl/', new: true },
+      { name: 'The Vineta Hotel',          kind: 'Prepared Proposal', category: 'web', type: 'link', url: 'https://slashyourenergycost.com/cpl/thevineta/', new: true },
+      { name: 'Willis Custom Yachts',      kind: 'Prepared Proposal', category: 'web', type: 'link', url: 'https://slashyourenergycost.com/cpl/williscustomyachts/', new: true },
+    ]},
+    { brand: 'CPL', title: 'Tools', items: [
+      { name: 'CPL Savings Estimator', kind: 'Calculator', category: 'tools', type: 'link', url: 'https://slashyourenergycost.com/cpl-calculator/', new: true },
+    ]},
     /* ENERGY PLUS */
     { brand: 'Energy Plus', title: 'Main Website Links', items: [
       { name: 'Partner Platform', kind: 'Website', category: 'web', type: 'link', url: 'https://yourenergyplus.com' },
@@ -1152,7 +1162,8 @@
       { name: 'One-Pager', kind: 'One-Pager', category: 'reference', type: 'doc', url: 'https://bit.ly/gt-one-pager', new: true },
     ]},
   ];
-  const BRAND_ORDER = ['Energy Plus', 'Build Plus', 'Harvest Plus', 'Ground Truth Venture Studio', 'ISO Documentation'];
+  const BRAND_ORDER = ['CPL', 'Energy Plus', 'Build Plus', 'Harvest Plus', 'Ground Truth Venture Studio', 'ISO Documentation'];
+  const CPL_USERS = ['ron', 'jon', 'jonathan']; // land on the CPL tab after login; everyone else starts on Energy Plus
 
   /* ---- NEWS / UPDATES (edit freely; the column width adapts to how many there are) ---- */
   /* Roadmap pipeline. Each item has a status: 'live' | 'progress' | 'planned' | 'requested'.
@@ -1497,12 +1508,14 @@
 
   /* ---- ACCESS FLOW ---- */
   const PASSWORD = "build"; // case-insensitive; default for everyone
-  const USER_PASSWORDS = { jim: "helm", chandler: "helm" }; // per-name overrides, also case-insensitive
+  const USER_PASSWORDS = { jim: "helm", chandler: "helm", ron: "cpl", jon: "cpl", jonathan: "cpl" }; // per-name overrides, also case-insensitive
   const LS_KEY = "repPortalUser"; // remembers the signed-in rep so they skip login next visit
 
   // Shared "you're in" path — used by a fresh login and by a remembered session.
   function enterPortal(name) {
     currentUser = name;
+    activeBrand = CPL_USERS.includes(name) ? 'CPL' : 'Energy Plus';
+    tabsEl.querySelectorAll('.tab').forEach(t => t.setAttribute('aria-selected', t.dataset.brand === activeBrand ? 'true' : 'false'));
     closeError();
     document.getElementById('pw-error').classList.remove('visible');
     document.getElementById('welcome-name-display').textContent = DISPLAY[name] || cap(name);
