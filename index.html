@@ -287,6 +287,10 @@
   }
   .portal-bar-brand .mark .plus { color: var(--gold); }
   .portal-bar-brand .sep { color: var(--gold); opacity: 0.4; }
+  /* CPL lockup — shown only to CPL_USERS via enterPortal() */
+  .cpl-brand { display: none; align-items: center; gap: 0.6rem; }
+  .cpl-brand.show { display: flex; }
+  .cpl-brand .cpl-mark { height: 34px; width: auto; display: block; }
   .portal-bar-label {
     font-family: 'DM Mono', monospace;
     font-size: 0.6rem; letter-spacing: 0.3em; text-transform: uppercase;
@@ -906,6 +910,7 @@
 
     <div class="portal-bar">
       <div class="portal-bar-brand">
+        <span class="cpl-brand" id="cpl-brand"><img class="cpl-mark" src="cpl-logo.png" alt="CPL — Christ Power and Light"><span class="sep">/</span></span>
         <span class="mark">Energy<span class="plus"> +</span></span>
         <span class="sep">/</span>
         <span class="mark">Build<span class="plus"> +</span></span>
@@ -1515,6 +1520,7 @@
   function enterPortal(name) {
     currentUser = name;
     activeBrand = CPL_USERS.includes(name) ? 'CPL' : 'Energy Plus';
+    document.getElementById('cpl-brand').classList.toggle('show', CPL_USERS.includes(name));
     tabsEl.querySelectorAll('.tab').forEach(t => t.setAttribute('aria-selected', t.dataset.brand === activeBrand ? 'true' : 'false'));
     closeError();
     document.getElementById('pw-error').classList.remove('visible');
