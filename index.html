@@ -1029,8 +1029,8 @@
 
 <script>
   /* ---- ACCESS CONTROL ---- */
-  const APPROVED = ["pepper","bryndon","cliff","raul","jody","tammy","garrett","ronson","mount","cj","christian","tom","dave","tony","jeff","bryn","mark","ron","jonathan","wesley","jon","wess","josh","jim","chandler"];
-  const DISPLAY  = { pepper:"Pepper", bryndon:"Bryndon", cliff:"Cliff", raul:"Raul", jody:"Jody", tammy:"Tammy", garrett:"Garrett", ronson:"Ronson", mount:"Mount", cj:"CJ", christian:"Christian", tom:"Tom", dave:"Dave", tony:"Tony", jeff:"Jeff", bryn:"Bryn", mark:"Mark", ron:"Ron", jonathan:"Jonathan", wesley:"Wesley", jon:"Jon", wess:"Wess", josh:"Josh", jim:"Jim", chandler:"Chandler" };
+  const APPROVED = ["pepper","bryndon","cliff","raul","jody","tammy","garrett","ronson","mount","cj","christian","tom","dave","tony","jeff","bryn","mark","ron","jonathan","wesley","jon","wess","josh","jim","chandler","billy"];
+  const DISPLAY  = { pepper:"Pepper", bryndon:"Bryndon", cliff:"Cliff", raul:"Raul", jody:"Jody", tammy:"Tammy", garrett:"Garrett", ronson:"Ronson", mount:"Mount", cj:"CJ", christian:"Christian", tom:"Tom", dave:"Dave", tony:"Tony", jeff:"Jeff", bryn:"Bryn", mark:"Mark", ron:"Ron", jonathan:"Jonathan", wesley:"Wesley", jon:"Jon", wess:"Wess", josh:"Josh", jim:"Jim", chandler:"Chandler", billy:"Billy" };
   const DAN = "8647770688";
   const DAN_EMAIL = "dan@danknowsaguy.org"; // where email-fallback requests go
   // Paste your Formspree form endpoint here (e.g. "https://formspree.io/f/abcdwxyz").
@@ -1168,7 +1168,7 @@
     ]},
   ];
   const BRAND_ORDER = ['CPL', 'Energy Plus', 'Build Plus', 'Harvest Plus', 'Ground Truth Venture Studio', 'ISO Documentation'];
-  const CPL_USERS = ['ron', 'jon', 'jonathan']; // land on the CPL tab after login; everyone else starts on Energy Plus
+  const CPL_USERS = ['ron', 'jon', 'jonathan', 'billy']; // land on the CPL tab after login; everyone else starts on Energy Plus
 
   /* ---- NEWS / UPDATES (edit freely; the column width adapts to how many there are) ---- */
   /* Roadmap pipeline. Each item has a status: 'live' | 'progress' | 'planned' | 'requested'.
@@ -1513,7 +1513,7 @@
 
   /* ---- ACCESS FLOW ---- */
   const PASSWORD = "build"; // case-insensitive; default for everyone
-  const USER_PASSWORDS = { jim: "helm", chandler: "helm", ron: "cpl", jon: "cpl", jonathan: "cpl" }; // per-name overrides, also case-insensitive
+  const USER_PASSWORDS = { jim: "helm", chandler: "helm", ron: "cpl", jon: "cpl", jonathan: "cpl", billy: "cpl" }; // per-name overrides, also case-insensitive
   const LS_KEY = "repPortalUser"; // remembers the signed-in rep so they skip login next visit
 
   // Shared "you're in" path — used by a fresh login and by a remembered session.
