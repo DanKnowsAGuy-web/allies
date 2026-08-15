@@ -299,7 +299,7 @@
   }
   .portal-bar-brand .mark .plus { color: var(--gold); }
   .portal-bar-brand .sep { color: var(--gold); opacity: 0.4; }
-  /* CPL lockup — shown only to CPL_USERS via enterPortal() */
+  /* Partner lockups (CPL, Redstone, …) — shown only to that partner's users via enterPortal() */
   .cpl-brand { display: none; align-items: center; gap: 0.6rem; }
   .cpl-brand.show { display: flex; }
   .cpl-brand .cpl-mark { height: 34px; width: auto; display: block; }
@@ -923,6 +923,7 @@
     <div class="portal-bar">
       <div class="portal-bar-brand">
         <span class="cpl-brand" id="cpl-brand"><img class="cpl-mark" src="cpl-logo.png" alt="CPL — Christ Power and Light"><span class="sep">/</span></span>
+        <span class="cpl-brand" id="redstone-brand"><img class="cpl-mark" src="redstone-logo.png" alt="Redstone Energy"><span class="sep">/</span></span>
         <span class="mark">Energy<span class="plus"> +</span></span>
         <span class="sep">/</span>
         <span class="mark">Build<span class="plus"> +</span></span>
@@ -1041,8 +1042,8 @@
 
 <script>
   /* ---- ACCESS CONTROL ---- */
-  const APPROVED = ["pepper","bryndon","cliff","raul","jody","tammy","garrett","ronson","mount","cj","christian","tom","dave","tony","jeff","bryn","mark","ron","jonathan","wesley","jon","wess","josh","jim","chandler","billy"];
-  const DISPLAY  = { pepper:"Pepper", bryndon:"Bryndon", cliff:"Cliff", raul:"Raul", jody:"Jody", tammy:"Tammy", garrett:"Garrett", ronson:"Ronson", mount:"Mount", cj:"CJ", christian:"Christian", tom:"Tom", dave:"Dave", tony:"Tony", jeff:"Jeff", bryn:"Bryn", mark:"Mark", ron:"Ron", jonathan:"Jonathan", wesley:"Wesley", jon:"Jon", wess:"Wess", josh:"Josh", jim:"Jim", chandler:"Chandler", billy:"Billy" };
+  const APPROVED = ["pepper","bryndon","cliff","raul","jody","tammy","garrett","ronson","mount","cj","christian","tom","dave","tony","jeff","bryn","mark","ron","jonathan","wesley","jon","wess","josh","jim","chandler","billy","jason","kamal"];
+  const DISPLAY  = { pepper:"Pepper", bryndon:"Bryndon", cliff:"Cliff", raul:"Raul", jody:"Jody", tammy:"Tammy", garrett:"Garrett", ronson:"Ronson", mount:"Mount", cj:"CJ", christian:"Christian", tom:"Tom", dave:"Dave", tony:"Tony", jeff:"Jeff", bryn:"Bryn", mark:"Mark", ron:"Ron", jonathan:"Jonathan", wesley:"Wesley", jon:"Jon", wess:"Wess", josh:"Josh", jim:"Jim", chandler:"Chandler", billy:"Billy", jason:"Jason", kamal:"Kamal" };
   const DAN = "8647770688";
   const DAN_EMAIL = "dan@danknowsaguy.org"; // where email-fallback requests go
   // Paste your Formspree form endpoint here (e.g. "https://formspree.io/f/abcdwxyz").
@@ -1096,6 +1097,11 @@
     ]},
     { brand: 'CPL', title: 'Tools', items: [
       { name: 'CPL Savings Estimator', kind: 'Calculator', category: 'tools', type: 'link', url: 'https://slashyourenergycost.com/cpl-hvac-calculator/', new: true },
+    ]},
+    /* REDSTONE ENERGY */
+    { brand: 'Redstone', title: 'Redstone Energy', items: [
+      { name: "Landry's / Saltgrass Energy Pilot",  kind: 'Prepared Proposal', category: 'web',   type: 'link', url: 'https://slashyourenergycost.com/redstone-landrys/', new: true },
+      { name: 'Redstone HVAC Savings Calculator',   kind: 'Calculator',        category: 'tools', type: 'link', url: 'https://slashyourenergycost.com/redstone-calculator/', new: true },
     ]},
     /* ENERGY PLUS */
     { brand: 'Energy Plus', title: 'Main Website Links', items: [
@@ -1181,8 +1187,18 @@
       { name: 'One-Pager', kind: 'One-Pager', category: 'reference', type: 'doc', url: 'https://bit.ly/gt-one-pager', new: true },
     ]},
   ];
-  const BRAND_ORDER = ['CPL', 'Energy Plus', 'Build Plus', 'Harvest Plus', 'Ground Truth Venture Studio', 'ISO Documentation'];
-  const CPL_USERS = ['ron', 'jon', 'jonathan', 'billy']; // land on the CPL tab after login; everyone else starts on Energy Plus
+  const BASE_BRANDS = ['Energy Plus', 'Build Plus', 'Harvest Plus', 'Ground Truth Venture Studio', 'ISO Documentation'];
+  /* Partner-exclusive experiences. Each partner's key doubles as their password: typing it
+     unlocks a branded first tab + portal-bar logo. Partners never see each other's tab, and
+     generic "build" logins see no partner tab at all. A partner whose ONLY password is their
+     key (like CPL) is always branded; one that also allows "build" (like Redstone) gets the
+     generic dashboard when they log in with "build". */
+  const PARTNERS = {
+    cpl:      { brand: 'CPL',      users: ['ron', 'jon', 'jonathan', 'billy'], passwords: ['cpl'],               logoId: 'cpl-brand' },
+    redstone: { brand: 'Redstone', users: ['jason', 'kamal'],                  passwords: ['redstone', 'build'], logoId: 'redstone-brand' },
+  };
+  let brandOrder = BASE_BRANDS.slice(); // rebuilt on every login by enterPortal()
+  let currentPartner = null;            // partner key ('cpl' | 'redstone') or null for generic sessions
 
   /* ---- NEWS / UPDATES (edit freely; the column width adapts to how many there are) ---- */
   /* Roadmap pipeline. Each item has a status: 'live' | 'progress' | 'planned' | 'requested'.
@@ -1224,7 +1240,7 @@
 
   /* ---- STATE ---- */
   let activeCat = 'all';
-  let activeBrand = BRAND_ORDER[0];
+  let activeBrand = brandOrder[0];
   let query = '';
   let currentUser = ''; // lowercased first name of the logged-in rep; gates restricted items
   let animateNext = false; // true for tab/filter changes, false while typing
@@ -1286,23 +1302,27 @@
   }
   function setRoadmapFilter(s) { roadmapFilter = s; renderNews(); }
 
-  /* ---- BRAND TABS ---- */
+  /* ---- BRAND TABS (rebuilt per session — partner sessions get their tab first) ---- */
   const tabsEl = document.getElementById('brand-tabs');
-  BRAND_ORDER.forEach(brand => {
-    const t = document.createElement('button');
-    t.className = 'tab';
-    t.type = 'button';
-    t.setAttribute('role', 'tab');
-    t.innerHTML = brandMark(brand) + '<span class="tab-count" aria-hidden="true"></span>';
-    t.setAttribute('aria-label', brand);
-    t.setAttribute('aria-selected', brand === activeBrand ? 'true' : 'false');
-    t.dataset.brand = brand;
-    t.addEventListener('click', () => selectBrand(brand));
-    tabsEl.appendChild(t);
-  });
   const tabIndicator = document.createElement('span');
   tabIndicator.className = 'tab-indicator';
-  tabsEl.appendChild(tabIndicator);
+  function buildTabs() {
+    tabsEl.innerHTML = '';
+    brandOrder.forEach(brand => {
+      const t = document.createElement('button');
+      t.className = 'tab';
+      t.type = 'button';
+      t.setAttribute('role', 'tab');
+      t.innerHTML = brandMark(brand) + '<span class="tab-count" aria-hidden="true"></span>';
+      t.setAttribute('aria-label', brand);
+      t.setAttribute('aria-selected', brand === activeBrand ? 'true' : 'false');
+      t.dataset.brand = brand;
+      t.addEventListener('click', () => selectBrand(brand));
+      tabsEl.appendChild(t);
+    });
+    tabsEl.appendChild(tabIndicator);
+  }
+  buildTabs();
   function positionTabIndicator() {
     const active = tabsEl.querySelector('.tab[aria-selected="true"]');
     if (!active || !active.offsetWidth) return;
@@ -1323,10 +1343,10 @@
 
   tabsEl.addEventListener('keydown', e => {
     if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
-    const i = BRAND_ORDER.indexOf(activeBrand);
-    const next = e.key === 'ArrowRight' ? (i + 1) % BRAND_ORDER.length : (i - 1 + BRAND_ORDER.length) % BRAND_ORDER.length;
-    selectBrand(BRAND_ORDER[next]);
-    tabsEl.querySelector(`[data-brand="${BRAND_ORDER[next]}"]`).focus();
+    const i = brandOrder.indexOf(activeBrand);
+    const next = e.key === 'ArrowRight' ? (i + 1) % brandOrder.length : (i - 1 + brandOrder.length) % brandOrder.length;
+    selectBrand(brandOrder[next]);
+    tabsEl.querySelector(`[data-brand="${brandOrder[next]}"]`).focus();
   });
   function selectBrand(brand) {
     if (brand === activeBrand) return;
@@ -1424,7 +1444,7 @@
     const noteEl = document.getElementById('cross-note');
     let crossTotal = 0;
     if (query) {
-      const others = BRAND_ORDER.filter(b => b !== activeBrand).map(b => ({
+      const others = brandOrder.filter(b => b !== activeBrand).map(b => ({
         b, cnt: GROUPS.filter(g => g.brand === b).reduce((n, g) => n + g.items.filter(matches).length, 0)
       })).filter(x => x.cnt > 0);
       crossTotal = others.reduce((n, o) => n + o.cnt, 0);
@@ -1527,15 +1547,23 @@
 
   /* ---- ACCESS FLOW ---- */
   const PASSWORD = "build"; // case-insensitive; default for everyone
-  const USER_PASSWORDS = { jim: "helm", chandler: "helm", ron: "cpl", jon: "cpl", jonathan: "cpl", billy: "cpl" }; // per-name overrides, also case-insensitive
+  const USER_PASSWORDS = { jim: "helm", chandler: "helm" }; // per-name overrides, also case-insensitive (partner passwords live in PARTNERS)
   const LS_KEY = "repPortalUser"; // remembers the signed-in rep so they skip login next visit
+  const LS_PARTNER = "repPortalPartner"; // remembers which partner experience they unlocked
 
   // Shared "you're in" path — used by a fresh login and by a remembered session.
-  function enterPortal(name) {
+  function enterPortal(name, partner) {
     currentUser = name;
-    activeBrand = CPL_USERS.includes(name) ? 'CPL' : 'Energy Plus';
-    document.getElementById('cpl-brand').classList.toggle('show', CPL_USERS.includes(name));
-    tabsEl.querySelectorAll('.tab').forEach(t => t.setAttribute('aria-selected', t.dataset.brand === activeBrand ? 'true' : 'false'));
+    // A partner whose only password is their key is always branded (covers pre-existing remembered sessions too).
+    if (!partner || !PARTNERS[partner] || !PARTNERS[partner].users.includes(name)) {
+      const always = Object.entries(PARTNERS).find(([k, p]) => p.users.includes(name) && p.passwords.every(x => x === k));
+      partner = always ? always[0] : null;
+    }
+    currentPartner = partner;
+    brandOrder = currentPartner ? [PARTNERS[currentPartner].brand, ...BASE_BRANDS] : BASE_BRANDS.slice();
+    activeBrand = brandOrder[0];
+    Object.entries(PARTNERS).forEach(([k, p]) => document.getElementById(p.logoId).classList.toggle('show', k === currentPartner));
+    buildTabs();
     closeError();
     document.getElementById('pw-error').classList.remove('visible');
     document.getElementById('welcome-name-display').textContent = DISPLAY[name] || cap(name);
@@ -1572,16 +1600,19 @@
     }
 
     // Known name, wrong/empty password -> inline password error
-    if (pw !== (USER_PASSWORDS[name] || PASSWORD)) {
+    const partnerEntry = Object.entries(PARTNERS).find(([, p]) => p.users.includes(name));
+    const okPws = partnerEntry ? partnerEntry[1].passwords : [USER_PASSWORDS[name] || PASSWORD];
+    if (!okPws.includes(pw)) {
       closeError();
       pwError.classList.add('visible');
       shake(pwInput);
       return;
     }
 
-    // Granted
-    try { localStorage.setItem(LS_KEY, name); } catch (e) {}
-    enterPortal(name);
+    // Granted — the partner experience unlocks only via the partner password (which equals the partner key)
+    const partner = partnerEntry && pw === partnerEntry[0] ? partnerEntry[0] : null;
+    try { localStorage.setItem(LS_KEY, name); localStorage.setItem(LS_PARTNER, partner || ''); } catch (e) {}
+    enterPortal(name, partner);
   }
   function closeError() { document.getElementById('error-panel').classList.remove('visible'); }
   function shake(el) { el.classList.remove('shake'); void el.offsetWidth; el.classList.add('shake'); }
@@ -1589,7 +1620,7 @@
 
   function logout() {
     stopTicker();
-    try { localStorage.removeItem(LS_KEY); } catch (e) {}
+    try { localStorage.removeItem(LS_KEY); localStorage.removeItem(LS_PARTNER); } catch (e) {}
     document.getElementById('name-input').value = '';
     document.getElementById('pw-input').value = '';
     document.getElementById('pw-error').classList.remove('visible');
@@ -1637,6 +1668,7 @@
   function buildResourceList() {
     const seen = new Set(); const list = [];
     GROUPS.forEach(g => g.items.forEach(it => {
+      if (!brandOrder.includes(g.brand)) return; // partner tabs stay invisible to everyone else
       if (!visibleToUser(it)) return;
       const key = it.name + '|' + it.url;
       if (seen.has(key)) return; seen.add(key);
@@ -1819,7 +1851,8 @@
   /* ---- REMEMBERED SESSION: skip login if this rep signed in before ---- */
   try {
     const saved = (localStorage.getItem(LS_KEY) || '').toLowerCase();
-    if (saved && APPROVED.includes(saved)) enterPortal(saved);
+    const savedPartner = (localStorage.getItem(LS_PARTNER) || '').toLowerCase();
+    if (saved && APPROVED.includes(saved)) enterPortal(saved, savedPartner || null);
   } catch (e) {}
 </script>
 </body>
