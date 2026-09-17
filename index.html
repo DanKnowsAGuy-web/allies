@@ -319,9 +319,23 @@
   .welcome-orn .line    { width: 48px; height: 1px; background: var(--panel-rule); }
   .welcome-orn .diamond { width: 5px; height: 5px; background: var(--mark); transform: rotate(45deg); }
 
-  /* ---- ENERGY+ LOGO (the actual artwork replaces the text lockup) ---- */
+  /* ---- BRAND LOGOS: Build+ / Harvest+ wordmark images ---- */
   .ep-logo { height: 38px; width: auto; display: block; margin: 0 auto; }
   .ep-logo-bar { height: 17px; width: auto; display: block; align-self: center; }
+
+  /* ---- ENERGY+ MARK: crisp text sized to the sibling logos, the "+" is the real burst artwork (inline SVG, white like theirs) ---- */
+  .brand-lockup .eplus-mark, .portal-bar-brand .mark .eplus-mark { display: inline-block; color: #fff; }
+  .eplus-mark svg { height: 0.8em; width: auto; display: inline-block; vertical-align: -0.03em; margin-left: 0.13em; }
+  .brands .brand-lockup { font-size: 2.55rem; }             /* caps align with the 38px logo images */
+  .portal-bar-brand .mark { font-size: 1.45rem; }           /* caps align with the 17px bar logos */
+
+  /* ---- TOP ACTION ROW: Partner Drop + Bill Audit, separate from the resource library ---- */
+  .action-row { width: 100%; display: grid; grid-template-columns: 1fr; gap: 1.1rem; margin-bottom: 1.8rem; }
+  @media (min-width: 820px) { .action-row { grid-template-columns: 1fr 1fr; } }
+  .action-row .drop-banner { margin-bottom: 0; flex-wrap: wrap; align-content: start; }
+  .action-row .drop-cta { width: 100%; justify-content: center; }
+  .bill-banner { border-left-color: var(--prim); }
+  .bill-banner .drop-ico { background: var(--prim-soft); color: var(--prim); }
 
   /* ---- PARTNER DROP BANNER (distinct file hand-off CTA, shown to every user) ---- */
   .drop-banner {
@@ -893,7 +907,7 @@
   <!-- DUAL BRANDMARK -->
   <div class="brands" id="brands">
     <div class="brand-row">
-      <img class="ep-logo" src="energy-plus-logo.png" alt="Energy+" />
+      <div class="brand-lockup">Energy<span class="plus eplus-mark" aria-hidden="true"><svg viewBox="-239.8 0 669.4 687.3"><g transform="translate(0 687.3) scale(1 -1)"><path fill="currentColor" fill-rule="evenodd" d="M0.0 687.3 L221.9 687.3 L221.9 458.2 L429.6 458.2 L429.6 232.0 L221.9 232.0 L221.9 0.0 L0.0 0.0 L0.0 232.0 L-239.8 232.0 L-175.4 458.2 L0.0 458.2 Z M176.8 588.5 L131.7 389.5 L242.7 389.5 L44.4 103.1 L90.9 300.0 L-21.5 300.0 Z"/></g></svg></span></div>
       <div class="brand-sub">Your Energy Strategist</div>
     </div>
     <div class="brands-divider"><span class="line"></span><div class="diamond"></div><span class="line"></span></div>
@@ -949,7 +963,7 @@
       <div class="portal-bar-brand">
         <span class="cpl-brand" id="cpl-brand"><img class="cpl-mark" src="cpl-logo.png" alt="CPL — Christ Power and Light"><span class="sep">/</span></span>
         <span class="cpl-brand" id="redstone-brand"><img class="cpl-mark" src="redstone-logo.png" alt="Redstone Energy"><span class="sep">/</span></span>
-        <img class="ep-logo-bar" src="energy-plus-logo.png" alt="Energy+" />
+        <span class="mark">Energy<span class="plus eplus-mark" aria-hidden="true"><svg viewBox="-239.8 0 669.4 687.3"><g transform="translate(0 687.3) scale(1 -1)"><path fill="currentColor" fill-rule="evenodd" d="M0.0 687.3 L221.9 687.3 L221.9 458.2 L429.6 458.2 L429.6 232.0 L221.9 232.0 L221.9 0.0 L0.0 0.0 L0.0 232.0 L-239.8 232.0 L-175.4 458.2 L0.0 458.2 Z M176.8 588.5 L131.7 389.5 L242.7 389.5 L44.4 103.1 L90.9 300.0 L-21.5 300.0 Z"/></g></svg></span></span>
         <span class="sep">/</span>
         <img class="ep-logo-bar" src="build-plus-logo.png" alt="Build+" />
         <span class="sep">/</span>
@@ -961,20 +975,35 @@
       </div>
     </div>
 
-    <!-- PARTNER DROP — file hand-off for proposals & quotes (every user sees this) -->
-    <a class="drop-banner" id="drop-banner" href="https://drop.slashyourenergycost.com/" target="_blank" rel="noopener">
-      <span class="drop-ico">
-        <svg width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.9" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
-      </span>
-      <span class="drop-copy">
-        <strong>Have a project for us?</strong>
-        <span>Drop your plans, bills, and site files — we'll turn them into a proposal and quote.</span>
-      </span>
-      <span class="drop-cta">
-        Send project files
-        <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-      </span>
-    </a>
+    <!-- TOP ACTIONS — file hand-off + bill pull, separate from the resource library (every user sees these) -->
+    <div class="action-row">
+      <a class="drop-banner" id="drop-banner" href="https://drop.slashyourenergycost.com/" target="_blank" rel="noopener">
+        <span class="drop-ico">
+          <svg width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.9" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+        </span>
+        <span class="drop-copy">
+          <strong>Have a project for us?</strong>
+          <span>Drop your plans, bills, and site files — we'll turn them into a proposal and quote.</span>
+        </span>
+        <span class="drop-cta">
+          Send project files
+          <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </span>
+      </a>
+      <a class="drop-banner bill-banner" href="https://billaudit.slashyourenergycost.com/go" target="_blank" rel="noopener">
+        <span class="drop-ico">
+          <svg width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.9" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><polygon points="13 11 9.5 16 12 16 11 19.5 14.5 14.5 12 14.5 13 11" fill="currentColor" stroke="none"/></svg>
+        </span>
+        <span class="drop-copy">
+          <strong>Need a client's power bill?</strong>
+          <span>Send them this link — it pulls their utility bill for us, no paperwork.</span>
+        </span>
+        <span class="drop-cta">
+          Get the bill pulled
+          <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </span>
+      </a>
+    </div>
 
     <!-- RESOURCE LIBRARY -->
     <div class="section-head">
