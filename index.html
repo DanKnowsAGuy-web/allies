@@ -6,19 +6,20 @@
 <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32.png">
 <link rel="apple-touch-icon" href="favicon/apple-touch-icon.png">
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Energy Plus &amp; Build Plus | Partner Dashboard</title>
-<meta name="description" content="Authorized partner dashboard for Energy Plus and Build Plus. Access the latest marketing materials, spec sheets, videos, and links." />
+<title>Ally Hub | Energy+ Ally Program</title>
+<meta name="description" content="Ally Hub for the Energy+ Ally Program. Access the latest marketing materials, spec sheets, videos, and links." />
+<link rel="canonical" href="https://slashyourenergycost.com/allies/" />
 <!-- Link previews (iMessage/WhatsApp/email) must always show the Energy Plus card, never an in-page logo. -->
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Energy Plus" />
-<meta property="og:title" content="Energy Plus &amp; Build Plus | Partner Dashboard" />
-<meta property="og:description" content="Authorized partner dashboard for Energy Plus and Build Plus. Access the latest marketing materials, spec sheets, videos, and links." />
-<meta property="og:url" content="https://slashyourenergycost.com/partner-dashboard/" />
+<meta property="og:title" content="Ally Hub | Energy+ Ally Program" />
+<meta property="og:description" content="Ally Hub for the Energy+ Ally Program. Access the latest marketing materials, spec sheets, videos, and links." />
+<meta property="og:url" content="https://slashyourenergycost.com/allies/" />
 <meta property="og:image" content="https://slashyourenergycost.com/partner-dashboard/og-card.png" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Energy Plus &amp; Build Plus | Partner Dashboard" />
+<meta name="twitter:title" content="Ally Hub | Energy+ Ally Program" />
 <meta name="twitter:image" content="https://slashyourenergycost.com/partner-dashboard/og-card.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -139,13 +140,13 @@
   }
 
   .brand-portal-label {
-    font-family: var(--mono);
-    font-size: 0.8rem;
-    letter-spacing: 0.3em;
-    text-transform: uppercase;
+    font-family: var(--sans);
+    font-size: 1.5rem; font-weight: 800;
+    letter-spacing: 0.01em;
     color: var(--mark);
-    margin-top: 0.6rem;
+    margin-top: 0.6rem; line-height: 1.1;
   }
+  .brand-portal-sub { font-family: var(--sans); font-size: 1.05rem; font-weight: 500; color: var(--panel-body); margin-top: 0.2rem; }
 
   .brands-divider { display: flex; align-items: center; gap: 0.6rem; margin: 0.2rem 0; }
   .brands-divider .line    { width: 44px; height: 1px; background: var(--panel-rule); }
@@ -297,10 +298,11 @@
   .cpl-brand.show { display: flex; }
   .cpl-brand .cpl-mark { height: 34px; width: auto; display: block; }
   .portal-bar-label {
-    font-family: var(--mono);
-    font-size: 0.75rem; letter-spacing: 0.24em; text-transform: uppercase;
-    color: var(--panel-faint);
+    font-family: var(--sans);
+    font-size: 1.15rem; font-weight: 800; letter-spacing: 0.01em;
+    color: var(--mark); line-height: 1.1;
   }
+  .portal-bar-sub { font-family: var(--sans); font-size: 1rem; font-weight: 500; color: var(--panel-body); line-height: 1.2; }
 
   .welcome-header { text-align: center; margin-bottom: 2rem; }
   .welcome-eyebrow {
@@ -665,6 +667,31 @@
   .link-btn.copied { border-color: rgba(30,122,79,0.5); color: var(--good); }
   .link-btn.copied::after { content: 'Copied'; opacity: 1; }
 
+  /* ---- ALLY PROGRAM TAB: group descriptions, Coming soon cards, emphasis, summary, jump note ---- */
+  .col-desc { font-size: 1.02rem; color: var(--ink-2); line-height: 1.5; margin: -0.5rem 0 1rem; }
+  .asset-desc { font-size: 1rem; color: var(--ink-2); line-height: 1.5; margin-top: 0.25rem; }
+  .asset.asset-soon { background: var(--paper); border: 1px dashed var(--hair); border-radius: var(--r-ctrl); padding: 0.85rem 1rem; margin: 0.5rem 0; }
+  .asset.asset-soon:last-child { border-bottom: 1px dashed var(--hair); }
+  .soon-badge {
+    flex-shrink: 0; white-space: nowrap;
+    font-family: var(--sans); font-size: 0.95rem; font-weight: 700; color: var(--mark-ink);
+    background: var(--mark-soft); border: 1px solid var(--mark-rule); border-radius: 20px; padding: 0.3rem 0.85rem;
+  }
+  .asset.asset-key { background: var(--mark-soft); border: 2px solid var(--mark); border-radius: var(--r-ctrl); padding: 0.95rem 1rem; margin: 0.5rem 0; }
+  .asset.asset-key:last-child { border-bottom: 2px solid var(--mark); }
+  .asset.asset-key .asset-name { font-weight: 700; }
+  .asset.asset-key .asset-desc { color: var(--ink); font-weight: 500; }
+  .key-flag {
+    font-family: var(--sans); font-size: 0.9rem; font-weight: 700; color: var(--mark-ink);
+    background: var(--mark); border-radius: 4px; padding: 0.15rem 0.55rem;
+  }
+  .col-summary { background: var(--mark-soft); border: 1px solid var(--mark-rule); border-radius: var(--r-ctrl); padding: 1rem 1.1rem; margin-bottom: 0.9rem; }
+  .col-summary strong { display: block; font-size: 1.15rem; color: var(--ink); margin-bottom: 0.4rem; }
+  .col-summary ul { margin: 0 0 0 1.2rem; }
+  .col-summary li { font-size: 1.05rem; color: var(--ink); line-height: 1.5; margin-bottom: 0.3rem; }
+  .col-note { display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; }
+  .col-note p { flex: 1; min-width: 220px; font-size: 1.08rem; color: var(--ink); font-weight: 500; line-height: 1.5; }
+
   /* ---- EMPTY STATE ---- */
   .empty {
     display: none; width: 100%;
@@ -920,14 +947,15 @@
       <img class="ep-logo" src="harvest-plus-logo.png" alt="Harvest+" />
       <div class="brand-sub">Your Provision Strategist</div>
     </div>
-    <div class="brand-portal-label">Partner Dashboard</div>
+    <div class="brand-portal-label">Ally Hub</div>
+    <div class="brand-portal-sub">Energy+ Ally Program</div>
   </div>
 
   <!-- LOGIN CARD -->
   <main class="card" id="login-screen" aria-labelledby="login-title">
     <div class="card-eyebrow">Authorized Access</div>
-    <h1 class="card-title" id="login-title">Partner Dashboard</h1>
-    <p class="card-subtitle">Enter your first name to access your resource links and marketing materials.</p>
+    <h1 class="card-title" id="login-title">Ally Hub</h1>
+    <p class="card-subtitle"><strong>Energy+ Ally Program.</strong> Enter your first name to access your resource links and marketing materials.</p>
     <div class="card-rule"></div>
 
     <div class="field">
@@ -949,7 +977,7 @@
           <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
           Send this message to Dan
         </a>
-        <div class="sms-preview" style="margin-top:0.85rem;">"Hey Dan, I tried to log in to the partner dashboard to access the marketing materials and technical data and was denied."</div>
+        <div class="sms-preview" style="margin-top:0.85rem;">"Hey Dan, I tried to log in to the Ally Hub to access the marketing materials and technical data and was denied."</div>
       </div>
     </div>
 
@@ -971,7 +999,8 @@
       </div>
       <div class="portal-bar-meta">
         <span class="portal-greeting">Welcome, <em id="welcome-name-display">Rep</em></span>
-        <span class="portal-bar-label">Partner Dashboard</span>
+        <span class="portal-bar-label">Ally Hub</span>
+        <span class="portal-bar-sub">Energy+ Ally Program</span>
       </div>
     </div>
 
@@ -1042,7 +1071,7 @@
       <button class="empty-reset" onclick="resetFilters()">Clear filters</button>
     </div>
 
-    <!-- OVERVIEW ROW: news (context-aware width) + partner level -->
+    <!-- OVERVIEW ROW: news (context-aware width) + ally level -->
     <div class="overview" id="overview">
       <div class="col-block panel news-panel" id="news-panel">
         <div class="panel-head"><h2>What's New &amp; Next</h2><span class="rule"></span></div>
@@ -1050,12 +1079,12 @@
         <div id="news-list"></div>
       </div>
       <div class="col-block panel tier-panel">
-        <div class="panel-head"><h2>Your Partner Level</h2><span class="rule"></span></div>
+        <div class="panel-head"><h2>Your Ally Level</h2><span class="rule"></span></div>
         <div class="tier-timeline">
           <div class="tier-row active">
             <div class="tier-node"><div class="tier-node-num">1</div></div>
             <div class="tier-card">
-              <div class="tier-card-top"><div class="tier-title">Field Partner</div><div class="tier-badge current">Your Level</div></div>
+              <div class="tier-card-top"><div class="tier-title">Field Ally</div><div class="tier-badge current">Your Level</div></div>
               <div class="tier-desc">Full access to core marketing materials and technical data. You are equipped to bring Energy Plus, Build Plus, and Harvest Plus solutions to market.</div>
             </div>
           </div>
@@ -1063,7 +1092,7 @@
             <div class="tier-node"><div class="tier-node-num">2</div></div>
             <div class="tier-card">
               <svg class="tier-lock-icon" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
-              <div class="tier-card-top"><div class="tier-title">Certified Partner</div><div class="tier-badge locked-badge">Locked</div></div>
+              <div class="tier-card-top"><div class="tier-title">Certified Ally</div><div class="tier-badge locked-badge">Locked</div></div>
               <div class="tier-desc">Minimum revenue threshold. Grants access to our extended technology portfolio and advanced sales resources.</div>
             </div>
           </div>
@@ -1071,7 +1100,7 @@
             <div class="tier-node"><div class="tier-node-num">3</div></div>
             <div class="tier-card">
               <svg class="tier-lock-icon" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
-              <div class="tier-card-top"><div class="tier-title">Portfolio Partner</div><div class="tier-badge locked-badge">Locked</div></div>
+              <div class="tier-card-top"><div class="tier-title">Portfolio Ally</div><div class="tier-badge locked-badge">Locked</div></div>
               <div class="tier-desc">Includes preferential terms and participation in company-wide profit distribution.</div>
             </div>
           </div>
@@ -1118,8 +1147,8 @@
   // Paste your Formspree form endpoint here (e.g. "https://formspree.io/f/abcdwxyz").
   // While left blank, the modal automatically falls back to email/SMS.
   const FORMSPREE_ENDPOINT = "https://formspree.io/f/mykqjqvp";
-  const MSG = "Hey Dan, I tried to log in to the partner dashboard to access the marketing materials and technical data and was denied.";
-  const HELP_MSG = "Hey Dan, I'm in the partner dashboard but I need a resource that isn't listed. Can you help?";
+  const MSG = "Hey Dan, I tried to log in to the Ally Hub to access the marketing materials and technical data and was denied.";
+  const HELP_MSG = "Hey Dan, I'm in the Ally Hub but I need a resource that isn't listed. Can you help?";
 
   document.getElementById('btn-sms').href = "sms:" + DAN + "?body=" + encodeURIComponent(MSG);
   document.getElementById('foot-sms').href = "sms:" + DAN + "?body=" + encodeURIComponent(HELP_MSG);
@@ -1155,6 +1184,35 @@
 
   /* ---- RESOURCE DATA (real links) ---- */
   const GROUPS = [
+    /* ALLY PROGRAM — visible to every login. Items with no url render as non-clickable "Coming soon" cards. */
+    { brand: 'Ally Program', title: 'Start Here', desc: 'The words we use and how pay works.', items: [
+      { name: 'Glossary', kind: 'Program Document', category: 'reference', type: 'doc', desc: 'The program\u2019s defined words: Ally, Key Ally, Project Liaison, Mentor, Deal Profit, and Collected.' },
+      { name: 'How You Get Paid', kind: 'Program Document', category: 'reference', type: 'doc', desc: 'You earn a share of Deal Profit, paid about 7 days after the funds are Collected, with a statement every time.' },
+    ]},
+    { brand: 'Ally Program', title: 'Your Agreement', desc: 'What you sign and what each role earns.', items: [
+      { name: 'Ally Program Agreement', kind: 'Agreement', category: 'reference', type: 'doc', desc: 'The agreement every Energy+ Ally signs.' },
+      { name: 'Rate Schedule', kind: 'Rate Schedule', category: 'reference', type: 'doc', desc: 'What each role on a Deal earns.' },
+    ]},
+    { brand: 'Ally Program', title: 'Every Deal', desc: 'What to file and who does what on each Deal.', items: [
+      { name: 'Deal Registration', kind: 'Form', category: 'reference', type: 'doc', desc: 'Register each Deal with Energy+ before work begins.' },
+      { name: 'Form A: Relationship Declaration', kind: 'Required Form', category: 'reference', type: 'doc', emphasis: true, flag: 'Required with every Deal', desc: 'Required with every Deal. If it is missing, all payouts on that Deal can be put on hold.' },
+      { name: 'Roles on a Deal', kind: 'Program Document', category: 'reference', type: 'doc', desc: 'The jobs an Ally can do on a Deal, such as Introducer, Closer, and Account Owner.' },
+      { name: 'Relationship Tiers (T1\u2013T6)', kind: 'Program Document', category: 'reference', type: 'doc', desc: 'How you are connected to the client, from Independent (T1) to Technology Interest (T6).' },
+    ]},
+    { brand: 'Ally Program', title: 'Conduct & Anti-Bribery', tag: 'ISO 37001', desc: 'The rules every Ally follows, and our anti-bribery documents.',
+      summary: { title: 'Conduct Rules', points: [
+        'Never misstate savings or figures. Use only the numbers Energy+ gives you.',
+        'Never give anything of value to a public official.',
+        'Before you register a Deal, tell us in writing about any public office you hold or any personal interest in it.' ] },
+      items: [
+      { name: 'Anti-Bribery Policy',                code: 'ABMS-001', kind: 'Policy',        category: 'iso', type: 'doc', url: 'https://bit.ly/anti-bribery_' },
+      { name: 'Government Official Due Diligence',  code: 'ABMS-002', kind: 'Due Diligence', category: 'iso', type: 'doc', url: 'https://bit.ly/due-diligence_' },
+      { name: 'Gifts & Hospitality Register',       code: 'ABMS-004', kind: 'Register',      category: 'iso', type: 'doc', url: 'https://bit.ly/commission-gifts-reg' },
+    ]},
+    { brand: 'Ally Program', title: 'Key Ally & Mentors', desc: 'Recognition for top Allies, and growing the team.', items: [
+      { name: 'Key Ally Status', kind: 'Program Document', category: 'reference', type: 'doc', desc: 'Non-cash benefits for top-producing Allies.' },
+      { name: 'Mentor Program', kind: 'Program Document', category: 'reference', type: 'doc', desc: 'Bring in a new Ally and support them as their Mentor.' },
+    ]},
     /* CPL — Christ Power and Light */
     { brand: 'CPL', title: 'Landing Pages', items: [
       { name: 'CPL Commercial',            kind: 'Landing Page', category: 'web', type: 'link', url: 'https://slashyourenergycost.com/cpl/', new: true },
@@ -1166,17 +1224,17 @@
     ]},
     { brand: 'CPL', title: 'Tools', items: [
       { name: 'CPL Savings Estimator', kind: 'Calculator', category: 'tools', type: 'link', url: 'https://slashyourenergycost.com/cpl-hvac-calculator/', new: true },
-      { name: 'Partner Drop (send us files)', kind: 'File Hand-off', category: 'tools', type: 'link', url: 'https://drop.slashyourenergycost.com/cpl', new: true },
+      { name: 'Ally Drop (send us files)', kind: 'File Hand-off', category: 'tools', type: 'link', url: 'https://drop.slashyourenergycost.com/cpl', new: true },
     ]},
     /* REDSTONE ENERGY */
     { brand: 'Redstone', title: 'Redstone Energy', items: [
       { name: "Landry's / Saltgrass Energy Pilot",  kind: 'Prepared Proposal', category: 'web',   type: 'link', url: 'https://slashyourenergycost.com/redstone-landrys/', new: true },
       { name: 'Redstone HVAC Savings Calculator',   kind: 'Calculator',        category: 'tools', type: 'link', url: 'https://slashyourenergycost.com/redstone-calculator/', new: true },
-      { name: 'Partner Drop (send us files)',       kind: 'File Hand-off',     category: 'tools', type: 'link', url: 'https://drop.slashyourenergycost.com/redstone', new: true },
+      { name: 'Ally Drop (send us files)',       kind: 'File Hand-off',     category: 'tools', type: 'link', url: 'https://drop.slashyourenergycost.com/redstone', new: true },
     ]},
     /* MUXARI */
     { brand: 'Maxari', title: 'Maxari', items: [
-      { name: 'Partner Drop (send us files)', kind: 'File Hand-off', category: 'tools', type: 'link', url: 'https://drop.slashyourenergycost.com/', new: true },
+      { name: 'Ally Drop (send us files)', kind: 'File Hand-off', category: 'tools', type: 'link', url: 'https://drop.slashyourenergycost.com/', new: true },
     ]},
     /* ENERGY PLUS */
     { brand: 'Energy Plus', title: 'Main Website Links', items: [
@@ -1186,7 +1244,7 @@
       { name: 'Solar Partners',   kind: 'Website', category: 'web', type: 'link', url: 'https://bit.ly/solar-vendor', new: true },
       { name: 'Your HVAC Savings', kind: 'Video', category: 'video', type: 'video', url: 'https://bit.ly/HVAC_savings', new: true },
       { name: 'Energy Plus Bill Audit', kind: 'Intake Site', category: 'web', type: 'link', url: 'https://bit.ly/EnergyPlusBillAudit', new: true },
-      { name: 'Partner Drop (send us files)', kind: 'File Hand-off', category: 'tools', type: 'link', url: 'https://drop.slashyourenergycost.com/', new: true },
+      { name: 'Ally Drop (send us files)', kind: 'File Hand-off', category: 'tools', type: 'link', url: 'https://drop.slashyourenergycost.com/', new: true },
       { name: 'Supermarkets Energy Savings', kind: 'Landing Page', category: 'web', type: 'link', url: 'https://bit.ly/supermarket-energy', new: true },
       { name: 'Hotel Energy Savings',        kind: 'Landing Page', category: 'web', type: 'link', url: 'https://bit.ly/hotels-energy', new: true },
       { name: 'Verified Energy Savings — Master Record', kind: 'Master Record', category: 'web', type: 'doc', url: 'https://bit.ly/verified-results', new: true },
@@ -1214,12 +1272,8 @@
       { name: 'HVAC Optimizer — 150 Studies', kind: 'Studies',  category: 'hvac', type: 'doc', url: 'https://bit.ly/HVACO150' },
       { name: 'Installation & Demo Guide',  kind: 'Guide',      category: 'hvac', type: 'doc', url: 'https://bit.ly/HVACOptInstallGuide' },
     ]},
-    { brand: 'ISO Documentation', title: 'ABMS · Anti-Bribery', tag: 'ISO 37001', items: [
-      { name: 'Anti-Bribery Policy',                code: 'ABMS-001', kind: 'Policy',        category: 'iso', type: 'doc', url: 'https://bit.ly/anti-bribery_' },
-      { name: 'Government Official Due Diligence',  code: 'ABMS-002', kind: 'Due Diligence', category: 'iso', type: 'doc', url: 'https://bit.ly/due-diligence_' },
-      { name: 'Referral Commission Agreement',      code: 'ABMS-003', kind: 'Agreement',     category: 'iso', type: 'doc', url: 'https://bit.ly/referral-commission-agreement' },
-      { name: 'Commission Gifts Register',          code: 'ABMS-004', kind: 'Register',      category: 'iso', type: 'doc', url: 'https://bit.ly/commission-gifts-reg' },
-    ]},
+    { brand: 'ISO Documentation', title: 'ABMS · Anti-Bribery', tag: 'ISO 37001', items: [],
+      note: { text: 'Anti-bribery documents now live under Ally Program \u2192 Conduct & Anti-Bribery.', jump: 'Ally Program', label: 'Go to Ally Program' } },
     { brand: 'ISO Documentation', title: 'ISMS · Information Security', tag: 'ISO 27001', items: [
       { name: 'Information Security Policy',     code: 'ISMS-001', kind: 'Policy',    category: 'iso', type: 'doc', url: 'https://bit.ly/info-security_' },
       { name: 'ISMS Scope Document',             code: 'ISMS-002', kind: 'Scope',     category: 'iso', type: 'doc', url: 'https://bit.ly/ISMS-Scope' },
@@ -1263,7 +1317,7 @@
       { name: 'One-Pager', kind: 'One-Pager', category: 'reference', type: 'doc', url: 'https://bit.ly/gt-one-pager', new: true },
     ]},
   ];
-  const BASE_BRANDS = ['Energy Plus', 'Build Plus', 'Harvest Plus', 'Ground Truth Venture Studio', 'ISO Documentation'];
+  const BASE_BRANDS = ['Ally Program', 'Energy Plus', 'Build Plus', 'Harvest Plus', 'Ground Truth Venture Studio', 'ISO Documentation'];
   /* Partner-exclusive experiences. Each partner's key doubles as their password: typing it
      unlocks a branded first tab + portal-bar logo. Partners never see each other's tab, and
      generic "build" logins see no partner tab at all. A partner whose ONLY password is their
@@ -1471,7 +1525,7 @@
     if (!visibleToUser(item)) return false;
     if (activeCat !== 'all' && item.category !== activeCat) return false;
     if (query) {
-      const hay = (item.name + ' ' + item.kind + ' ' + (item.code || '') + ' ' + (CAT_LABEL[item.category] || '')).toLowerCase();
+      const hay = (item.name + ' ' + item.kind + ' ' + (item.desc || '') + ' ' + (item.code || '') + ' ' + (CAT_LABEL[item.category] || '')).toLowerCase();
       if (!hay.includes(query)) return false;
     }
     return true;
@@ -1484,12 +1538,24 @@
 
   function render() {
     const groups = GROUPS.filter(g => g.brand === activeBrand);
-    const visible = groups.map(g => ({ g, items: g.items.filter(matches) })).filter(x => x.items.length);
+    const showExtras = !query && activeCat === 'all'; // group summaries / note cards only in the unfiltered view
+    const visible = groups.map(g => ({ g, items: g.items.filter(matches) })).filter(x => x.items.length || (x.g.note && showExtras));
     const shown = visible.reduce((n, x) => n + x.items.length, 0);
     const solo = visible.length === 1;
 
     gridEl.innerHTML = visible.map(({ g, items }, idx) => {
       const rows = items.map(it => {
+        if (!it.url) {
+          // no link yet: non-clickable "Coming soon" card (no anchor, no copy button)
+          return `
+          <div class="asset asset-soon${it.emphasis ? ' asset-key' : ''}">
+            <div class="asset-main">
+              <div class="asset-name">${esc(it.name)}${it.flag ? `<span class="key-flag">${esc(it.flag)}</span>` : ''}</div>
+              <div class="asset-desc">${esc(it.desc || '')}</div>
+            </div>
+            <span class="soon-badge">Coming soon</span>
+          </div>`;
+        }
         const prim = PRIMARY[it.type] || PRIMARY.link;
         const copyText = it.name + ' — ' + it.url;
         const parts = [it.kind].concat(it.code ? [it.code] : []).concat(it.password ? ['Password protected'] : []);
@@ -1510,7 +1576,11 @@
           </div>`;
       }).join('');
       const tag = g.tag ? `<span class="col-tag">${esc(g.tag)}</span>` : '';
-      return `<div class="col-block${solo ? ' solo' : ''}" style="--i:${idx}"><div class="col-head"><span class="col-title">${esc(g.title)}</span>${tag}<span class="rule"></span><span class="col-count">${items.length}</span></div><div class="asset-list">${rows}</div></div>`;
+      const desc = g.desc ? `<p class="col-desc">${esc(g.desc)}</p>` : '';
+      const summary = (g.summary && showExtras) ? `<div class="col-summary"><strong>${esc(g.summary.title)}</strong><ul>${g.summary.points.map(p => `<li>${esc(p)}</li>`).join('')}</ul></div>` : '';
+      const note = g.note ? `<div class="col-note"><p>${esc(g.note.text)}</p><button type="button" class="act act-primary" onclick="jumpBrand('${esc(g.note.jump)}')">${esc(g.note.label)}</button></div>` : '';
+      const count = items.length ? `<span class="col-count">${items.length}</span>` : '';
+      return `<div class="col-block${solo ? ' solo' : ''}" style="--i:${idx}"><div class="col-head"><span class="col-title">${esc(g.title)}</span>${tag}<span class="rule"></span>${count}</div>${desc}${summary}${note}<div class="asset-list">${rows}</div></div>`;
     }).join('');
 
     gridEl.classList.toggle('animate', animateNext && shown > 0);
@@ -1637,10 +1707,11 @@
       partner = always ? always[0] : null;
     }
     currentPartner = partner;
-    brandOrder = currentPartner ? [PARTNERS[currentPartner].brand, ...BASE_BRANDS] : BASE_BRANDS.slice();
+    // Ally Program is always first; a partner's own branded tab (if any) comes right after it
+    brandOrder = currentPartner ? [BASE_BRANDS[0], PARTNERS[currentPartner].brand, ...BASE_BRANDS.slice(1)] : BASE_BRANDS.slice();
     activeBrand = brandOrder[0];
     Object.entries(PARTNERS).forEach(([k, p]) => { if (p.logoId) document.getElementById(p.logoId).classList.toggle('show', k === currentPartner); });
-    // Partner Drop banner: partners with their own drop path get it; everyone else gets the general drop
+    // Ally Drop banner: partners with their own drop path get it; everyone else gets the general drop
     document.getElementById('drop-banner').href = (currentPartner && PARTNERS[currentPartner].dropUrl) || 'https://drop.slashyourenergycost.com/';
     buildTabs();
     closeError();
@@ -1748,7 +1819,7 @@
     const seen = new Set(); const list = [];
     GROUPS.forEach(g => g.items.forEach(it => {
       if (!brandOrder.includes(g.brand)) return; // partner tabs stay invisible to everyone else
-      if (!visibleToUser(it)) return;
+      if (!visibleToUser(it) || !it.url) return; // no-link (Coming soon) items can't be requested by URL
       const key = it.name + '|' + it.url;
       if (seen.has(key)) return; seen.add(key);
       list.push({ brand: g.brand, name: it.name, url: it.url });
@@ -1865,7 +1936,7 @@
     if (p.brand && p.type === 'new') lines.push(`Brand: ${p.brand}`);
     if (p.variant) lines.push(`Requested version: ${p.variant}`);
     if (p.details) lines.push(`Details: ${p.details}`);
-    lines.push(`— Sent from Partner Dashboard (${p.device}) ${p.submittedAt}`);
+    lines.push(`— Sent from Ally Hub (${p.device}) ${p.submittedAt}`);
     return lines.join('\n');
   }
   function mailtoHref(p) { return `mailto:${DAN_EMAIL}?subject=${encodeURIComponent(reqSubject(p))}&body=${encodeURIComponent(reqBody(p))}`; }
