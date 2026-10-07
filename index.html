@@ -272,13 +272,13 @@
   .btn-access:active { transform: scale(0.99); }
 
   /* ---- BRAND LOGOS: Build+ / Harvest+ wordmark images ---- */
-  .ep-logo { height: 38px; width: auto; display: block; margin: 0 auto; }
+  .ep-logo { width: 230px; max-width: 70vw; height: auto; display: block; margin: 0 auto; }   /* all three marks share one width so they stack as an even column */
   .ep-logo-bar { height: 17px; width: auto; display: block; align-self: center; }
 
   /* ---- ENERGY+ MARK: crisp text sized to the sibling logos, the "+" is the real burst artwork (inline SVG, white like theirs) ---- */
   .brand-lockup .eplus-mark, .portal-bar-brand .mark .eplus-mark { display: inline-block; color: #fff; }
   .eplus-mark svg { height: 0.8em; width: auto; display: inline-block; vertical-align: -0.03em; margin-left: 0.13em; }
-  .brands .brand-lockup { font-size: 2.55rem; }             /* caps align with the 38px logo images */
+  .brands .brand-lockup { font-size: min(2.7rem, 11.5vw); }   /* sized so ENERGY+ matches the 230px logo width */
 
   /* ---- TOAST ---- */
   .toast {
@@ -687,7 +687,6 @@
       <div class="brand-sub">Your Provision Strategist</div>
     </div>
     <div class="brand-portal-label">Ally Hub</div>
-    <div class="brand-portal-sub">Energy+ Ally Program</div>
   </div>
 
   <!-- LOGIN CARD -->
