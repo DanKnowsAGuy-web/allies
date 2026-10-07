@@ -15,15 +15,15 @@
 <meta property="og:title" content="Ally Hub | Energy+ Ally Program" />
 <meta property="og:description" content="Ally Hub for the Energy+ Ally Program. Access the latest marketing materials, spec sheets, videos, and links." />
 <meta property="og:url" content="https://slashyourenergycost.com/allies/" />
-<meta property="og:image" content="https://slashyourenergycost.com/partner-dashboard/og-card.png" />
+<meta property="og:image" content="https://slashyourenergycost.com/allies/og-card.png" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="Ally Hub | Energy+ Ally Program" />
-<meta name="twitter:image" content="https://slashyourenergycost.com/partner-dashboard/og-card.png" />
+<meta name="twitter:image" content="https://slashyourenergycost.com/allies/og-card.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 <style>
   /* ==== ENERGY+ BRAND SYSTEM (bold) — matches slashyourenergycost.com landing pages & Overspend Calculator ==== */
   :root {
@@ -58,7 +58,7 @@
     --r-card: 8px;
     --r-ctrl: 6px;
     --sans: 'Archivo', system-ui, -apple-system, 'Segoe UI', sans-serif;
-    --mono: 'Geist Mono', ui-monospace, 'Cascadia Mono', monospace;
+    --mono: 'Archivo', system-ui, -apple-system, 'Segoe UI', sans-serif; /* no monospace anywhere: Archivo only */
 
     /* semantic z-index scale */
     --z-base: 1;
@@ -132,8 +132,8 @@
 
   .brand-sub {
     font-family: var(--mono);
-    font-size: 0.78rem;
-    letter-spacing: 0.22em;
+    font-size: 0.95rem;
+    letter-spacing: 0.14em;
     text-transform: uppercase;
     color: var(--panel-faint);
     margin-top: 0.35rem;
@@ -168,7 +168,7 @@
 
   .card-eyebrow {
     font-family: var(--mono);
-    font-size: 0.75rem; letter-spacing: 0.22em; text-transform: uppercase;
+    font-size: 0.95rem; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 600;
     color: var(--prim); margin-bottom: 0.8rem;
   }
   .card-title { font-family: var(--sans); font-size: 2rem; font-weight: 700; letter-spacing: -0.025em; line-height: 1.15; margin-bottom: 0.4rem; color: var(--ink); }
@@ -178,7 +178,7 @@
   .input-label {
     display: block;
     font-family: var(--mono);
-    font-size: 0.82rem; letter-spacing: 0.14em; text-transform: uppercase;
+    font-size: 1rem; letter-spacing: 0.06em; text-transform: uppercase; font-weight: 600;
     color: var(--mute); margin-bottom: 0.5rem;
   }
 
@@ -271,56 +271,6 @@
   .btn-access:hover { background: var(--prim-2); border-color: var(--prim-2); }
   .btn-access:active { transform: scale(0.99); }
 
-  /* ---- PORTAL / WELCOME ---- */
-  #portal { display: none; flex-direction: column; align-items: center; width: 100%; max-width: 1040px; }
-  #portal.active { display: flex; animation: riseIn 0.7s cubic-bezier(0.16,1,0.3,1) both; }
-
-  /* top bar */
-  .portal-bar {
-    width: 100%;
-    display: flex; align-items: center; justify-content: space-between;
-    gap: 1.5rem;
-    padding-bottom: 1.4rem;
-    margin-bottom: 2.2rem;
-    border-bottom: 1px solid var(--panel-rule);
-    flex-wrap: wrap;
-  }
-  .portal-bar-brand { display: flex; align-items: baseline; gap: 0.6rem; }
-  .portal-bar-brand .mark {
-    font-family: var(--sans); font-weight: 800;
-    font-size: 1.15rem; letter-spacing: -0.005em; text-transform: uppercase; line-height: 1;
-    color: #fff;
-  }
-  .portal-bar-brand .mark .plus { color: var(--mark); }
-  .portal-bar-brand .sep { color: var(--panel-faint); }
-  /* Partner lockups (CPL, Redstone, …) — shown only to that partner's users via enterPortal() */
-  .cpl-brand { display: none; align-items: center; gap: 0.6rem; }
-  .cpl-brand.show { display: flex; }
-  .cpl-brand .cpl-mark { height: 34px; width: auto; display: block; }
-  .portal-bar-label {
-    font-family: var(--sans);
-    font-size: 1.15rem; font-weight: 800; letter-spacing: 0.01em;
-    color: var(--mark); line-height: 1.1;
-  }
-  .portal-bar-sub { font-family: var(--sans); font-size: 1rem; font-weight: 500; color: var(--panel-body); line-height: 1.2; }
-
-  .welcome-header { text-align: center; margin-bottom: 2rem; }
-  .welcome-eyebrow {
-    font-family: var(--mono);
-    font-size: 0.6rem; letter-spacing: 0.28em; text-transform: uppercase;
-    color: var(--mark); margin-bottom: 0.85rem;
-  }
-  .welcome-name-line { font-family: var(--sans); font-size: clamp(2.2rem, 5vw, 3.4rem); font-weight: 700; letter-spacing: -0.03em; line-height: 1.08; color: #fff; }
-  .welcome-name-line em { font-style: normal; color: var(--mark); }
-  .welcome-access-line {
-    font-size: 0.8rem; letter-spacing: 0.18em; text-transform: uppercase;
-    color: var(--panel-faint); margin-top: 0.75rem;
-    font-family: var(--mono); font-weight: 400;
-  }
-  .welcome-orn { display: flex; align-items: center; gap: 0.75rem; margin: 1.2rem auto; width: fit-content; }
-  .welcome-orn .line    { width: 48px; height: 1px; background: var(--panel-rule); }
-  .welcome-orn .diamond { width: 5px; height: 5px; background: var(--mark); transform: rotate(45deg); }
-
   /* ---- BRAND LOGOS: Build+ / Harvest+ wordmark images ---- */
   .ep-logo { height: 38px; width: auto; display: block; margin: 0 auto; }
   .ep-logo-bar { height: 17px; width: auto; display: block; align-self: center; }
@@ -329,407 +279,6 @@
   .brand-lockup .eplus-mark, .portal-bar-brand .mark .eplus-mark { display: inline-block; color: #fff; }
   .eplus-mark svg { height: 0.8em; width: auto; display: inline-block; vertical-align: -0.03em; margin-left: 0.13em; }
   .brands .brand-lockup { font-size: 2.55rem; }             /* caps align with the 38px logo images */
-  .portal-bar-brand .mark { font-size: 1.45rem; }           /* caps align with the 17px bar logos */
-
-  /* ---- TOP ACTION ROW: Partner Drop + Bill Audit, separate from the resource library ---- */
-  .action-row { width: 100%; display: grid; grid-template-columns: 1fr; gap: 1.1rem; margin-bottom: 1.8rem; }
-  @media (min-width: 820px) { .action-row { grid-template-columns: 1fr 1fr; } }
-  .action-row .drop-banner { margin-bottom: 0; flex-wrap: wrap; align-content: start; }
-  .action-row .drop-cta { width: 100%; justify-content: center; }
-  .bill-banner { border-left-color: var(--prim); }
-  .bill-banner .drop-ico { background: var(--prim-soft); color: var(--prim); }
-
-  /* ---- PARTNER DROP BANNER (distinct file hand-off CTA, shown to every user) ---- */
-  .drop-banner {
-    width: 100%; display: flex; align-items: center; gap: 1rem;
-    background: var(--card); border: 1px solid var(--hair); border-left: 4px solid var(--mark);
-    border-radius: var(--r-card); box-shadow: var(--shadow-card);
-    padding: 1rem 1.2rem; margin-bottom: 1.8rem;
-    text-decoration: none; cursor: pointer;
-    transition: transform 0.18s var(--ease-out-quint);
-  }
-  .drop-banner:hover { transform: translateY(-2px); }
-  .drop-ico {
-    width: 40px; height: 40px; flex-shrink: 0; border-radius: var(--r-ctrl);
-    background: var(--mark-soft); color: var(--mark-ink);
-    display: inline-flex; align-items: center; justify-content: center;
-  }
-  .drop-copy { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 0.1rem; }
-  .drop-copy strong { font-family: var(--sans); font-weight: 700; font-size: 1.15rem; letter-spacing: -0.01em; color: var(--ink); }
-  .drop-copy span { font-size: 0.98rem; color: var(--ink-2); line-height: 1.45; }
-  .drop-cta {
-    display: inline-flex; align-items: center; gap: 0.45rem; flex-shrink: 0;
-    background: var(--prim); border-radius: var(--r-ctrl); color: #fff;
-    font-family: var(--sans); font-weight: 600; font-size: 1rem;
-    padding: 0.7rem 1.15rem; white-space: nowrap;
-    transition: background 0.2s;
-  }
-  .drop-banner:hover .drop-cta { background: var(--prim-2); }
-  @media (max-width: 640px) {
-    .drop-banner { flex-wrap: wrap; }
-    .drop-cta { width: 100%; justify-content: center; }
-  }
-
-  /* ---- ANNOUNCEMENT ---- */
-  .announce {
-    width: 100%;
-    display: flex; align-items: center; gap: 1rem;
-    background: var(--mark-soft);
-    border: 1px solid var(--mark-rule);
-    border-radius: var(--r-card);
-    padding: 0.85rem 1.2rem;
-    margin-bottom: 2.4rem;
-  }
-  .announce-tag {
-    font-family: var(--mono);
-    font-size: 0.68rem; letter-spacing: 0.16em; text-transform: uppercase;
-    color: var(--mark-ink); background: var(--mark);
-    padding: 0.28rem 0.6rem; border-radius: 4px; white-space: nowrap; flex-shrink: 0;
-    font-weight: 500;
-  }
-  .announce-text { font-size: 1rem; color: var(--ink-2); line-height: 1.5; }
-  .announce-text strong { color: var(--ink); font-weight: 600; }
-  .announce-date {
-    margin-left: auto; flex-shrink: 0;
-    font-family: var(--mono); font-size: 0.75rem;
-    letter-spacing: 0.12em; color: var(--mute); white-space: nowrap;
-  }
-
-  /* ---- SECTION HEADING ---- */
-  .section-head { width: 100%; display: flex; align-items: center; flex-wrap: wrap; gap: 0.8rem; margin-bottom: 1.4rem; }
-  .section-head h2 { font-family: var(--sans); font-weight: 700; font-size: 1.8rem; letter-spacing: -0.025em; white-space: nowrap; color: #fff; }
-  .section-head .rule { flex: 1; height: 1px; background: var(--panel-rule); }
-  .section-head .count { font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.12em; color: var(--panel-faint); text-transform: uppercase; white-space: nowrap; }
-  .btn-request {
-    display: inline-flex; align-items: center; gap: 0.45rem; white-space: nowrap;
-    background: transparent; border: 1px solid rgba(255,255,255,0.5); border-radius: var(--r-ctrl);
-    padding: 0.55rem 1.05rem; color: #fff;
-    font-family: var(--sans); font-size: 0.95rem; font-weight: 500; letter-spacing: 0.01em;
-    text-decoration: none; cursor: pointer;
-    transition: background 0.2s, border-color 0.2s;
-  }
-  .btn-request:hover { background: var(--panel-hover); border-color: #fff; }
-  /* Prominent, filled variant — the one channel we want reps to notice */
-  .btn-telegram {
-    display: inline-flex; align-items: center; gap: 0.45rem; white-space: nowrap;
-    background: var(--mark); border: 1px solid var(--mark); border-radius: var(--r-ctrl);
-    padding: 0.55rem 1.05rem; color: var(--mark-ink);
-    font-family: var(--sans); font-size: 0.95rem; font-weight: 600; letter-spacing: 0.01em;
-    text-decoration: none; cursor: pointer;
-    transition: background 0.2s, border-color 0.2s;
-  }
-  .btn-telegram:hover { background: #cf9210; border-color: #cf9210; }
-
-  /* ---- TIER TIMELINE (compact, subtle: a quiet progress list, not a metric) ---- */
-  .tier-timeline { width: 100%; position: relative; display: flex; flex-direction: column; }
-  .tier-timeline::before {
-    content: ''; position: absolute; left: 13px; top: 14px; bottom: 14px; width: 1px;
-    background: linear-gradient(to bottom, var(--hair), var(--hair-soft)); z-index: 0;
-  }
-  .tier-row { display: flex; align-items: flex-start; gap: 0.85rem; position: relative; z-index: 1; padding: 0 0 1rem 0; }
-  .tier-row:last-child { padding-bottom: 0; }
-  .tier-node {
-    width: 27px; height: 27px; border-radius: 50%;
-    border: 1px solid var(--hair); background: var(--card);
-    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
-  }
-  .tier-row.active .tier-node { border-color: var(--prim); background: var(--prim); }
-  .tier-row.locked .tier-node { border-color: var(--hair-soft); }
-  .tier-node-num { font-family: var(--mono); font-size: 0.78rem; font-weight: 500; color: var(--prim); line-height: 1; }
-  .tier-row.active .tier-node-num { color: #fff; }
-  .tier-row.locked .tier-node-num { color: var(--faint); }
-  .tier-card { flex: 1; min-width: 0; padding: 0.1rem 0 0.15rem; }
-  .tier-card-top { display: flex; align-items: center; gap: 0.55rem; margin-bottom: 0.25rem; }
-  .tier-title { font-family: var(--sans); font-size: 1.08rem; font-weight: 600; color: var(--ink); letter-spacing: -0.005em; line-height: 1.15; }
-  .tier-row.locked .tier-title { color: var(--mute); }
-  .tier-badge { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.12em; text-transform: uppercase; padding: 0.16rem 0.5rem; border-radius: 20px; white-space: nowrap; flex-shrink: 0; }
-  .tier-badge.current { background: var(--mark-soft); border: 1px solid var(--mark-rule); color: var(--mark-ink); }
-  .tier-badge.locked-badge { background: transparent; border: 1px solid var(--hair); color: var(--faint); }
-  .tier-desc { font-size: 0.95rem; color: var(--ink-2); line-height: 1.5; font-weight: 400; }
-  .tier-row.locked .tier-desc { color: var(--mute); }
-  .tier-lock-icon { display: none; }
-
-  /* ---- TOOLBAR: SEARCH + FILTERS ---- */
-  .toolbar { width: 100%; margin-bottom: 1.8rem; display: flex; flex-direction: column; gap: 1rem; }
-  .search-wrap { position: relative; width: 100%; }
-  .search-wrap .search-icon { position: absolute; left: 1rem; top: 50%; transform: translateY(-50%); color: var(--faint); pointer-events: none; }
-  .search-wrap input[type="search"] { padding-left: 2.75rem; }
-  .search-wrap input[type="search"]::-webkit-search-cancel-button { -webkit-appearance: none; }
-
-  .chips { display: flex; flex-wrap: wrap; gap: 0.55rem; }
-  .chip {
-    font-family: var(--sans);
-    font-size: 0.95rem; font-weight: 500; letter-spacing: 0.01em;
-    color: #fff;
-    background: rgba(255,255,255,0.06);
-    border: 1px solid rgba(255,255,255,0.45);
-    border-radius: 22px;
-    padding: 0.5rem 1.1rem;
-    cursor: pointer;
-    transition: color 0.2s, border-color 0.2s, background 0.2s, transform 0.12s ease;
-  }
-  .chip:hover { border-color: #fff; background: rgba(255,255,255,0.14); }
-  .chip:active { transform: scale(0.96); }
-  .chip[aria-pressed="true"] { color: var(--prim); background: #fff; border-color: #fff; font-weight: 700; }
-  .chip:disabled { opacity: 0.5; cursor: not-allowed; pointer-events: none; }
-
-  /* ---- OVERVIEW ROW: news + partner level (sits below the resource library) ---- */
-  .overview { width: 100%; display: grid; grid-template-columns: 1fr; gap: 1.2rem; align-items: start; margin: 2.6rem 0 2.4rem; padding-top: 2.4rem; border-top: 1px solid var(--panel-rule); }
-  @media (min-width: 820px) { .overview { grid-template-columns: var(--news-ratio, 2fr 1fr); } }
-
-  .panel { padding: 1.6rem 1.7rem; }
-  .panel-head { display: flex; align-items: center; gap: 0.7rem; margin-bottom: 1.1rem; }
-  .panel-head h2 { font-family: var(--sans); font-weight: 700; font-size: 1.15rem; letter-spacing: -0.015em; white-space: nowrap; color: var(--ink); }
-  .panel-head .rule { flex: 1; height: 1px; background: var(--hair-soft); }
-
-  .news-item { padding: 0.9rem 0; border-bottom: 1px solid var(--hair-soft); }
-  .news-item:first-child { padding-top: 0; }
-  .news-item:last-child { border-bottom: none; padding-bottom: 0; }
-  .news-top { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.35rem; flex-wrap: wrap; }
-  .news-tag {
-    font-family: var(--mono); font-size: 0.66rem; letter-spacing: 0.14em; text-transform: uppercase;
-    color: var(--mark-ink); background: var(--mark); padding: 0.2rem 0.55rem; border-radius: 4px; flex-shrink: 0;
-  }
-  .news-title { font-family: var(--sans); font-weight: 600; color: var(--ink); font-size: 1.08rem; letter-spacing: -0.005em; }
-  .news-date { margin-left: auto; font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.1em; color: var(--mute); white-space: nowrap; }
-  .news-text { font-size: 1rem; color: var(--ink-2); line-height: 1.55; }
-
-  /* ---- ROADMAP TOGGLE (What's New & Next) ---- */
-  .rm-toggle { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-bottom: 1.1rem; }
-  .rm-tab {
-    font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase;
-    color: var(--mute); background: var(--card); border: 1px solid var(--hair); border-radius: 20px;
-    padding: 0.32rem 0.62rem; cursor: pointer; white-space: nowrap;
-    transition: background 0.2s, border-color 0.2s, color 0.2s;
-  }
-  .rm-tab:hover { color: var(--prim); border-color: var(--prim-rule); }
-  .rm-tab[aria-pressed="true"] { background: var(--prim); border-color: var(--prim); color: #fff; }
-  .rm-ct { opacity: 0.75; margin-left: 0.3rem; }
-  .rm-votes {
-    margin-left: auto; display: inline-flex; align-items: center; gap: 0.28rem; flex-shrink: 0;
-    font-family: var(--mono); font-size: 0.62rem; color: var(--prim);
-    border: 1px solid var(--prim-rule); border-radius: 20px; padding: 0.16rem 0.52rem;
-  }
-  .rm-empty { font-size: 0.85rem; color: var(--faint); padding: 0.7rem 0; }
-  .rm-group {
-    display: flex; align-items: center; gap: 0.5rem; margin: 1.1rem 0 0.3rem;
-    font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--prim);
-  }
-  .rm-group:first-child { margin-top: 0; }
-  .rm-group .rm-grule { flex: 1; height: 1px; background: var(--hair-soft); }
-  .rm-group .rm-gcount { color: var(--faint); }
-  .rm-pill {
-    font-family: var(--mono); font-size: 0.64rem; letter-spacing: 0.1em; text-transform: uppercase;
-    padding: 0.15rem 0.48rem; border-radius: 4px; border: 1px solid var(--hair); color: var(--mute);
-    flex-shrink: 0; line-height: 1.5;
-  }
-  .rm-pill.lang-en { color: var(--prim); border-color: var(--prim-rule); }
-  .rm-pill.lang-es { color: var(--good); border-color: rgba(30,122,79,0.4); }
-  .rm-pill.brand { color: var(--mute); border-color: var(--hair); letter-spacing: 0.08em; }
-
-  .tier-panel .tier-timeline { max-width: none; margin: 0; }
-
-  /* ---- LIVE TICKER ---- */
-  .ticker { width: 100%; margin-bottom: 1.6rem; padding: 1.4rem 1.7rem 1.5rem; display: flex; flex-direction: column; gap: 0.55rem; }
-  .ticker-head { display: flex; align-items: center; gap: 0.6rem; }
-  .ticker-label { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--mark); }
-  .ticker-live { display: flex; align-items: center; gap: 0.45rem; margin-left: auto; font-family: var(--mono); font-size: 0.55rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--panel-faint); }
-  .ticker-dot { position: relative; width: 7px; height: 7px; border-radius: 50%; background: var(--good); flex-shrink: 0; }
-  .ticker-dot::after { content: ''; position: absolute; inset: -3px; border-radius: 50%; border: 1px solid var(--good); opacity: 0; animation: tickerPulse 2.2s var(--ease-out-quint) infinite; }
-  @keyframes tickerPulse { 0% { transform: scale(0.6); opacity: 0.7; } 80%, 100% { transform: scale(1.6); opacity: 0; } }
-  .ticker-value {
-    font-family: var(--sans); font-weight: 700;
-    font-variant-numeric: tabular-nums; font-feature-settings: 'tnum' 1;
-    font-size: clamp(2.2rem, 6.5vw, 4.2rem); line-height: 1; letter-spacing: -0.03em;
-    color: #fff; display: flex; align-items: baseline;
-  }
-  .tk-cur { color: var(--mark); font-size: 0.5em; font-weight: 600; align-self: flex-start; margin: 0.12em 0.14em 0 0; }
-  .tk-int { font-variant-numeric: tabular-nums; }
-  .tk-dec { color: var(--panel-faint); font-size: 0.46em; align-self: flex-start; margin-top: 0.22em; letter-spacing: 0; }
-
-  /* ---- RESOURCE TABS ---- */
-  .tabs { position: relative; display: flex; gap: 0.6rem; width: 100%; border-bottom: 1px solid var(--panel-rule); margin-bottom: 1.4rem; overflow-x: auto; scrollbar-width: none; }
-  .tabs::-webkit-scrollbar { display: none; }
-  .tab { flex-shrink: 0; white-space: nowrap; }
-  .tab {
-    background: transparent; border: none;
-    color: var(--panel-body); font-family: var(--sans); font-weight: 600; font-size: 1.1rem; letter-spacing: -0.005em;
-    padding: 0.55rem 1rem 0.8rem; cursor: pointer; opacity: 0.85;
-    transition: color 0.25s var(--ease-out-quint), opacity 0.25s, transform 0.12s ease;
-  }
-  .tab .plus { color: var(--mark); }
-  .tab:hover { color: #fff; opacity: 1; }
-  .tab:active { transform: scale(0.97); }
-  .tab[aria-selected="true"] { color: #fff; opacity: 1; font-weight: 700; }
-  .tab-indicator {
-    position: absolute; bottom: -1px; left: 0; height: 4px; width: 0;
-    background: var(--mark); border-radius: 2px 2px 0 0;
-    transform: translateX(0);
-    transition: transform 0.4s var(--ease-out-expo), width 0.4s var(--ease-out-expo);
-    pointer-events: none;
-  }
-
-  /* ---- RESOURCE GRID: masonry flow so cards pack up (no dead gaps) ---- */
-  #resource-grid { width: 100%; column-gap: 1.2rem; }
-  #resource-grid .col-block { break-inside: avoid; -webkit-column-break-inside: avoid; margin-bottom: 1.2rem; }
-  @media (min-width: 760px) { #resource-grid { column-count: 2; } }
-  .col-block.solo { column-span: all; -webkit-column-span: all; }
-  @media (min-width: 760px) { .col-block.solo .asset-list { display: grid; grid-template-columns: 1fr 1fr; column-gap: 1.6rem; } }
-
-  /* card stagger: only when #resource-grid carries .animate (tab / filter changes) */
-  #resource-grid.animate .col-block {
-    animation: cardIn 0.42s var(--ease-out-expo) both;
-    animation-delay: calc(var(--i, 0) * 45ms);
-  }
-  @keyframes cardIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
-
-  /* ---- BRAND SECTIONS (legacy, unused) ---- */
-  .brand-section { width: 100%; margin-bottom: 2.4rem; }
-  .brand-section.is-hidden { display: none; }
-  .brand-divider { width: 100%; display: flex; align-items: center; gap: 0.8rem; margin-bottom: 1.3rem; }
-  .brand-divider .mark { font-family: var(--sans); font-weight: 800; font-size: 1.3rem; letter-spacing: -0.005em; text-transform: uppercase; line-height: 1; white-space: nowrap; color: var(--ink); }
-  .brand-divider .mark .plus { color: var(--mark); }
-  .brand-divider .rule { flex: 1; height: 1px; background: var(--hair); }
-  .brand-divider .b-count { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.14em; color: var(--faint); text-transform: uppercase; white-space: nowrap; }
-
-  /* ---- RESOURCE GROUP CARDS (the card-one / card-two pattern, scaled to N) ---- */
-  .columns { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.2rem; width: 100%; align-items: start; }
-  .col-block {
-    background: var(--card);
-    border: 1px solid var(--hair); border-radius: var(--r-card);
-    box-shadow: var(--shadow-card);
-    padding: 1.5rem; position: relative;
-  }
-  .col-block.is-hidden { display: none; }
-
-  .col-head { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 1.1rem; }
-  .col-title {
-    font-family: var(--mono);
-    font-size: 0.82rem; letter-spacing: 0.14em; text-transform: uppercase;
-    color: var(--prim); font-weight: 500; white-space: nowrap;
-  }
-  .col-tag {
-    font-family: var(--mono);
-    font-size: 0.66rem; letter-spacing: 0.1em; text-transform: uppercase;
-    color: var(--mark-ink); background: var(--mark-soft);
-    border: 1px solid var(--mark-rule); border-radius: 20px;
-    padding: 0.15rem 0.55rem; white-space: nowrap; flex-shrink: 0;
-  }
-  .col-head .rule { flex: 1; height: 1px; background: var(--hair-soft); }
-  .col-head .col-count { color: var(--mute); font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.1em; }
-
-  /* asset row */
-  .asset {
-    display: flex; align-items: center; gap: 0.85rem;
-    padding: 0.8rem 0;
-    border-bottom: 1px solid var(--hair-soft);
-  }
-  .asset:last-child { border-bottom: none; }
-  .asset-main { flex: 1; min-width: 0; }
-  .asset-name { font-size: 1.08rem; font-weight: 500; color: var(--ink); letter-spacing: 0; line-height: 1.35; display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; }
-  .asset-new {
-    font-family: var(--mono); font-size: 0.64rem; letter-spacing: 0.11em; text-transform: uppercase;
-    color: var(--mark-ink); background: var(--mark); padding: 0.15rem 0.45rem; border-radius: 4px; font-weight: 500;
-  }
-  .asset-meta {
-    margin-top: 0.25rem;
-    font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.05em;
-    color: var(--mute); display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;
-  }
-  .asset-meta .dot { width: 2px; height: 2px; border-radius: 50%; background: currentColor; opacity: 0.6; }
-  .asset-actions { display: flex; align-items: center; gap: 0.35rem; flex-shrink: 0; }
-
-  .link-btn {
-    display: flex; align-items: center; justify-content: center;
-    width: 32px; height: 32px; border-radius: var(--r-ctrl);
-    border: 1px solid var(--hair);
-    background: var(--card); color: var(--prim);
-    cursor: pointer; text-decoration: none;
-    transition: background 0.2s, border-color 0.2s, color 0.2s, transform 0.18s var(--ease-out-quint);
-    position: relative; flex-shrink: 0;
-  }
-  .link-btn:hover { background: var(--prim-soft); border-color: var(--prim); color: var(--prim); transform: translateY(-1px); }
-  .link-btn:active { transform: translateY(0) scale(0.94); }
-  .link-btn svg { width: 14px; height: 14px; }
-  .link-btn.copied { animation: copyPop 0.34s var(--ease-out-quint); }
-  @keyframes copyPop { 0% { transform: scale(1); } 40% { transform: scale(1.16); } 100% { transform: scale(1); } }
-
-  /* tooltip */
-  .link-btn::after {
-    content: attr(data-tip);
-    position: absolute; bottom: calc(100% + 6px); left: 50%; transform: translateX(-50%);
-    background: var(--ink); border: 1px solid var(--ink); color: #fff;
-    font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase;
-    padding: 0.35rem 0.55rem; border-radius: 4px; white-space: nowrap;
-    opacity: 0; pointer-events: none; transition: opacity 0.15s; z-index: var(--z-tooltip);
-  }
-  .link-btn:hover::after, .link-btn:focus-visible::after { opacity: 1; }
-  .link-btn.copied { border-color: rgba(30,122,79,0.5); color: var(--good); }
-  .link-btn.copied::after { content: 'Copied'; opacity: 1; }
-
-  /* ---- ALLY PROGRAM TAB: group descriptions, Coming soon cards, emphasis, summary, jump note ---- */
-  .col-desc { font-size: 1.02rem; color: var(--ink-2); line-height: 1.5; margin: -0.5rem 0 1rem; }
-  .asset-desc { font-size: 1rem; color: var(--ink-2); line-height: 1.5; margin-top: 0.25rem; }
-  .asset.asset-soon { background: var(--paper); border: 1px dashed var(--hair); border-radius: var(--r-ctrl); padding: 0.85rem 1rem; margin: 0.5rem 0; }
-  .asset.asset-soon:last-child { border-bottom: 1px dashed var(--hair); }
-  .soon-badge {
-    flex-shrink: 0; white-space: nowrap;
-    font-family: var(--sans); font-size: 0.95rem; font-weight: 700; color: var(--mark-ink);
-    background: var(--mark-soft); border: 1px solid var(--mark-rule); border-radius: 20px; padding: 0.3rem 0.85rem;
-  }
-  .asset.asset-key { background: var(--mark-soft); border: 2px solid var(--mark); border-radius: var(--r-ctrl); padding: 0.95rem 1rem; margin: 0.5rem 0; }
-  .asset.asset-key:last-child { border-bottom: 2px solid var(--mark); }
-  .asset.asset-key .asset-name { font-weight: 700; }
-  .asset.asset-key .asset-desc { color: var(--ink); font-weight: 500; }
-  .key-flag {
-    font-family: var(--sans); font-size: 0.9rem; font-weight: 700; color: var(--mark-ink);
-    background: var(--mark); border-radius: 4px; padding: 0.15rem 0.55rem;
-  }
-  .col-summary { background: var(--mark-soft); border: 1px solid var(--mark-rule); border-radius: var(--r-ctrl); padding: 1rem 1.1rem; margin-bottom: 0.9rem; }
-  .col-summary strong { display: block; font-size: 1.15rem; color: var(--ink); margin-bottom: 0.4rem; }
-  .col-summary ul { margin: 0 0 0 1.2rem; }
-  .col-summary li { font-size: 1.05rem; color: var(--ink); line-height: 1.5; margin-bottom: 0.3rem; }
-  .col-note { display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; }
-  .col-note p { flex: 1; min-width: 220px; font-size: 1.08rem; color: var(--ink); font-weight: 500; line-height: 1.5; }
-
-  /* ---- EMPTY STATE ---- */
-  .empty {
-    display: none; width: 100%;
-    flex-direction: column; align-items: center; text-align: center;
-    padding: 3.5rem 1.5rem; gap: 0.6rem;
-    border: 1px dashed var(--hair); border-radius: var(--r-card);
-    margin-bottom: 2rem;
-    background: var(--card);
-  }
-  .empty.visible { display: flex; animation: fadeIn 0.3s var(--ease-out-quint) both; }
-  @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
-  .empty-icon { color: var(--faint); margin-bottom: 0.4rem; }
-  .empty-title { font-family: var(--sans); font-size: 1.4rem; font-weight: 700; letter-spacing: -0.015em; color: var(--ink); }
-  .empty-text { color: var(--ink-2); font-size: 1.02rem; max-width: 42ch; }
-  .empty-reset {
-    margin-top: 0.8rem; background: transparent; border: 1px solid var(--prim-rule); border-radius: var(--r-ctrl);
-    color: var(--prim); font-family: var(--mono); font-size: 0.78rem; letter-spacing: 0.11em;
-    text-transform: uppercase; padding: 0.5rem 1.1rem; cursor: pointer; transition: background 0.2s, border-color 0.2s;
-  }
-  .empty-reset:hover { background: var(--prim-soft); border-color: var(--prim); }
-
-  /* ---- FOOTER / HELP ---- */
-  .portal-foot {
-    width: 100%; margin-top: 1rem; padding-top: 1.6rem;
-    border-top: 1px solid var(--panel-rule);
-    display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap;
-  }
-  .help-line { font-size: 1rem; color: var(--panel-body); }
-  .help-line a { color: #fff; font-weight: 500; text-decoration: none; border-bottom: 1px solid var(--mark); transition: border-color 0.2s; }
-  .help-line a:hover { border-color: #fff; }
-
-  .btn-logout {
-    background: transparent; border: 1px solid var(--panel-rule); border-radius: var(--r-ctrl);
-    padding: 0.55rem 1.6rem; color: var(--panel-body);
-    font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.18em; text-transform: uppercase;
-    cursor: pointer; transition: border-color 0.2s, color 0.2s;
-  }
-  .btn-logout:hover { border-color: #fff; color: #fff; }
 
   /* ---- TOAST ---- */
   .toast {
@@ -847,72 +396,262 @@
   .modal-success .succ-title { font-family: var(--sans); font-size: 1.4rem; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 0.5rem; color: var(--ink); }
   .modal-success .succ-text { color: var(--ink-2); font-size: 1rem; max-width: 40ch; margin: 0 auto 1.4rem; }
 
-  /* ---- PORTAL GREETING (compact, in the top bar) ---- */
-  .portal-bar-meta { display: flex; flex-direction: column; align-items: flex-end; gap: 0.2rem; }
-  .portal-greeting { font-family: var(--sans); font-weight: 600; font-size: 1.25rem; color: #fff; letter-spacing: -0.005em; line-height: 1.1; }
-  .portal-greeting em { font-style: normal; color: var(--mark); font-weight: 700; }
+  /* ---- 65+ legibility for the login screen and Request a Resource modal: no tiny labels, 52px+ tap targets ---- */
+  .btn-access { min-height: 56px; font-size: 1.1rem; }
+  .btn-sms { min-height: 52px; font-size: 1.05rem; }
+  .pw-error { font-size: 1rem; }
+  .error-top { font-size: 1.05rem; }
+  .sms-preview { font-size: 1.02rem; }
+  .modal-close { width: 52px; height: 52px; }
+  .modal-sub { font-size: 1.1rem; }
+  .cat-card { min-height: 76px; }
+  .cat-txt-main { font-size: 1.15rem; }
+  .cat-txt-sub { font-size: 1rem; }
+  .modal select, .modal textarea { font-size: 1.1rem; min-height: 52px; }
+  .variant-chip { font-size: 1.05rem; min-height: 52px; padding: 0 1.1rem; }
+  .modal-back { font-size: 1rem; letter-spacing: 0.04em; min-height: 52px; padding: 0 1.3rem; font-weight: 600; }
+  .btn-submit { font-size: 1.1rem; min-height: 52px; }
+  .express-btn { font-size: 1.05rem; min-height: 52px; }
+  .modal-express-label { font-size: 1rem; }
+  #req-hint { font-size: 1rem !important; }
 
-  /* ---- BRAND TAB COUNTS ---- */
-  .tab-count { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.05em; color: var(--panel-faint); margin-left: 0.18rem; }
-  .tab[aria-selected="true"] .tab-count { color: var(--mark); }
-
-  /* ---- CROSS-BRAND SEARCH NOTE ---- */
-  .cross-note {
-    width: 100%; display: none; align-items: center; flex-wrap: wrap; gap: 0.6rem;
-    margin: -0.4rem 0 1.5rem;
-    font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase;
-    color: var(--panel-body);
+  /* ==== ALLY HUB SHELL (four-door redesign): one teal shell, four big doors on Home, two taps to anything.
+     Bottom tab bar on phones, top tabs on desktop. 65+ legibility: Archivo only, 17px+ text, 52px+ tap targets. ==== */
+  :root {
+    --teal:#174e58; --teal-deep:#123e46; --teal-darker:#0e3138;
+    --on-teal:#ffffff; --on-teal-body:#d3e2e5; --on-teal-faint:#a9c4c9; --line-teal:rgba(255,255,255,.22);
+    --body:#3b4347; --muted:#5a636a; --soft:#f1f4f5;
+    --amber:#e0a21c; --amber-ink:#5a3f00; --amber-wash:#fbf1d9;
+    --good-wash:#e3f2ea;
+    --font:"Archivo", "Helvetica Neue", Arial, sans-serif;
+    --r-ctl:8px;
+    --shadow:0 1px 0 rgba(16,20,22,.04), 0 24px 48px -28px rgba(16,20,22,.45);
   }
-  .cross-jump {
-    display: inline-flex; align-items: center; gap: 0.45rem;
-    background: transparent; border: 1px solid var(--panel-rule); border-radius: 20px;
-    padding: 0.3rem 0.8rem; color: #fff; cursor: pointer;
-    font-family: var(--sans); font-weight: 600; font-size: 0.85rem; letter-spacing: 0; text-transform: none;
-    transition: background 0.2s, border-color 0.2s, transform 0.12s ease;
+  #portal{display:none;font-family:var(--font);font-size:18px;line-height:1.5;color:var(--on-teal);padding-inline:16px;padding-block:0 120px;min-height:100vh}
+  #portal.active{display:block}
+  :where(#portal,#layer) button{font:inherit;color:inherit;cursor:pointer}
+  :where(#portal,#layer) a{color:inherit}
+  :where(#portal,#layer) :focus-visible{outline:3px solid var(--amber);outline-offset:3px;border-radius:6px}
+  :where(#portal,#layer) h1,:where(#portal,#layer) h2,:where(#portal,#layer) h3{text-wrap:balance;margin:0;line-height:1.15}
+  #portal .wrap,.wrap{max-width:1080px;margin-inline:auto}
+  #portal svg{flex:none}
+
+  /* Header */
+  header.top{padding-block:20px 16px;border-bottom:1px solid var(--line-teal)}
+  header.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px 16px;flex-wrap:wrap}
+  .brand{display:flex;flex-direction:column;background:none;border:0;padding:0;text-align:left;min-height:52px;justify-content:center}
+  .brand .name{font-weight:800;font-size:30px;letter-spacing:-.02em;color:var(--on-teal)}
+  .who{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+  .who .hi{font-size:18px;color:var(--on-teal-body)}
+  .who .hi b{color:#fff;font-weight:800}
+  .signout{min-height:52px;padding:0 20px;background:none;border:2px solid var(--line-teal);color:#fff;border-radius:var(--r-ctl);font-weight:700;font-size:17px}
+  .signout:hover{border-color:#fff}
+  nav.tabs{display:none;gap:4px;flex-wrap:wrap}
+  nav.tabs button{background:none;border:0;padding:0 14px;min-height:52px;border-radius:var(--r-ctl);font-size:18px;font-weight:600;color:var(--on-teal-body)}
+  nav.tabs button:hover{background:rgba(255,255,255,.08);color:var(--on-teal)}
+  nav.tabs button[aria-current="page"]{color:var(--on-teal);box-shadow:inset 0 -3px 0 var(--amber);border-radius:0}
+
+  /* Bottom bar (phones) */
+  nav.bottom{position:fixed;left:0;right:0;bottom:0;z-index:20;background:var(--teal-darker);border-top:1px solid var(--line-teal);display:grid;grid-template-columns:repeat(5,1fr);padding:6px 4px calc(6px + env(safe-area-inset-bottom,0px))}
+  nav.bottom button{background:none;border:0;display:flex;flex-direction:column;align-items:center;gap:3px;padding:6px 2px;min-height:60px;font-size:15px;font-weight:600;color:var(--on-teal-faint);border-radius:var(--r-ctl)}
+  nav.bottom button svg{width:26px;height:26px}
+  nav.bottom button[aria-current="page"]{color:var(--on-teal)}
+  nav.bottom button[aria-current="page"] svg{color:var(--amber)}
+
+  #app{padding-block:28px 0;outline:none}
+  .back{display:inline-flex;align-items:center;gap:8px;background:none;border:2px solid var(--line-teal);color:var(--on-teal);border-radius:999px;padding:0 18px 0 12px;min-height:52px;font-size:17px;font-weight:700;margin-bottom:18px}
+  .back:hover{border-color:var(--on-teal)}
+  .page-h{display:flex;flex-direction:column;gap:6px;margin-bottom:24px}
+  .page-h h1{font-size:clamp(30px,5vw,42px);font-weight:800;letter-spacing:-.025em;color:var(--on-teal)}
+  .page-h p{margin:0;color:var(--on-teal-body);font-size:19px;max-width:60ch}
+
+  /* Search */
+  .search{position:relative;margin-bottom:22px}
+  .search input{width:100%;font:inherit;font-family:var(--font);font-size:20px;padding:18px 20px 18px 56px;border-radius:10px;border:0;background:var(--card);color:var(--ink);box-shadow:var(--shadow);min-height:64px;letter-spacing:0}
+  .search input::placeholder{color:var(--muted)}
+  .search input::-webkit-search-cancel-button{-webkit-appearance:none;display:none}
+  .search > svg{position:absolute;left:18px;top:50%;transform:translateY(-50%);width:26px;height:26px;color:var(--teal);pointer-events:none}
+  .search .clear{position:absolute;right:8px;top:50%;transform:translateY(-50%);border:0;background:var(--soft);color:var(--ink);border-radius:999px;padding:0 16px;min-height:52px;font-size:16px;font-weight:700}
+
+  /* Doors */
+  .doors{display:grid;gap:14px;grid-template-columns:1fr}
+  .door{display:flex;gap:16px;align-items:center;text-align:left;background:var(--card);color:var(--ink);border:0;border-radius:10px;padding:20px;box-shadow:var(--shadow);min-height:110px;transition:transform .15s}
+  .door:hover{transform:translateY(-2px)}
+  .door .ic{flex:none;width:60px;height:60px;border-radius:14px;display:grid;place-items:center;background:var(--amber-wash);color:var(--amber-ink)}
+  .door .ic svg{width:32px;height:32px}
+  .door .t{min-width:0;flex:1}
+  .door h2{font-size:24px;font-weight:800;letter-spacing:-.015em;color:var(--ink)}
+  .door p{margin:4px 0 0;color:var(--body);font-size:17px}
+  .door .chev{flex:none;color:var(--teal);width:28px;height:28px}
+  .door.company{background:var(--amber-wash);outline:2px solid var(--amber)}
+  .door.company .ic{background:var(--amber);color:var(--amber-ink)}
+
+  .sec-h{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin:34px 0 14px;flex-wrap:wrap}
+  .sec-h h2{font-size:24px;font-weight:800;color:var(--on-teal);letter-spacing:-.015em}
+  .sec-h span{color:var(--on-teal-body);font-size:17px}
+
+  .strip{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(260px,1fr);gap:14px;overflow-x:auto;padding-bottom:6px;scroll-snap-type:x mandatory}
+  .strip > *{scroll-snap-align:start}
+
+  /* Item rows & tiles */
+  .panel{background:var(--card);color:var(--ink);border-radius:10px;box-shadow:var(--shadow);overflow:hidden;padding:0}
+  .panel + .panel{margin-top:16px}
+  .panel-h{padding:18px 20px 6px}
+  .panel-h h3{font-size:21px;font-weight:800;letter-spacing:-.01em;color:var(--ink)}
+  .panel-h p{margin:4px 0 0;color:var(--body);font-size:17px}
+  .rows{list-style:none;margin:0;padding:6px 0}
+  .row{display:flex;align-items:center;gap:14px;width:100%;text-align:left;background:none;border:0;padding:14px 20px;min-height:76px;color:var(--ink)}
+  .row:hover{background:var(--soft)}
+  .rows li + li .row{border-top:1px solid var(--hair)}
+  .row .t{flex:1;min-width:0}
+  .row .ttl{font-size:19px;font-weight:700;line-height:1.25;display:block}
+  .row .meta{font-size:16px;color:var(--muted);margin-top:2px;display:block}
+  .row .chev{flex:none;width:24px;height:24px;color:var(--teal)}
+  .row.must{background:var(--amber-wash)}
+  .row.must:hover{background:#f7e7c0}
+
+  .thumb{flex:none;width:56px;height:56px;border-radius:10px;display:grid;place-items:center}
+  .thumb svg{width:28px;height:28px}
+  .t-video{background:var(--teal);color:#fff}
+  .t-doc{background:var(--amber-wash);color:var(--amber-ink)}
+  .t-calc{background:var(--good-wash);color:var(--good)}
+  .t-web{background:#e4eef0;color:var(--teal)}
+  .t-form{background:#fde8d8;color:#8a3b0f}
+  .t-action{background:var(--teal-deep);color:var(--amber)}
+
+  .tag{display:inline-block;font-size:15px;font-weight:700;border-radius:999px;padding:2px 10px;margin-left:6px;vertical-align:2px;line-height:1.4}
+  .tag.new{background:var(--amber);color:var(--amber-ink)}
+  .tag.soon{background:var(--soft);color:var(--muted);border:1px solid var(--hair)}
+  .tag.req{background:var(--amber-ink);color:var(--amber-wash)}
+
+  .cards{display:grid;gap:14px;grid-template-columns:1fr}
+  .tile{display:flex;flex-direction:column;gap:12px;text-align:left;background:var(--card);color:var(--ink);border:0;border-radius:10px;padding:18px;box-shadow:var(--shadow);min-height:100%}
+  .tile:hover{outline:2px solid var(--amber)}
+  .tile .big{height:110px;border-radius:8px;display:grid;place-items:center}
+  .tile .big svg{width:44px;height:44px}
+  .tile .ttl{font-size:19px;font-weight:700;line-height:1.25}
+  .tile .meta{font-size:16px;color:var(--muted)}
+  .tile .kicker{font-size:16px;font-weight:700;color:var(--teal)}
+
+  .kit{display:flex;flex-direction:column;gap:10px;text-align:left;border:0;border-radius:10px;padding:22px;background:var(--card);color:var(--ink);box-shadow:var(--shadow)}
+  .kit:hover{outline:2px solid var(--amber)}
+  .kit .wm{font-weight:800;font-size:28px;letter-spacing:-.01em;text-transform:uppercase;color:var(--teal)}
+  .kit .wm i{font-style:normal;color:var(--amber)}
+  .kit p{margin:0;color:var(--body);font-size:17px}
+  .kit .cnt{font-size:17px;font-weight:700;color:var(--teal)}
+
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:var(--r-ctl);padding:12px 18px;font-weight:800;font-size:17px;min-height:52px;border:2px solid var(--teal);background:var(--teal);color:#fff;text-decoration:none;font-family:var(--font)}
+  .btn:hover{background:var(--teal-deep)}
+  .btn.ghost{background:#fff;color:var(--teal)}
+  .btn.ghost:hover{background:var(--soft)}
+  .btn.amber{background:var(--amber);border-color:var(--amber);color:var(--amber-ink)}
+
+  .rules{margin:0;padding:4px 20px 18px 40px;color:var(--body);font-size:18px}
+  .rules li{margin-top:6px}
+  details.more{border-top:1px solid var(--hair)}
+  details.more summary{cursor:pointer;padding:16px 20px;font-weight:700;font-size:18px;color:var(--teal);min-height:56px;list-style-position:inside}
+  .empty{display:block;background:var(--teal-deep);border:1px dashed var(--line-teal);border-radius:10px;padding:22px;color:var(--on-teal-body);font-size:18px;text-align:left;margin:0}
+  .empty b{color:var(--on-teal)}
+  .gap16{height:16px}
+
+  /* Home extras: What's New & Next + Ally Level, restyled to the new look */
+  .overview{display:grid;grid-template-columns:1fr;gap:16px;align-items:start}
+  .overview .panel + .panel{margin-top:0}
+  .rm-toggle{display:flex;flex-wrap:wrap;gap:8px;padding:8px 20px 6px}
+  .rm-tab{display:inline-flex;align-items:center;gap:6px;min-height:52px;padding:0 18px;border-radius:999px;border:2px solid var(--hair);background:#fff;color:var(--teal);font-family:var(--font);font-size:17px;font-weight:700}
+  .rm-tab:hover{border-color:var(--teal)}
+  .rm-tab[aria-pressed="true"]{background:var(--teal);border-color:var(--teal);color:#fff}
+  .rm-ct{opacity:.8;font-weight:600}
+  #news-list{padding:4px 0 8px}
+  .news-item{padding:14px 20px;border-top:1px solid var(--hair)}
+  .news-item:first-child{border-top:0}
+  .news-top{display:flex;align-items:center;gap:8px 10px;flex-wrap:wrap;margin-bottom:4px}
+  .news-tag{background:var(--amber);color:var(--amber-ink);font-size:15px;font-weight:700;border-radius:999px;padding:2px 10px}
+  .news-title{font-weight:700;font-size:19px;color:var(--ink);line-height:1.25}
+  .news-date{margin-left:auto;font-size:16px;color:var(--muted)}
+  .news-text{font-size:17px;color:var(--body);line-height:1.5}
+  .rm-votes{margin-left:auto;display:inline-flex;align-items:center;gap:4px;font-size:16px;font-weight:700;color:var(--teal);border:2px solid var(--hair);border-radius:999px;padding:0 10px}
+  .rm-votes svg{width:14px;height:14px}
+  .rm-empty{font-size:17px;color:var(--muted);padding:14px 20px}
+  .rm-group{display:flex;align-items:center;gap:8px;padding:14px 20px 0;font-size:17px;font-weight:800;color:var(--teal)}
+  .rm-group .rm-grule{flex:1;height:1px;background:var(--hair)}
+  .rm-group .rm-gcount{color:var(--muted);font-weight:600}
+  .rm-pill{font-size:15px;font-weight:700;padding:0 10px;border-radius:999px;border:1px solid var(--hair);color:var(--muted);line-height:1.5}
+  .rm-pill.lang-en{color:var(--teal);border-color:var(--teal)}
+  .rm-pill.lang-es{color:var(--good);border-color:var(--good)}
+  .tier-wrap{padding:6px 20px 18px}
+  .tier-row{display:flex;align-items:flex-start;gap:14px;padding:12px 0}
+  .tier-row + .tier-row{border-top:1px solid var(--hair)}
+  .tier-node{flex:none;width:40px;height:40px;border-radius:50%;border:3px solid var(--hair);display:grid;place-items:center;font-weight:800;font-size:19px;color:var(--muted);background:#fff}
+  .tier-row.active .tier-node{background:var(--teal);border-color:var(--teal);color:#fff}
+  .tier-card{flex:1;min-width:0}
+  .tier-top{display:flex;align-items:center;gap:8px 10px;flex-wrap:wrap;margin-bottom:2px}
+  .tier-title{font-size:19px;font-weight:800;color:var(--ink)}
+  .tier-row.locked .tier-title{color:var(--muted)}
+  .tier-badge{font-size:15px;font-weight:700;border-radius:999px;padding:0 10px;line-height:1.5}
+  .tier-badge.current{background:var(--amber-wash);border:1px solid var(--amber);color:var(--amber-ink)}
+  .tier-badge.locked-badge{border:1px solid var(--hair);color:var(--muted)}
+  .tier-desc{font-size:17px;color:var(--body);line-height:1.5}
+  .tier-row.locked .tier-desc{color:var(--muted)}
+
+  .foot{margin-top:40px;padding-top:12px;border-top:1px solid var(--line-teal);font-size:18px;color:var(--on-teal-body)}
+  .foot a{display:inline-flex;align-items:center;min-height:52px;color:#fff;font-weight:700;text-decoration:underline;text-decoration-color:var(--amber);text-underline-offset:4px}
+
+  /* Item sheet */
+  .scrim{position:fixed;inset:0;background:rgba(6,20,24,.6);z-index:40;display:flex;align-items:flex-end;justify-content:center}
+  .sheet{background:var(--card);color:var(--ink);width:100%;max-width:560px;border-radius:18px 18px 0 0;padding:14px 20px calc(24px + env(safe-area-inset-bottom,0px));max-height:92%;overflow:auto;animation:up .22s ease-out;font-family:var(--font);font-size:18px;line-height:1.5}
+  @keyframes up{from{transform:translateY(30px);opacity:.6}to{transform:none;opacity:1}}
+  .grab{width:48px;height:5px;border-radius:9px;background:var(--hair);margin:0 auto 14px}
+  .sheet .hero{height:150px;border-radius:12px;display:grid;place-items:center;margin-bottom:16px}
+  .sheet .hero svg{width:56px;height:56px}
+  .sheet h2{font-size:26px;font-weight:800;letter-spacing:-.015em;color:var(--ink)}
+  .sheet .meta{color:var(--muted);font-size:17px;margin-top:4px}
+  .sheet p.desc{color:var(--body);font-size:18px;margin:12px 0 18px}
+  .acts{display:grid;gap:10px}
+  .acts .btn{width:100%;min-height:58px;font-size:19px}
+  .share{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+  .share .btn{font-size:17px;padding:10px}
+  .closeX{width:100%;margin-top:10px;background:none;border:0;color:var(--muted);font-weight:700;font-size:18px;padding:14px;min-height:52px}
+  .note{background:var(--soft);border-radius:var(--r-ctl);padding:14px 16px;color:var(--body);font-size:17px;margin-bottom:14px}
+
+  /* Present mode */
+  .present{position:fixed;inset:0;z-index:60;background:#0a0c0e;display:flex;flex-direction:column;padding:calc(12px + env(safe-area-inset-top,0px)) 16px calc(16px + env(safe-area-inset-bottom,0px));font-family:var(--font)}
+  .present .bar2{display:flex;justify-content:space-between;align-items:center;gap:12px;color:#fff}
+  .present .bar2 b{font-size:18px;min-width:0}
+  .present .x{background:#fff;color:#0a0c0e;border:0;border-radius:999px;padding:12px 22px;font-weight:800;font-size:18px;min-height:52px;flex:none}
+  .stage{flex:1;display:grid;place-items:center;padding:16px 0;min-height:0}
+  .pagefake{background:#fff;color:var(--ink);width:min(100%,720px);aspect-ratio:8.5/11;max-height:100%;border-radius:4px;padding:7% 8%;display:flex;flex-direction:column;gap:14px;overflow:hidden}
+  .pagefake .wm{font-weight:800;font-size:clamp(20px,4vw,34px);color:var(--teal);text-transform:uppercase}
+  .pagefake .wm i{font-style:normal;color:var(--amber)}
+  .pagefake h3{font-size:clamp(20px,3.6vw,30px);font-weight:800;color:var(--ink)}
+  .pagefake .ln{height:12px;border-radius:6px;background:var(--soft)}
+  .pagefake .blk{flex:1;border-radius:8px;background:linear-gradient(135deg,#e4eef0,#fbf1d9);min-height:60px}
+  .present .nav2{display:flex;justify-content:center;gap:12px;align-items:center;color:#fff;font-size:18px}
+
+  .toast{font-size:1.1rem;padding:0.85rem 1.3rem}
+  @media (max-width:859px){ .toast{bottom:calc(92px + env(safe-area-inset-bottom,0px))} }
+
+  @media (min-width:640px){
+    .cards{grid-template-columns:repeat(2,1fr)}
   }
-  .cross-jump:hover { background: var(--panel-hover); border-color: #fff; }
-  .cross-jump:active { transform: scale(0.97); }
-  .cross-jump .plus { color: var(--mark); }
-  .cross-ct { font-family: var(--mono); font-size: 0.62rem; color: var(--panel-faint); }
-
-  /* ---- LABELED ASSET ACTIONS (Open / Copy link) ---- */
-  .act {
-    display: inline-flex; align-items: center; gap: 0.42rem;
-    height: 40px; padding: 0 1rem; border-radius: var(--r-ctrl);
-    border: 1px solid var(--hair); background: var(--card);
-    color: var(--prim); cursor: pointer; text-decoration: none; white-space: nowrap;
-    font-family: var(--mono); font-size: 0.74rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase;
-    transition: background 0.2s, border-color 0.2s, color 0.2s, transform 0.18s var(--ease-out-quint);
-  }
-  .act svg { width: 14px; height: 14px; flex-shrink: 0; }
-  .act:hover { background: var(--prim-soft); border-color: var(--prim); transform: translateY(-1px); }
-  .act:active { transform: translateY(0) scale(0.96); }
-  .act-primary { background: var(--prim); border-color: var(--prim); color: #fff; }
-  .act-primary:hover { background: var(--prim-2); border-color: var(--prim-2); color: #fff; }
-  .act-copy.copied { color: var(--good); border-color: rgba(30,122,79,0.5); }
-  .act-copy.copied svg { animation: copyPop 0.34s var(--ease-out-quint); }
-
-  /* "Updated" badge: outline variant to distinguish from the filled "New" */
-  .asset-upd { background: var(--mark-soft); color: var(--mark-ink); border: 1px solid var(--mark-rule); }
-
-  @media (max-width: 520px) {
-    .asset { flex-direction: column; align-items: stretch; gap: 0.65rem; }
-    .asset-actions { width: 100%; }
-    .act { flex: 1; justify-content: center; height: 40px; }
+  @media (min-width:860px){
+    #portal{padding-block:0 60px}
+    nav.tabs{display:flex}
+    nav.bottom{display:none}
+    .doors{grid-template-columns:repeat(2,1fr)}
+    .doors .company{grid-column:1/-1}
+    .cards{grid-template-columns:repeat(4,1fr)}
+    .scrim{align-items:center;padding:24px}
+    .sheet{border-radius:16px;padding:22px 26px 24px}
+    .grab{display:none}
+    .two{display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:start}
+    .two .panel + .panel{margin-top:0}
+    .overview{grid-template-columns:2fr 1fr}
   }
 
-  /* ---- RESPONSIVE ---- */
+  /* ---- LOGIN SCREEN: narrow phones ---- */
   @media (max-width: 760px) {
-    .columns { grid-template-columns: 1fr; }
     .card { padding: 2rem 1.75rem 2.5rem; }
-    .announce { flex-wrap: wrap; }
-    .announce-date { margin-left: 0; }
-    .portal-bar { justify-content: center; text-align: center; }
-    .portal-bar-meta { align-items: center; }
-    /* long ISO group titles must wrap instead of overflowing the card on narrow screens */
-    .col-title { white-space: normal; }
-    .section-head .btn-request,
-    .section-head .btn-telegram { width: 100%; justify-content: center; }
   }
 
   /* ---- REDUCED MOTION ---- */
@@ -923,7 +662,7 @@
       transition-duration: 0.001ms !important;
       scroll-behavior: auto !important;
     }
-    .brands, .card, #portal.active { opacity: 1 !important; transform: none !important; }
+    .brands, .card { opacity: 1 !important; transform: none !important; }
   }
 </style>
 </head>
@@ -984,138 +723,27 @@
     <button class="btn-access" onclick="handleAccess()"><span>Access My Links</span></button>
   </main>
 
-  <!-- PORTAL -->
-  <section id="portal" aria-labelledby="welcome-name-display" hidden>
-
-    <div class="portal-bar">
-      <div class="portal-bar-brand">
-        <span class="cpl-brand" id="cpl-brand"><img class="cpl-mark" src="cpl-logo.png" alt="CPL — Christ Power and Light"><span class="sep">/</span></span>
-        <span class="cpl-brand" id="redstone-brand"><img class="cpl-mark" src="redstone-logo.png" alt="Redstone Energy"><span class="sep">/</span></span>
-        <span class="mark">Energy<span class="plus eplus-mark" aria-hidden="true"><svg viewBox="-239.8 0 669.4 687.3"><g transform="translate(0 687.3) scale(1 -1)"><path fill="currentColor" fill-rule="evenodd" d="M0.0 687.3 L221.9 687.3 L221.9 458.2 L429.6 458.2 L429.6 232.0 L221.9 232.0 L221.9 0.0 L0.0 0.0 L0.0 232.0 L-239.8 232.0 L-175.4 458.2 L0.0 458.2 Z M176.8 588.5 L131.7 389.5 L242.7 389.5 L44.4 103.1 L90.9 300.0 L-21.5 300.0 Z"/></g></svg></span></span>
-        <span class="sep">/</span>
-        <img class="ep-logo-bar" src="build-plus-logo.png" alt="Build+" />
-        <span class="sep">/</span>
-        <img class="ep-logo-bar" src="harvest-plus-logo.png" alt="Harvest+" />
-      </div>
-      <div class="portal-bar-meta">
-        <span class="portal-greeting">Welcome, <em id="welcome-name-display">Rep</em></span>
-        <span class="portal-bar-label">Ally Hub</span>
-        <span class="portal-bar-sub">Energy+ Ally Program</span>
-      </div>
-    </div>
-
-    <!-- TOP ACTIONS — file hand-off + bill pull, separate from the resource library (every user sees these) -->
-    <div class="action-row">
-      <a class="drop-banner" id="drop-banner" href="https://drop.slashyourenergycost.com/" target="_blank" rel="noopener">
-        <span class="drop-ico">
-          <svg width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.9" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
-        </span>
-        <span class="drop-copy">
-          <strong>Have a project for us?</strong>
-          <span>Drop your plans, bills, and site files — we'll turn them into a proposal and quote.</span>
-        </span>
-        <span class="drop-cta">
-          Send project files
-          <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-        </span>
-      </a>
-      <a class="drop-banner bill-banner" href="https://billaudit.slashyourenergycost.com/go" target="_blank" rel="noopener">
-        <span class="drop-ico">
-          <svg width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.9" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><polygon points="13 11 9.5 16 12 16 11 19.5 14.5 14.5 12 14.5 13 11" fill="currentColor" stroke="none"/></svg>
-        </span>
-        <span class="drop-copy">
-          <strong>Need a client's power bill?</strong>
-          <span>Send them this link — it pulls their utility bill for us, no paperwork.</span>
-        </span>
-        <span class="drop-cta">
-          Get the bill pulled
-          <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-        </span>
-      </a>
-    </div>
-
-    <!-- RESOURCE LIBRARY -->
-    <div class="section-head">
-      <h2>Resource Library</h2>
-      <span class="rule"></span>
-      <span class="count" id="result-count"></span>
-      <a class="btn-request" id="btn-request" href="#">
-        <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
-        Request a Resource
-      </a>
-      <a class="btn-telegram" id="btn-telegram" href="https://t.me/danknowsaguy" target="_blank" rel="noopener" aria-label="Send Dan a voice message on Telegram">
-        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
-        Voice message Dan
-      </a>
-    </div>
-
-    <div class="tabs" id="brand-tabs" role="tablist" aria-label="Brand"></div>
-
-    <div class="toolbar">
-      <div class="search-wrap">
-        <svg class="search-icon" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-        <label for="asset-search" class="visually-hidden" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);">Search resources</label>
-        <input type="search" id="asset-search" placeholder="Search resources by name..." autocomplete="off" spellcheck="false" />
-      </div>
-      <div class="chips" id="chips" role="group" aria-label="Filter by category"></div>
-    </div>
-
-    <div class="cross-note" id="cross-note" aria-live="polite"></div>
-
-    <div id="resource-grid"></div>
-
-    <div class="empty" id="empty-state">
-      <svg class="empty-icon" width="34" height="34" fill="none" stroke="currentColor" stroke-width="1.4" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
-      <div class="empty-title">No resources found</div>
-      <div class="empty-text">Nothing matches your search and filters. Try a different term or clear the filters to see everything.</div>
-      <button class="empty-reset" onclick="resetFilters()">Clear filters</button>
-    </div>
-
-    <!-- OVERVIEW ROW: news (context-aware width) + ally level -->
-    <div class="overview" id="overview">
-      <div class="col-block panel news-panel" id="news-panel">
-        <div class="panel-head"><h2>What's New &amp; Next</h2><span class="rule"></span></div>
-        <div class="rm-toggle" id="rm-toggle"></div>
-        <div id="news-list"></div>
-      </div>
-      <div class="col-block panel tier-panel">
-        <div class="panel-head"><h2>Your Ally Level</h2><span class="rule"></span></div>
-        <div class="tier-timeline">
-          <div class="tier-row active">
-            <div class="tier-node"><div class="tier-node-num">1</div></div>
-            <div class="tier-card">
-              <div class="tier-card-top"><div class="tier-title">Field Ally</div><div class="tier-badge current">Your Level</div></div>
-              <div class="tier-desc">Full access to core marketing materials and technical data. You are equipped to bring Energy Plus, Build Plus, and Harvest Plus solutions to market.</div>
-            </div>
-          </div>
-          <div class="tier-row locked">
-            <div class="tier-node"><div class="tier-node-num">2</div></div>
-            <div class="tier-card">
-              <svg class="tier-lock-icon" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
-              <div class="tier-card-top"><div class="tier-title">Certified Ally</div><div class="tier-badge locked-badge">Locked</div></div>
-              <div class="tier-desc">Minimum revenue threshold. Grants access to our extended technology portfolio and advanced sales resources.</div>
-            </div>
-          </div>
-          <div class="tier-row locked">
-            <div class="tier-node"><div class="tier-node-num">3</div></div>
-            <div class="tier-card">
-              <svg class="tier-lock-icon" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
-              <div class="tier-card-top"><div class="tier-title">Portfolio Ally</div><div class="tier-badge locked-badge">Locked</div></div>
-              <div class="tier-desc">Includes preferential terms and participation in company-wide profit distribution.</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="portal-foot">
-      <div class="help-line">Need something that isn't here? <a id="foot-sms" href="#">Message Dan</a>.</div>
-      <button class="btn-logout" onclick="logout()">Sign Out</button>
-    </div>
-
-  </section>
 
 </div>
+
+<!-- PORTAL (Ally Hub shell: header, view area, phone tab bar) -->
+<section id="portal" aria-label="Ally Hub" hidden>
+  <header class="top"><div class="wrap">
+    <button class="brand" type="button" data-go="home" aria-label="Ally Hub home"><span class="name">Ally Hub</span></button>
+    <nav class="tabs" id="tabs" aria-label="Main"></nav>
+    <div class="who">
+      <span class="hi">Welcome, <b id="welcome-name-display">Rep</b></span>
+      <button class="signout" type="button" onclick="logout()">Sign out</button>
+    </div>
+  </div></header>
+
+  <main class="wrap" id="app" tabindex="-1"></main>
+
+  <div class="wrap foot">Need something that isn't here? <a id="foot-sms" href="#">Message Dan</a></div>
+
+  <nav class="bottom" id="bottom" aria-label="Main"></nav>
+</section>
+<div id="layer"></div>
 
 <!-- TOAST -->
 <div class="toast" id="toast" role="status" aria-live="polite">
@@ -1152,184 +780,21 @@
 
   document.getElementById('btn-sms').href = "sms:" + DAN + "?body=" + encodeURIComponent(MSG);
   document.getElementById('foot-sms').href = "sms:" + DAN + "?body=" + encodeURIComponent(HELP_MSG);
-  // "Request a Resource" opens the guided modal instead of a raw SMS link.
-  document.getElementById('btn-request').addEventListener('click', e => { e.preventDefault(); openRequest(); });
 
-  /* ---- CATEGORY MODEL ---- */
-  const CATEGORIES = [
-    { key: 'all',        label: 'All' },
-    { key: 'web',        label: 'Websites' },
-    { key: 'tools',      label: 'Calculators' },
-    { key: 'marketing',  label: 'Marketing' },
-    { key: 'iso',        label: 'ISO Compliance' },
-    { key: 'hvac',       label: 'HVAC' },
-    { key: 'reference',  label: 'Reference' },
-    { key: 'video',      label: 'Videos' },
-  ];
-  const CAT_LABEL = Object.fromEntries(CATEGORIES.map(c => [c.key, c.label]));
+  const VAULT_PASSWORD = 'Prescott2007-Arequipa125'; // Data Vault: copied by the Copy password button
 
-  /* type -> primary action (icon + verb) */
-  const ICONS = {
-    open:  '<svg fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>',
-    doc:   '<svg fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>',
-    watch: '<svg fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><polygon points="10 8 16 12 10 16 10 8" fill="currentColor" stroke="none"/></svg>',
-    copy:  '<svg fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>',
-    lock:  '<svg fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>',
-  };
-  const PRIMARY = {
-    link:  { verb: 'Open',  icon: ICONS.open },
-    doc:   { verb: 'Open',  icon: ICONS.doc },
-    video: { verb: 'Watch', icon: ICONS.watch },
-  };
-
-  /* ---- RESOURCE DATA (real links) ---- */
-  const GROUPS = [
-    /* ALLY PROGRAM — visible to every login. Items with no url render as non-clickable "Coming soon" cards. */
-    { brand: 'Ally Program', title: 'Start Here', desc: 'The words we use and how pay works.', items: [
-      { name: 'Glossary', kind: 'Program Document', category: 'reference', type: 'doc', desc: 'The program\u2019s defined words: Ally, Key Ally, Project Liaison, Mentor, Deal Profit, and Collected.' },
-      { name: 'How You Get Paid', kind: 'Program Document', category: 'reference', type: 'doc', desc: 'You earn a share of Deal Profit, paid about 7 days after the funds are Collected, with a statement every time.' },
-    ]},
-    { brand: 'Ally Program', title: 'Your Agreement', desc: 'What you sign and what each role earns.', items: [
-      { name: 'Ally Program Agreement', kind: 'Agreement', category: 'reference', type: 'doc', desc: 'The agreement every Energy+ Ally signs.' },
-      { name: 'Rate Schedule', kind: 'Rate Schedule', category: 'reference', type: 'doc', desc: 'What each role on a Deal earns.' },
-    ]},
-    { brand: 'Ally Program', title: 'Every Deal', desc: 'What to file and who does what on each Deal.', items: [
-      { name: 'Deal Registration', kind: 'Form', category: 'reference', type: 'doc', desc: 'Register each Deal with Energy+ before work begins.' },
-      { name: 'Form A: Relationship Declaration', kind: 'Required Form', category: 'reference', type: 'doc', emphasis: true, flag: 'Required with every Deal', desc: 'Required with every Deal. If it is missing, all payouts on that Deal can be put on hold.' },
-      { name: 'Roles on a Deal', kind: 'Program Document', category: 'reference', type: 'doc', desc: 'The jobs an Ally can do on a Deal, such as Introducer, Closer, and Account Owner.' },
-      { name: 'Relationship Tiers (T1\u2013T6)', kind: 'Program Document', category: 'reference', type: 'doc', desc: 'How you are connected to the client, from Independent (T1) to Technology Interest (T6).' },
-    ]},
-    { brand: 'Ally Program', title: 'Conduct & Anti-Bribery', tag: 'ISO 37001', desc: 'The rules every Ally follows, and our anti-bribery documents.',
-      summary: { title: 'Conduct Rules', points: [
-        'Never misstate savings or figures. Use only the numbers Energy+ gives you.',
-        'Never give anything of value to a public official.',
-        'Before you register a Deal, tell us in writing about any public office you hold or any personal interest in it.' ] },
-      items: [
-      { name: 'Anti-Bribery Policy',                code: 'ABMS-001', kind: 'Policy',        category: 'iso', type: 'doc', url: 'https://bit.ly/anti-bribery_' },
-      { name: 'Government Official Due Diligence',  code: 'ABMS-002', kind: 'Due Diligence', category: 'iso', type: 'doc', url: 'https://bit.ly/due-diligence_' },
-      { name: 'Gifts & Hospitality Register',       code: 'ABMS-004', kind: 'Register',      category: 'iso', type: 'doc', url: 'https://bit.ly/commission-gifts-reg' },
-    ]},
-    { brand: 'Ally Program', title: 'Key Ally & Mentors', desc: 'Recognition for top Allies, and growing the team.', items: [
-      { name: 'Key Ally Status', kind: 'Program Document', category: 'reference', type: 'doc', desc: 'Non-cash benefits for top-producing Allies.' },
-      { name: 'Mentor Program', kind: 'Program Document', category: 'reference', type: 'doc', desc: 'Bring in a new Ally and support them as their Mentor.' },
-    ]},
-    /* CPL — Christ Power and Light */
-    { brand: 'CPL', title: 'Landing Pages', items: [
-      { name: 'CPL Commercial',            kind: 'Landing Page', category: 'web', type: 'link', url: 'https://slashyourenergycost.com/cpl/', new: true },
-      { name: 'CPL Hotels',                kind: 'Landing Page', category: 'web', type: 'link', url: 'https://slashyourenergycost.com/hotel-cpl/', new: true },
-      { name: "CPL Sedano's Supermarkets", kind: 'Landing Page', category: 'web', type: 'link', url: 'https://slashyourenergycost.com/supermarket/sedanos-cpl/', new: true },
-      { name: 'CPL Data Centers',          kind: 'Landing Page', category: 'web', type: 'link', url: 'https://slashyourenergycost.com/cpl-datacenter/', new: true },
-      { name: 'The Vineta Hotel',          kind: 'Prepared Proposal', category: 'web', type: 'link', url: 'https://slashyourenergycost.com/cpl/thevineta/', new: true },
-      { name: 'Willis Custom Yachts',      kind: 'Prepared Proposal', category: 'web', type: 'link', url: 'https://slashyourenergycost.com/cpl/williscustomyachts/', new: true },
-    ]},
-    { brand: 'CPL', title: 'Tools', items: [
-      { name: 'CPL Savings Estimator', kind: 'Calculator', category: 'tools', type: 'link', url: 'https://slashyourenergycost.com/cpl-hvac-calculator/', new: true },
-      { name: 'Ally Drop (send us files)', kind: 'File Hand-off', category: 'tools', type: 'link', url: 'https://drop.slashyourenergycost.com/cpl', new: true },
-    ]},
-    /* REDSTONE ENERGY */
-    { brand: 'Redstone', title: 'Redstone Energy', items: [
-      { name: "Landry's / Saltgrass Energy Pilot",  kind: 'Prepared Proposal', category: 'web',   type: 'link', url: 'https://slashyourenergycost.com/redstone-landrys/', new: true },
-      { name: 'Redstone HVAC Savings Calculator',   kind: 'Calculator',        category: 'tools', type: 'link', url: 'https://slashyourenergycost.com/redstone-calculator/', new: true },
-      { name: 'Ally Drop (send us files)',       kind: 'File Hand-off',     category: 'tools', type: 'link', url: 'https://drop.slashyourenergycost.com/redstone', new: true },
-    ]},
-    /* MUXARI */
-    { brand: 'Maxari', title: 'Maxari', items: [
-      { name: 'Ally Drop (send us files)', kind: 'File Hand-off', category: 'tools', type: 'link', url: 'https://drop.slashyourenergycost.com/', new: true },
-    ]},
-    /* ENERGY PLUS */
-    { brand: 'Energy Plus', title: 'Main Website Links', items: [
-      { name: 'Partner Platform', kind: 'Website', category: 'web', type: 'link', url: 'https://yourenergyplus.com' },
-      { name: 'Commercial Savings', kind: 'Website', category: 'web', type: 'link', url: 'https://bit.ly/commercial-savings', only: ['pepper','raul'] },
-      { name: 'Energy Savings',   kind: 'Website', category: 'web', type: 'link', url: 'https://slashyourenergycost.com', except: ['pepper','raul'] },
-      { name: 'Solar Partners',   kind: 'Website', category: 'web', type: 'link', url: 'https://bit.ly/solar-vendor', new: true },
-      { name: 'Your HVAC Savings', kind: 'Video', category: 'video', type: 'video', url: 'https://bit.ly/HVAC_savings', new: true },
-      { name: 'Energy Plus Bill Audit', kind: 'Intake Site', category: 'web', type: 'link', url: 'https://bit.ly/EnergyPlusBillAudit', new: true },
-      { name: 'Ally Drop (send us files)', kind: 'File Hand-off', category: 'tools', type: 'link', url: 'https://drop.slashyourenergycost.com/', new: true },
-      { name: 'Supermarkets Energy Savings', kind: 'Landing Page', category: 'web', type: 'link', url: 'https://bit.ly/supermarket-energy', new: true },
-      { name: 'Hotel Energy Savings',        kind: 'Landing Page', category: 'web', type: 'link', url: 'https://bit.ly/hotels-energy', new: true },
-      { name: 'Verified Energy Savings — Master Record', kind: 'Master Record', category: 'web', type: 'doc', url: 'https://bit.ly/verified-results', new: true },
-    ]},
-    { brand: 'Energy Plus', title: 'Tools & Marketing', items: [
-      { name: 'Energy+ Overspend Calculator', kind: 'Calculator', category: 'tools',     type: 'link', url: 'https://bit.ly/overspendcalc', new: true },
-      { name: 'Supermarkets Energy Savings', kind: 'Landing Page', category: 'marketing', type: 'link', url: 'https://bit.ly/supermarket-energy', new: true },
-      { name: 'Hotel Energy Savings',        kind: 'Landing Page', category: 'marketing', type: 'link', url: 'https://bit.ly/hotels-energy', new: true },
-      { name: 'Commercial Savings',          kind: 'Landing Page', category: 'marketing', type: 'link', url: 'https://bit.ly/commercial-savings', only: ['pepper','raul'] },
-      { name: 'Hotel / Hospitality — Verified Savings', kind: 'Verified Savings', category: 'reference', type: 'doc', url: 'https://bit.ly/hotel-cs-savings' },
-      { name: 'Verified Energy Savings — Master Record', kind: 'Master Record', category: 'reference', type: 'doc', url: 'https://bit.ly/verified-results' },
-    ]},
-    { brand: 'Energy Plus', title: 'HVAC', items: [
-      { name: 'Your HVAC Savings', kind: 'Video', category: 'hvac', type: 'video', url: 'https://bit.ly/HVAC_savings', new: true },
-      { name: 'HVAC Master One-Pager', kind: 'One-Pager', category: 'hvac', type: 'doc', url: 'https://bit.ly/hvac-onepager', new: true },
-      { name: 'Energy+ Overspend Calculator', kind: 'Calculator', category: 'tools', type: 'link', url: 'https://bit.ly/overspendcalc', new: true },
-      { name: 'SunCore', kind: 'Product Data Sheet', category: 'hvac', type: 'doc', url: 'https://bit.ly/suncore-datasheet', new: true },
-    ]},
-    { brand: 'Energy Plus', title: 'Cryogenics', items: [
-      { name: 'CryogenX4', kind: 'Product Data Sheet', category: 'hvac', type: 'doc', url: 'https://bit.ly/cryogenx4-datasheet' },
-      { name: 'CryogenX4 Overview One-Pager', kind: 'One-Pager', category: 'hvac', type: 'doc', url: 'https://bit.ly/cryox4', new: true },
-    ]},
-    { brand: 'Energy Plus', title: 'HVAC Optimizer', items: [
-      { name: 'HVAC Optimizer Data Sheet',  kind: 'Data Sheet', category: 'hvac', type: 'doc', url: 'https://bit.ly/HVACOptDataSheet' },
-      { name: 'HVAC Optimizer — 150 Studies', kind: 'Studies',  category: 'hvac', type: 'doc', url: 'https://bit.ly/HVACO150' },
-      { name: 'Installation & Demo Guide',  kind: 'Guide',      category: 'hvac', type: 'doc', url: 'https://bit.ly/HVACOptInstallGuide' },
-    ]},
-    { brand: 'ISO Documentation', title: 'ABMS · Anti-Bribery', tag: 'ISO 37001', items: [],
-      note: { text: 'Anti-bribery documents now live under Ally Program \u2192 Conduct & Anti-Bribery.', jump: 'Ally Program', label: 'Go to Ally Program' } },
-    { brand: 'ISO Documentation', title: 'ISMS · Information Security', tag: 'ISO 27001', items: [
-      { name: 'Information Security Policy',     code: 'ISMS-001', kind: 'Policy',    category: 'iso', type: 'doc', url: 'https://bit.ly/info-security_' },
-      { name: 'ISMS Scope Document',             code: 'ISMS-002', kind: 'Scope',     category: 'iso', type: 'doc', url: 'https://bit.ly/ISMS-Scope' },
-      { name: 'Asset Inventory & Risk Register', code: 'ISMS-003', kind: 'Register',  category: 'iso', type: 'doc', url: 'https://bit.ly/inventory-risk-register' },
-      { name: 'Access Control Policy',           code: 'ISMS-004', kind: 'Policy',    category: 'iso', type: 'doc', url: 'https://bit.ly/access-control_' },
-      { name: 'Incident Response Procedure',     code: 'ISMS-005', kind: 'Procedure', category: 'iso', type: 'doc', url: 'https://bit.ly/incident-response_' },
-      { name: 'Data Retention & Deletion Policy',code: 'ISMS-006', kind: 'Policy',    category: 'iso', type: 'doc', url: 'https://bit.ly/Data-Retention-Deletion' },
-      { name: 'Statement of Applicability',      code: 'ISMS-007', kind: 'Statement', category: 'iso', type: 'doc', url: 'https://bit.ly/isms-statement-applicability' },
-    ]},
-    { brand: 'ISO Documentation', title: 'QMS · Quality', tag: 'ISO 9001', items: [
-      { name: 'Quality Policy',          code: 'QMS-001', kind: 'Policy',    category: 'iso', type: 'doc', url: 'https://bit.ly/Quality-Policy_' },
-      { name: 'Scope Document',          code: 'QMS-002', kind: 'Scope',     category: 'iso', type: 'doc', url: 'https://bit.ly/scope-doc' },
-      { name: 'Risk Register',           code: 'QMS-003', kind: 'Register',  category: 'iso', type: 'doc', url: 'https://bit.ly/risk-register_' },
-      { name: 'Roles & Responsibilities',code: 'QMS-004', kind: 'Reference', category: 'iso', type: 'doc', url: 'https://bit.ly/Roles-Responsibilities_' },
-      { name: 'Process Map',             code: 'QMS-005', kind: 'Reference', category: 'iso', type: 'doc', url: 'https://bit.ly/process-map_' },
-      { name: 'Corrective Action Log',   code: 'QMS-006', kind: 'Log',       category: 'iso', type: 'doc', url: 'https://bit.ly/Corrective-Action-Log' },
-    ]},
-    /* BUILD PLUS */
-    { brand: 'Build Plus', title: 'In-Place BaseGrade', items: [
-      { name: 'In-Place Video',                    kind: 'Video',              category: 'video',     type: 'video', url: 'https://bit.ly/in-place-vid' },
-      { name: 'In-Place Video (Español)',          kind: 'Video',              category: 'video',     type: 'video', url: 'https://bit.ly/inplace-spanish', new: true },
-      { name: 'In-Place — New Ground',             kind: 'Overview',           category: 'reference', type: 'doc',   url: 'https://bit.ly/inplace-clay', new: true },
-      { name: 'In-Place BaseGrade Landing Page',   kind: 'Landing Page',       category: 'marketing', type: 'link',  url: 'https://bit.ly/InPlaceLP' },
-      { name: 'Materials Calculator',              kind: 'Calculator',         category: 'tools',     type: 'link',  url: 'https://bit.ly/InPlaceCalculate' },
-      { name: 'Calculator Assumptions',            kind: 'Reference',          category: 'reference', type: 'doc',   url: 'https://bit.ly/InPlaceC_Assumptions' },
-      { name: 'Technical Overview',                kind: 'Technical Overview', category: 'reference', type: 'doc',   url: 'https://bit.ly/inplace-tech' },
-      { name: '(In-Place) Cerro Colorado, Peru',   kind: 'Case Study',         category: 'reference', type: 'link',  url: 'https://bit.ly/inplace-cerro-peru', new: true },
-      { name: 'Data Vault',                        kind: 'Data Vault',         category: 'reference', type: 'link',  url: 'https://bit.ly/4aCb94g', password: 'Prescott2007-Arequipa125', new: true },
-      { name: 'In-Place (Cement Study)',           kind: 'Study',              category: 'reference', type: 'link',  url: 'https://bit.ly/inplace-concrete' },
-    ]},
-    /* HARVEST PLUS */
-    { brand: 'Harvest Plus', title: 'Vertical Farming', items: [
-      { name: 'Harvest+ Landing Page', kind: 'Landing Page', category: 'web', type: 'link', url: 'https://bit.ly/HarvestPlusFarms', new: true },
-    ]},
-    { brand: 'Harvest Plus', title: 'AquAlign', items: [
-      { name: 'The AquAlign landing page', kind: 'Landing Page', category: 'web', type: 'link', url: 'https://bit.ly/AquAlign', new: true },
-    ]},
-    /* GROUND TRUTH VENTURE STUDIO */
-    { brand: 'Ground Truth Venture Studio', title: 'Ground Truth', items: [
-      { name: 'Investor Landing Page', kind: 'Landing Page', category: 'web', type: 'link', url: 'https://bit.ly/Ground-Truth', new: true },
-      { name: 'One-Pager', kind: 'One-Pager', category: 'reference', type: 'doc', url: 'https://bit.ly/gt-one-pager', new: true },
-    ]},
-  ];
-  const BASE_BRANDS = ['Ally Program', 'Energy Plus', 'Build Plus', 'Harvest Plus', 'Ground Truth Venture Studio', 'ISO Documentation'];
   /* Partner-exclusive experiences. Each partner's key doubles as their password: typing it
      unlocks a branded first tab + portal-bar logo. Partners never see each other's tab, and
      generic "build" logins see no partner tab at all. A partner whose ONLY password is their
      key (like CPL) is always branded; one that also allows "build" (like Redstone) gets the
      generic dashboard when they log in with "build". */
   const PARTNERS = {
-    cpl:      { brand: 'CPL',      users: ['ron', 'jon', 'jonathan', 'billy'], passwords: ['cpl'],               logoId: 'cpl-brand',      dropUrl: 'https://drop.slashyourenergycost.com/cpl' },
-    redstone: { brand: 'Redstone', users: ['jason', 'kamal'],                  passwords: ['redstone', 'build'], logoId: 'redstone-brand', dropUrl: 'https://drop.slashyourenergycost.com/redstone' },
-    maxari:   { brand: 'Maxari',   users: ['lisa', 'raya', 'chris'],           passwords: ['maxari'],            logoId: null }, // no logo yet — brand shows as text only
+    cpl:      { brand: 'CPL',      users: ['ron', 'jon', 'jonathan', 'billy'], passwords: ['cpl'],               dropUrl: 'https://drop.slashyourenergycost.com/cpl' },
+    redstone: { brand: 'Redstone', users: ['jason', 'kamal'],                  passwords: ['redstone', 'build'], dropUrl: 'https://drop.slashyourenergycost.com/redstone' },
+    maxari:   { brand: 'Maxari',   users: ['lisa', 'raya', 'chris'],           passwords: ['maxari'],            dropUrl: 'https://drop.slashyourenergycost.com/' },
   };
-  let brandOrder = BASE_BRANDS.slice(); // rebuilt on every login by enterPortal()
-  let currentPartner = null;            // partner key ('cpl' | 'redstone') or null for generic sessions
+  let currentPartner = null;            // partner key (cpl | redstone | maxari) or null for generic sessions
+  let currentUser = ''; // lowercased first name of the logged-in rep; gates restricted items
 
   /* ---- NEWS / UPDATES (edit freely; the column width adapts to how many there are) ---- */
   /* Roadmap pipeline. Each item has a status: 'live' | 'progress' | 'planned' | 'requested'.
@@ -1369,16 +834,8 @@
   ];
   let roadmapFilter = 'live';
 
-  /* ---- STATE ---- */
-  let activeCat = 'all';
-  let activeBrand = brandOrder[0];
-  let query = '';
-  let currentUser = ''; // lowercased first name of the logged-in rep; gates restricted items
-  let animateNext = false; // true for tab/filter changes, false while typing
-
   /* ---- ESCAPE ---- */
   function esc(s) { return String(s).replace(/[&<>"']/g, m => ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[m])); }
-  function brandMark(name) { return /\sPlus$/.test(name) ? esc(name.replace(/\s*Plus$/, '')) + '<span class="plus"> +</span>' : esc(name); }
 
   /* ---- ROADMAP RENDER (What's New & Next) + CONTEXT-AWARE WIDTH ---- */
   const RM_VOTE_ICON = '<svg viewBox="0 0 24 24" width="10" height="10" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><polyline points="18 15 12 9 6 15"/></svg>';
@@ -1414,231 +871,7 @@
       return head + g.items.map(roadmapItemHTML).join('');
     }).join('');
   }
-  function renderNews() {
-    const panel = document.getElementById('news-panel');
-    const list = document.getElementById('news-list');
-    const toggle = document.getElementById('rm-toggle');
-    const overview = document.getElementById('overview');
-    const counts = {}; RM_ORDER.forEach(s => counts[s] = ROADMAP.filter(r => r.status === s).length);
-    toggle.innerHTML = RM_ORDER.map(s =>
-      `<button class="rm-tab" type="button" aria-pressed="${s === roadmapFilter}" onclick="setRoadmapFilter('${s}')">${esc(RM_STATUS[s].label)}${counts[s] ? `<span class="rm-ct">${counts[s]}</span>` : ''}</button>`
-    ).join('');
-    let items = ROADMAP.filter(r => r.status === roadmapFilter);
-    if (roadmapFilter === 'requested') items = items.slice().sort((a, b) => (b.votes || 0) - (a.votes || 0));
-    list.innerHTML = items.length
-      ? roadmapListHTML(items)
-      : `<div class="rm-empty">Nothing here right now — check back soon.</div>`;
-    panel.style.display = '';
-    overview.style.setProperty('--news-ratio', '2fr 1fr');
-  }
-  function setRoadmapFilter(s) { roadmapFilter = s; renderNews(); }
 
-  /* ---- BRAND TABS (rebuilt per session — partner sessions get their tab first) ---- */
-  const tabsEl = document.getElementById('brand-tabs');
-  const tabIndicator = document.createElement('span');
-  tabIndicator.className = 'tab-indicator';
-  function buildTabs() {
-    tabsEl.innerHTML = '';
-    brandOrder.forEach(brand => {
-      const t = document.createElement('button');
-      t.className = 'tab';
-      t.type = 'button';
-      t.setAttribute('role', 'tab');
-      t.innerHTML = brandMark(brand) + '<span class="tab-count" aria-hidden="true"></span>';
-      t.setAttribute('aria-label', brand);
-      t.setAttribute('aria-selected', brand === activeBrand ? 'true' : 'false');
-      t.dataset.brand = brand;
-      t.addEventListener('click', () => selectBrand(brand));
-      tabsEl.appendChild(t);
-    });
-    tabsEl.appendChild(tabIndicator);
-  }
-  buildTabs();
-  function positionTabIndicator() {
-    const active = tabsEl.querySelector('.tab[aria-selected="true"]');
-    if (!active || !active.offsetWidth) return;
-    tabIndicator.style.width = active.offsetWidth + 'px';
-    tabIndicator.style.transform = `translateX(${active.offsetLeft}px)`;
-  }
-  window.addEventListener('resize', positionTabIndicator);
-  // Show how many resources live under each brand tab (respects per-rep visibility).
-  function updateTabCounts() {
-    tabsEl.querySelectorAll('.tab').forEach(t => {
-      const b = t.dataset.brand; if (!b) return;
-      const c = GROUPS.filter(g => g.brand === b).reduce((n, g) => n + g.items.filter(visibleToUser).length, 0);
-      const el = t.querySelector('.tab-count');
-      if (el) el.textContent = c ? String(c) : '';
-    });
-    positionTabIndicator();
-  }
-
-  tabsEl.addEventListener('keydown', e => {
-    if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
-    const i = brandOrder.indexOf(activeBrand);
-    const next = e.key === 'ArrowRight' ? (i + 1) % brandOrder.length : (i - 1 + brandOrder.length) % brandOrder.length;
-    selectBrand(brandOrder[next]);
-    tabsEl.querySelector(`[data-brand="${brandOrder[next]}"]`).focus();
-  });
-  function selectBrand(brand) {
-    if (brand === activeBrand) return;
-    activeBrand = brand;
-    tabsEl.querySelectorAll('.tab').forEach(t => t.setAttribute('aria-selected', t.dataset.brand === brand ? 'true' : 'false'));
-    positionTabIndicator();
-    updateChipAvailability();
-    syncChips();
-    animateNext = true;
-    render();
-  }
-
-  /* ---- RENDER CHIPS ---- */
-  const chipsEl = document.getElementById('chips');
-  CATEGORIES.forEach(c => {
-    const b = document.createElement('button');
-    b.className = 'chip';
-    b.type = 'button';
-    b.textContent = c.label;
-    b.setAttribute('aria-pressed', c.key === activeCat ? 'true' : 'false');
-    b.dataset.cat = c.key;
-    b.addEventListener('click', () => { activeCat = c.key; syncChips(); animateNext = true; render(); });
-    chipsEl.appendChild(b);
-  });
-  function syncChips() {
-    chipsEl.querySelectorAll('.chip').forEach(ch => ch.setAttribute('aria-pressed', ch.dataset.cat === activeCat ? 'true' : 'false'));
-  }
-  function updateChipAvailability() {
-    const brandCats = new Set(GROUPS.filter(g => g.brand === activeBrand).flatMap(g => g.items.map(i => i.category)));
-    if (activeCat !== 'all' && !brandCats.has(activeCat)) activeCat = 'all';
-    chipsEl.querySelectorAll('.chip').forEach(ch => {
-      const k = ch.dataset.cat;
-      ch.disabled = !(k === 'all' || brandCats.has(k));
-    });
-  }
-
-  /* ---- MATCH ---- */
-  // Per-rep visibility: `only` limits an item to listed reps; `except` hides it from listed reps.
-  function visibleToUser(item) {
-    if (item.only && !item.only.includes(currentUser)) return false;
-    if (item.except && item.except.includes(currentUser)) return false;
-    return true;
-  }
-  function matches(item) {
-    if (!visibleToUser(item)) return false;
-    if (activeCat !== 'all' && item.category !== activeCat) return false;
-    if (query) {
-      const hay = (item.name + ' ' + item.kind + ' ' + (item.desc || '') + ' ' + (item.code || '') + ' ' + (CAT_LABEL[item.category] || '')).toLowerCase();
-      if (!hay.includes(query)) return false;
-    }
-    return true;
-  }
-
-  /* ---- RENDER GRID (active brand only; up to two columns) ---- */
-  const gridEl = document.getElementById('resource-grid');
-  const emptyEl = document.getElementById('empty-state');
-  const countEl = document.getElementById('result-count');
-
-  function render() {
-    const groups = GROUPS.filter(g => g.brand === activeBrand);
-    const showExtras = !query && activeCat === 'all'; // group summaries / note cards only in the unfiltered view
-    const visible = groups.map(g => ({ g, items: g.items.filter(matches) })).filter(x => x.items.length || (x.g.note && showExtras));
-    const shown = visible.reduce((n, x) => n + x.items.length, 0);
-    const solo = visible.length === 1;
-
-    gridEl.innerHTML = visible.map(({ g, items }, idx) => {
-      const rows = items.map(it => {
-        if (!it.url) {
-          // no link yet: non-clickable "Coming soon" card (no anchor, no copy button)
-          return `
-          <div class="asset asset-soon${it.emphasis ? ' asset-key' : ''}">
-            <div class="asset-main">
-              <div class="asset-name">${esc(it.name)}${it.flag ? `<span class="key-flag">${esc(it.flag)}</span>` : ''}</div>
-              <div class="asset-desc">${esc(it.desc || '')}</div>
-            </div>
-            <span class="soon-badge">Coming soon</span>
-          </div>`;
-        }
-        const prim = PRIMARY[it.type] || PRIMARY.link;
-        const copyText = it.name + ' — ' + it.url;
-        const parts = [it.kind].concat(it.code ? [it.code] : []).concat(it.password ? ['Password protected'] : []);
-        const meta = parts.map(p => `<span>${esc(p)}</span>`).join('<span class="dot"></span>');
-        const badge = it.new ? '<span class="asset-new">New</span>'
-                    : (it.updated ? '<span class="asset-new asset-upd">Updated</span>' : '');
-        return `
-          <div class="asset">
-            <div class="asset-main">
-              <div class="asset-name">${esc(it.name)}${badge}</div>
-              <div class="asset-meta">${meta}</div>
-            </div>
-            <div class="asset-actions">
-              <a class="act act-primary" href="${esc(it.url)}" target="_blank" rel="noopener" aria-label="${esc(prim.verb)} ${esc(it.name)}">${prim.icon}<span>${esc(prim.verb)}</span></a>
-              ${it.password ? `<button class="act act-copy" type="button" data-copy="${esc(it.password)}" data-toast="Password copied to clipboard" onclick="copyLink(this)" aria-label="Copy password for ${esc(it.name)}">${ICONS.lock}<span class="act-label">Copy password</span></button>` : ''}
-              <button class="act act-copy" type="button" data-copy="${esc(copyText)}" onclick="copyLink(this)" aria-label="Copy link for ${esc(it.name)}">${ICONS.copy}<span class="act-label">Copy link</span></button>
-            </div>
-          </div>`;
-      }).join('');
-      const tag = g.tag ? `<span class="col-tag">${esc(g.tag)}</span>` : '';
-      const desc = g.desc ? `<p class="col-desc">${esc(g.desc)}</p>` : '';
-      const summary = (g.summary && showExtras) ? `<div class="col-summary"><strong>${esc(g.summary.title)}</strong><ul>${g.summary.points.map(p => `<li>${esc(p)}</li>`).join('')}</ul></div>` : '';
-      const note = g.note ? `<div class="col-note"><p>${esc(g.note.text)}</p><button type="button" class="act act-primary" onclick="jumpBrand('${esc(g.note.jump)}')">${esc(g.note.label)}</button></div>` : '';
-      const count = items.length ? `<span class="col-count">${items.length}</span>` : '';
-      return `<div class="col-block${solo ? ' solo' : ''}" style="--i:${idx}"><div class="col-head"><span class="col-title">${esc(g.title)}</span>${tag}<span class="rule"></span>${count}</div>${desc}${summary}${note}<div class="asset-list">${rows}</div></div>`;
-    }).join('');
-
-    gridEl.classList.toggle('animate', animateNext && shown > 0);
-    animateNext = false;
-
-    // Cross-brand search: when a query matches resources under other tabs, surface them
-    // so nothing is invisible just because the rep is on a different brand.
-    const noteEl = document.getElementById('cross-note');
-    let crossTotal = 0;
-    if (query) {
-      const others = brandOrder.filter(b => b !== activeBrand).map(b => ({
-        b, cnt: GROUPS.filter(g => g.brand === b).reduce((n, g) => n + g.items.filter(matches).length, 0)
-      })).filter(x => x.cnt > 0);
-      crossTotal = others.reduce((n, o) => n + o.cnt, 0);
-      if (others.length) {
-        noteEl.innerHTML = `<span>Also matching:</span>` + others.map(o =>
-          `<button type="button" class="cross-jump" onclick="jumpBrand('${o.b}')" aria-label="Show ${o.cnt} matching resources in ${esc(o.b)}">${brandMark(o.b)}<span class="cross-ct">${o.cnt}</span></button>`).join('');
-        noteEl.style.display = 'flex';
-      } else { noteEl.style.display = 'none'; noteEl.innerHTML = ''; }
-    } else { noteEl.style.display = 'none'; noteEl.innerHTML = ''; }
-
-    emptyEl.classList.toggle('visible', shown === 0 && crossTotal === 0);
-    gridEl.style.display = shown === 0 ? 'none' : '';
-
-    const brandTotal = groups.reduce((n, g) => n + g.items.filter(visibleToUser).length, 0);
-    countEl.textContent = (activeCat === 'all' && !query) ? `${brandTotal} resources` : `${shown} of ${brandTotal}`;
-  }
-  function jumpBrand(brand) { selectBrand(brand); }
-
-  /* ---- SEARCH ---- */
-  document.getElementById('asset-search').addEventListener('input', e => {
-    query = e.target.value.trim().toLowerCase();
-    render();
-  });
-
-  function resetFilters() {
-    activeCat = 'all'; query = '';
-    document.getElementById('asset-search').value = '';
-    updateChipAvailability(); syncChips(); animateNext = true; render();
-  }
-
-  /* ---- COPY ---- */
-  function copyLink(btn) {
-    const text = btn.getAttribute('data-copy');
-    const label = btn.querySelector('.act-label');
-    const orig = label ? label.textContent : '';
-    const done = () => {
-      btn.classList.add('copied');
-      if (label) label.textContent = 'Copied';
-      showToast(btn.getAttribute('data-toast') || 'Link copied to clipboard');
-      setTimeout(() => { btn.classList.remove('copied'); if (label) label.textContent = orig; }, 2000);
-    };
-    if (navigator.clipboard && navigator.clipboard.writeText) {
-      navigator.clipboard.writeText(text).then(done).catch(() => fallbackCopy(text, done));
-    } else {
-      fallbackCopy(text, done);
-    }
-  }
   function fallbackCopy(text, done) {
     const ta = document.createElement('textarea');
     ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
@@ -1657,46 +890,12 @@
     toastTimer = setTimeout(() => t.classList.remove('show'), 2200);
   }
 
-  /* ---- LIVE TICKER ---- */
-  const TICKER_BASE = 6725160;        // starting total
-  const TICKER_RATE = 0.021325;       // dollars per second (~$56,043 / 30.4-day month)
-  const tkIntEl = document.getElementById('tk-int');
-  const tkDecEl = document.getElementById('tk-dec');
-  const tickerReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  let tickerStart = null, tickerRAF = null, tickerInterval = null, tkLastInt = '', tkLastDec = '';
-
-  function renderTicker() {
-    const elapsed = (performance.now() - tickerStart) / 1000;
-    const v = TICKER_BASE + elapsed * TICKER_RATE;
-    const whole = Math.floor(v);
-    const cents = Math.floor((v - whole) * 100);
-    const intStr = whole.toLocaleString('en-US');
-    const decStr = '.' + String(cents).padStart(2, '0');
-    if (intStr !== tkLastInt) { tkIntEl.textContent = intStr; tkLastInt = intStr; }
-    if (decStr !== tkLastDec) { tkDecEl.textContent = decStr; tkLastDec = decStr; }
-  }
-  function startTicker() {
-    stopTicker();
-    tickerStart = performance.now();
-    renderTicker();
-    if (tickerReduced) {
-      tickerInterval = setInterval(renderTicker, 1000); // still live, no rapid roll
-    } else {
-      const loop = () => { renderTicker(); tickerRAF = requestAnimationFrame(loop); };
-      tickerRAF = requestAnimationFrame(loop);
-    }
-  }
-  function stopTicker() {
-    if (tickerRAF) cancelAnimationFrame(tickerRAF);
-    if (tickerInterval) clearInterval(tickerInterval);
-    tickerRAF = null; tickerInterval = null;
-  }
-
   /* ---- ACCESS FLOW ---- */
   const PASSWORD = "build"; // case-insensitive; default for everyone
   const USER_PASSWORDS = { jim: "helm", chandler: "helm" }; // per-name overrides, also case-insensitive (partner passwords live in PARTNERS)
   const LS_KEY = "repPortalUser"; // remembers the signed-in rep so they skip login next visit
   const LS_PARTNER = "repPortalPartner"; // remembers which partner experience they unlocked
+
 
   // Shared "you're in" path — used by a fresh login and by a remembered session.
   function enterPortal(name, partner) {
@@ -1707,28 +906,15 @@
       partner = always ? always[0] : null;
     }
     currentPartner = partner;
-    // Ally Program is always first; a partner's own branded tab (if any) comes right after it
-    brandOrder = currentPartner ? [BASE_BRANDS[0], PARTNERS[currentPartner].brand, ...BASE_BRANDS.slice(1)] : BASE_BRANDS.slice();
-    activeBrand = brandOrder[0];
-    Object.entries(PARTNERS).forEach(([k, p]) => { if (p.logoId) document.getElementById(p.logoId).classList.toggle('show', k === currentPartner); });
-    // Ally Drop banner: partners with their own drop path get it; everyone else gets the general drop
-    document.getElementById('drop-banner').href = (currentPartner && PARTNERS[currentPartner].dropUrl) || 'https://drop.slashyourenergycost.com/';
-    buildTabs();
     closeError();
     document.getElementById('pw-error').classList.remove('visible');
     document.getElementById('welcome-name-display').textContent = DISPLAY[name] || cap(name);
-    document.getElementById('login-screen').style.display = 'none';
-    document.getElementById('brands').style.display = 'none';
+    document.getElementById('page').style.display = 'none'; // login card + brand block
     const portal = document.getElementById('portal');
     portal.hidden = false;
     portal.classList.add('active');
-    document.getElementById('page').classList.add('is-portal');
-    renderNews();
-    updateChipAvailability();
-    updateTabCounts();
-    render();
-    requestAnimationFrame(positionTabIndicator);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    renderHub();
+    window.scrollTo(0, 0);
   }
 
   function handleAccess() {
@@ -1768,21 +954,20 @@
   function shake(el) { el.classList.remove('shake'); void el.offsetWidth; el.classList.add('shake'); }
   function cap(s) { return s.charAt(0).toUpperCase() + s.slice(1); }
 
+
   function logout() {
-    stopTicker();
     try { localStorage.removeItem(LS_KEY); localStorage.removeItem(LS_PARTNER); } catch (e) {}
     document.getElementById('name-input').value = '';
     document.getElementById('pw-input').value = '';
     document.getElementById('pw-error').classList.remove('visible');
     closeError();
+    currentUser = ''; currentPartner = null;
     const portal = document.getElementById('portal');
     portal.classList.remove('active');
     portal.hidden = true;
-    document.getElementById('login-screen').style.display = '';
-    document.getElementById('brands').style.display = '';
-    document.getElementById('page').classList.remove('is-portal');
-    resetFilters();
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    document.getElementById('page').style.display = '';
+    resetHub();
+    window.scrollTo(0, 0);
   }
 
   function clearLoginErrors() {
@@ -1815,17 +1000,7 @@
   let reqState = { type: null, variant: '' };
   let reqResources = [];
 
-  function buildResourceList() {
-    const seen = new Set(); const list = [];
-    GROUPS.forEach(g => g.items.forEach(it => {
-      if (!brandOrder.includes(g.brand)) return; // partner tabs stay invisible to everyone else
-      if (!visibleToUser(it) || !it.url) return; // no-link (Coming soon) items can't be requested by URL
-      const key = it.name + '|' + it.url;
-      if (seen.has(key)) return; seen.add(key);
-      list.push({ brand: g.brand, name: it.name, url: it.url });
-    }));
-    return list;
-  }
+  function buildResourceList() { return hubItemsForRequest(); } // every item with a link that this login can see
   function resourceSelectHTML() {
     reqResources = buildResourceList();
     const brands = [];
@@ -1838,8 +1013,9 @@
     return `<select id="req-resource"><option value="">Select a resource…</option>${groups}</select>`;
   }
   function brandSelectHTML() {
+    const cur = hubCurrentBrand();
     const opts = ['Energy Plus', 'Build Plus', 'Harvest Plus']
-      .map(b => `<option value="${esc(b)}"${b === activeBrand ? ' selected' : ''}>${esc(b)}</option>`).join('');
+      .map(b => `<option value="${esc(b)}"${b === cur ? ' selected' : ''}>${esc(b)}</option>`).join('');
     return `<select id="req-brand">${opts}</select>`;
   }
   function variantChipsHTML() {
@@ -1997,6 +1173,421 @@
   }
   requestModal.addEventListener('click', e => { if (e.target === requestModal) closeRequest(); });
   document.addEventListener('keydown', e => { if (e.key === 'Escape' && !requestModal.hidden) closeRequest(); });
+
+  /* ---- ALLY HUB: views, search, item sheet, present mode ---- */
+  (function(){
+const I = {
+  video:'<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l10.5-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5Z"/></svg>',
+  doc:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h6"/></svg>',
+  calc:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8 7h8M8 12h.01M12 12h.01M16 12h.01M8 16h.01M12 16h.01M16 16h.01"/></svg>',
+  web:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg>',
+  form:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 4h6a1 1 0 0 1 1 1v1H8V5a1 1 0 0 1 1-1z"/><path d="M8 5H6a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V6a1 1 0 0 0-1-1h-2"/><path d="m9 14 2 2 4-4"/></svg>',
+  action:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>',
+  home:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M4 11 12 4l8 7v8a1 1 0 0 1-1 1h-5v-6h-4v6H5a1 1 0 0 1-1-1z"/></svg>',
+  learn:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 9 9-5 9 5-9 5z"/><path d="M7 11.5V16c0 1.5 2.5 3 5 3s5-1.5 5-3v-4.5"/></svg>',
+  show:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="1.5"/><path d="M12 16v4M8 20h8"/></svg>',
+  deal:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M3 13h18"/></svg>',
+  rules:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 4 6v6c0 4.5 3.4 8 8 9 4.6-1 8-4.5 8-9V6z"/><path d="m9 12 2 2 4-4"/></svg>',
+  company:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M4 21V5a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v16M14 9h5a1 1 0 0 1 1 1v11M3 21h18M8 8h2M8 12h2M8 16h2"/></svg>',
+  search:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>',
+  chev:'<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg>',
+  left:'<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 6-6 6 6 6"/></svg>',
+  tick:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg>'
+};
+const TYPE = {video:'Video', doc:'Document', calc:'Calculator', web:'Website', form:'Form', action:'Send to us'};
+
+/* ---------- Content: real links from the current hub and the Ally Program Bitly links ---------- */
+const ITEMS = {
+  // Get Started
+  glossary:{t:'Glossary',type:'doc',meta:'The words we use',desc:'Ally, Key Ally, Project Liaison, Mentor, Deal Profit, Collected, the roles on a Deal and the relationship tiers, in plain words.',url:'https://bit.ly/EnergyPlusAllyGlossary',isNew:true,k:'words definitions terms meaning liaison mentor roles tiers introducer closer'},
+  agreement:{t:'Ally Program Agreement',type:'doc',meta:'Read and sign',desc:'The agreement every Energy+ Ally signs.',soon:true,k:'contract sign agreement'},
+
+  // Energy+
+  e_vid:{t:'Your HVAC Savings',type:'video',meta:'Video',desc:'Short video on what HVAC savings look like for a building owner.',url:'https://bit.ly/HVAC_savings',show:true,k:'hvac video savings'},
+  e_one:{t:'HVAC Master One-Pager',type:'doc',meta:'One-page handout',desc:'The single page to leave behind after a meeting.',url:'https://bit.ly/hvac-onepager',show:true,k:'hvac one pager handout'},
+  e_calc:{t:'Energy+ Overspend Calculator',type:'calc',meta:'Calculator',desc:'Enter a monthly bill and see the likely overspend.',url:'https://bit.ly/overspendcalc',show:true,k:'calculator overspend savings estimate'},
+  e_site:{t:'Energy Savings',type:'web',meta:'Website',desc:'The main Energy+ savings site for clients.',url:'https://slashyourenergycost.com',show:true,except:['pepper','raul'],k:'website energy'},
+  e_site_c:{t:'Commercial Savings',type:'web',meta:'Website',desc:'The Commercial Savings site for clients.',url:'https://bit.ly/commercial-savings',show:true,only:['pepper','raul'],k:'website commercial savings'},
+  e_suncore:{t:'SunCore',type:'doc',meta:'Product data sheet',desc:'Specs for the SunCore unit.',url:'https://bit.ly/suncore-datasheet',show:true,k:'suncore spec datasheet hvac'},
+  e_cryo1:{t:'CryogenX4',type:'doc',meta:'Product data sheet',desc:'Specs for CryogenX4.',url:'https://bit.ly/cryogenx4-datasheet',show:true,k:'cryogenics cryogenx4 spec'},
+  e_cryo2:{t:'CryogenX4 Overview',type:'doc',meta:'One-page handout',desc:'Plain overview of what CryogenX4 does.',url:'https://bit.ly/cryox4',show:true,k:'cryogenics cryogenx4'},
+  e_opt1:{t:'HVAC Optimizer Data Sheet',type:'doc',meta:'Product data sheet',desc:'Specs for the HVAC Optimizer.',url:'https://bit.ly/HVACOptDataSheet',show:true,k:'optimizer hvac spec'},
+  e_opt2:{t:'HVAC Optimizer: 150 Studies',type:'doc',meta:'Results',desc:'Measured results from installed sites.',url:'https://bit.ly/HVACO150',show:true,k:'optimizer studies results proof'},
+  e_opt3:{t:'Installation & Demo Guide',type:'doc',meta:'Guide',desc:'For installers and facility teams.',url:'https://bit.ly/HVACOptInstallGuide',show:true,k:'optimizer install demo guide'},
+  e_master:{t:'Verified Energy Savings: Master Record',type:'doc',meta:'Proof',desc:'Every verified savings result in one record.',url:'https://bit.ly/verified-results',show:true,k:'verified proof results record'},
+  e_hotelv:{t:'Hotel / Hospitality: Verified Savings',type:'doc',meta:'Proof',desc:'Verified savings from hotel projects.',url:'https://bit.ly/hotel-cs-savings',show:true,k:'hotel verified proof'},
+  e_super:{t:'Supermarkets Energy Savings',type:'web',meta:'Website · industry page',desc:'Page written for grocery and supermarket owners.',url:'https://bit.ly/supermarket-energy',show:true,k:'supermarket grocery industry'},
+  e_hotel:{t:'Hotel Energy Savings',type:'web',meta:'Website · industry page',desc:'Page written for hotel owners and managers.',url:'https://bit.ly/hotels-energy',show:true,k:'hotel industry'},
+  e_solar:{t:'Solar Partners',type:'web',meta:'Website',desc:'For solar companies working with Energy+.',url:'https://bit.ly/solar-vendor',show:true,k:'solar'},
+  e_platform:{t:'Partner Platform',type:'web',meta:'Website',desc:'The yourenergyplus.com platform site.',url:'https://yourenergyplus.com',show:true,k:'platform'},
+
+  // Build+
+  b_vid:{t:'In-Place Video',type:'video',meta:'Video',desc:'What In-Place BaseGrade is, in a few minutes.',url:'https://bit.ly/in-place-vid',show:true,k:'basegrade inplace build video'},
+  b_vid_es:{t:'In-Place Video (Español)',type:'video',meta:'Video · Spanish',desc:'The same video in Spanish.',url:'https://bit.ly/inplace-spanish',show:true,k:'basegrade inplace spanish espanol video'},
+  b_over:{t:'In-Place: New Ground',type:'doc',meta:'Overview',desc:'The summary to share with an owner or engineer.',url:'https://bit.ly/inplace-clay',show:true,k:'basegrade inplace overview'},
+  b_calc:{t:'Materials Calculator',type:'calc',meta:'Calculator',desc:'Estimate materials and savings for a site.',url:'https://bit.ly/InPlaceCalculate',show:true,k:'basegrade inplace calculator materials'},
+  b_site:{t:'In-Place BaseGrade Website',type:'web',meta:'Website',desc:'The client-facing BaseGrade page.',url:'https://bit.ly/InPlaceLP',show:true,k:'basegrade inplace website landing'},
+  b_assume:{t:'Calculator Assumptions',type:'doc',meta:'Reference',desc:'The numbers behind the Materials Calculator.',url:'https://bit.ly/InPlaceC_Assumptions',show:true,k:'basegrade calculator assumptions'},
+  b_tech:{t:'Technical Overview',type:'doc',meta:'For engineers',desc:'Engineering detail on In-Place BaseGrade.',url:'https://bit.ly/inplace-tech',show:true,k:'basegrade technical engineering'},
+  b_brief:{t:'Technical Results Brief',type:'doc',meta:'For engineers',desc:'Test results in a short brief.',url:'https://bit.ly/InPlaceTechnicalBrief',show:true,isNew:true,k:'basegrade technical results brief'},
+  b_eng:{t:'Engineer Data Sheet',type:'doc',meta:'For engineers',desc:'The data sheet engineers ask for.',url:'https://bit.ly/InPlaceEngineerDataSheet',show:true,isNew:true,k:'basegrade engineer data sheet spec'},
+  b_cement:{t:'Cement Savings Sell Sheet',type:'doc',meta:'One-page handout',desc:'How much cement In-Place saves.',url:'https://bit.ly/InPlaceCementSavings',show:true,isNew:true,k:'basegrade cement savings'},
+  b_study:{t:'In-Place Cement Study',type:'doc',meta:'Study',desc:'The cement study behind the savings.',url:'https://bit.ly/inplace-concrete',show:true,k:'basegrade cement concrete study'},
+  b_case:{t:'Cerro Colorado, Peru',type:'doc',meta:'Case study',desc:'A finished In-Place project, start to end.',url:'https://bit.ly/inplace-cerro-peru',show:true,k:'basegrade case study peru proof'},
+  b_vault:{t:'Data Vault',type:'web',meta:'Website · password needed',desc:'Diligence files for serious buyers. Tap Copy password, then paste it when the site asks.',url:'https://bit.ly/4aCb94g',pw:true,k:'vault diligence password'},
+
+  // Harvest+
+  h_farm:{t:'Harvest+ Vertical Farming',type:'web',meta:'Website',desc:'Harvest+ vertical farming for clients.',url:'https://bit.ly/HarvestPlusFarms',show:true,k:'farming vertical harvest'},
+  h_aqua:{t:'AquAlign',type:'web',meta:'Website',desc:'The AquAlign program page.',url:'https://bit.ly/AquAlign',show:true,k:'aqualign water harvest'},
+
+  // Ground Truth
+  g_site:{t:'Ground Truth Investor Page',type:'web',meta:'Website · for investors',desc:'The Venture Studio page for investors.',url:'https://bit.ly/Ground-Truth',show:true,k:'venture studio investor ground truth'},
+  g_one:{t:'Ground Truth One-Pager',type:'doc',meta:'One-page handout',desc:'One page on the Venture Studio and how it works.',url:'https://bit.ly/gt-one-pager',show:true,k:'venture studio one pager ground truth'},
+
+  // Work a Deal
+  d_files:{t:'Send us project files',type:'action',meta:'Ally Drop',desc:'Drop in plans, bills and site photos. We turn them into a proposal and quote.',url:'https://drop.slashyourenergycost.com/',k:'files upload drop plans send'},
+  d_bill:{t:'Get the power bill pulled',type:'action',meta:'Bill Audit',desc:'Send your client this link. It pulls their utility bill for us, no paperwork.',url:'https://bit.ly/EnergyPlusBillAudit',share:true,k:'bill audit utility power'},
+  d_reg:{t:'Register a Deal',type:'form',meta:'Form',desc:'Register each Deal with Energy+ before work begins.',soon:true,k:'register deal'},
+  d_formA:{t:'Form A: Relationship Declaration',type:'form',meta:'Required with every Deal',desc:'Tell us how you know the client. If it is missing, all payouts on that Deal can be put on hold.',url:'https://bit.ly/EnergyPlusFormAV2',must:true,isNew:true,k:'form a declaration relationship disclosure conflict'},
+  d_formB:{t:'Form B: Employer Consent',type:'form',meta:'When the Agreement calls for it',desc:'Written consent from an employer, when your situation needs it.',url:'https://bit.ly/EnergyPlusFormBV2',isNew:true,k:'form b employer consent'},
+  d_exhibit:{t:'Conflicts and Disclosure Exhibit',type:'doc',meta:'Part of the Agreement',desc:'The rules for conflicts of interest and what you disclose.',url:'https://bit.ly/EnergyPlusConflictsExhibitV2',isNew:true,k:'conflict disclosure exhibit'},
+  d_client:{t:'Client Disclosure Clause',type:'doc',meta:'Goes to the client',desc:'The disclosure wording the client sees.',url:'https://bit.ly/EnergyPlusClientDisclosureV2',isNew:true,k:'client disclosure clause'},
+  d_pack:{t:'Compliance Pack',type:'doc',meta:'All forms in one file',desc:'Form A, Form B, the exhibit and the client clause together.',url:'https://bit.ly/EnergyPlusAllyCompliance',isNew:true,k:'compliance pack forms'},
+  d_req:{t:'Ask us for something',type:'action',meta:'Request a resource',desc:'Need a document or page we do not have yet? Tell us here.',k:'request help ask'},
+  d_dan:{t:'Leave Dan a voice message',type:'action',meta:'Talk to Dan',desc:'Record a quick message on Telegram. Dan gets it on his phone.',url:'https://t.me/danknowsaguy',k:'dan help voice call telegram'},
+
+  // Rules & Pay
+  r_paid:{t:'How You Get Paid',type:'doc',meta:'Pay 1 · Overview',desc:'You earn a share of Deal Profit, paid about 7 days after the funds are Collected, with a statement every time.',url:'https://bit.ly/EnergyPlusAllyPay',isNew:true,k:'pay paid money commission earn payout statement overview'},
+  r_rate:{t:'Rate Table',type:'doc',meta:'Pay 2 · What each role earns',desc:'The share for each role on a Deal, and the Closer bonuses.',url:'https://bit.ly/EnergyPlusAllyRates',isNew:true,k:'pay money commission rate schedule earn percent bonus'},
+  r_ex:{t:'Pay Examples',type:'doc',meta:'Pay 3 · Worked examples',desc:'Sample Deals worked through from Collected funds to your share.',url:'https://bit.ly/EnergyPlusAllyExamples',isNew:true,k:'pay money commission examples'},
+  r_full:{t:'Ally Pay: Full Handout',type:'doc',meta:'All three in one file',desc:'Overview, rate table and examples together.',url:'https://bit.ly/EnergyPlusAllyPayFull',k:'pay money commission handout full'},
+  r_abp:{t:'Anti-Bribery Policy',type:'doc',meta:'Policy · ABMS-001',desc:'Our anti-bribery policy under ISO 37001.',url:'https://bit.ly/anti-bribery_',k:'bribe bribery gift policy iso'},
+  r_gov:{t:'Government Official Due Diligence',type:'doc',meta:'Due diligence · ABMS-002',desc:'Extra steps when a public official is involved.',url:'https://bit.ly/due-diligence_',k:'government official public bribe'},
+  r_gift:{t:'Gifts & Hospitality Register',type:'doc',meta:'Register · ABMS-004',desc:'Log any gift or hospitality given or received.',url:'https://bit.ly/commission-gifts-reg',k:'gift hospitality meal register'},
+  r_key:{t:'Key Ally Status',type:'doc',meta:'Recognition',desc:'Non-cash benefits for top-producing Allies.',soon:true,k:'key ally status benefits'},
+  r_mentor:{t:'Mentor Program',type:'doc',meta:'Grow the team',desc:'Bring in a new Ally and support them as their Mentor.',soon:true,k:'mentor recruit'},
+
+  // ISO certifications
+  i1:{t:'Information Security Policy',type:'doc',meta:'ISMS-001',url:'https://bit.ly/info-security_',desc:'ISO 27001.',k:'iso security'},
+  i2:{t:'ISMS Scope Document',type:'doc',meta:'ISMS-002',url:'https://bit.ly/ISMS-Scope',desc:'ISO 27001.',k:'iso security scope'},
+  i3:{t:'Asset Inventory & Risk Register',type:'doc',meta:'ISMS-003',url:'https://bit.ly/inventory-risk-register',desc:'ISO 27001.',k:'iso security risk'},
+  i4:{t:'Access Control Policy',type:'doc',meta:'ISMS-004',url:'https://bit.ly/access-control_',desc:'ISO 27001.',k:'iso security access'},
+  i5:{t:'Incident Response Procedure',type:'doc',meta:'ISMS-005',url:'https://bit.ly/incident-response_',desc:'ISO 27001.',k:'iso security incident'},
+  i6:{t:'Data Retention & Deletion Policy',type:'doc',meta:'ISMS-006',url:'https://bit.ly/Data-Retention-Deletion',desc:'ISO 27001.',k:'iso security data retention'},
+  i7:{t:'Statement of Applicability',type:'doc',meta:'ISMS-007',url:'https://bit.ly/isms-statement-applicability',desc:'ISO 27001.',k:'iso security'},
+  q1:{t:'Quality Policy',type:'doc',meta:'QMS-001',url:'https://bit.ly/Quality-Policy_',desc:'ISO 9001.',k:'iso quality'},
+  q2:{t:'Scope Document',type:'doc',meta:'QMS-002',url:'https://bit.ly/scope-doc',desc:'ISO 9001.',k:'iso quality scope'},
+  q3:{t:'Risk Register',type:'doc',meta:'QMS-003',url:'https://bit.ly/risk-register_',desc:'ISO 9001.',k:'iso quality risk'},
+  q4:{t:'Roles & Responsibilities',type:'doc',meta:'QMS-004',url:'https://bit.ly/Roles-Responsibilities_',desc:'ISO 9001.',k:'iso quality roles'},
+  q5:{t:'Process Map',type:'doc',meta:'QMS-005',url:'https://bit.ly/process-map_',desc:'ISO 9001.',k:'iso quality process'},
+  q6:{t:'Corrective Action Log',type:'doc',meta:'QMS-006',url:'https://bit.ly/Corrective-Action-Log',desc:'ISO 9001.',k:'iso quality corrective'},
+
+  // CPL
+  c_com:{t:'CPL Commercial',type:'web',meta:'Website · CPL',desc:'Commercial savings page for CPL clients.',url:'https://slashyourenergycost.com/cpl/',show:true,co:'cpl',k:'cpl commercial'},
+  c_hot:{t:'CPL Hotels',type:'web',meta:'Website · CPL',desc:'Hotel savings page for CPL clients.',url:'https://slashyourenergycost.com/hotel-cpl/',show:true,co:'cpl',k:'cpl hotel'},
+  c_sed:{t:"CPL Sedano's Supermarkets",type:'web',meta:'Website · CPL',desc:"The Sedano's supermarket page.",url:'https://slashyourenergycost.com/supermarket/sedanos-cpl/',show:true,co:'cpl',k:'cpl sedanos supermarket'},
+  c_dc:{t:'CPL Data Centers',type:'web',meta:'Website · CPL',desc:'Data center savings page.',url:'https://slashyourenergycost.com/cpl-datacenter/',show:true,co:'cpl',k:'cpl data center'},
+  c_vin:{t:'The Vineta Hotel',type:'doc',meta:'Prepared proposal',desc:'Proposal prepared for The Vineta.',url:'https://slashyourenergycost.com/cpl/thevineta/',show:true,co:'cpl',k:'cpl vineta proposal'},
+  c_wil:{t:'Willis Custom Yachts',type:'doc',meta:'Prepared proposal',desc:'Proposal prepared for Willis Custom Yachts.',url:'https://slashyourenergycost.com/cpl/williscustomyachts/',show:true,co:'cpl',k:'cpl willis yachts proposal'},
+  c_est:{t:'CPL Savings Estimator',type:'calc',meta:'Calculator · CPL',desc:'The CPL-branded savings estimator.',url:'https://slashyourenergycost.com/cpl-hvac-calculator/',show:true,co:'cpl',k:'cpl calculator estimator'},
+  c_drop:{t:'Ally Drop for CPL',type:'action',meta:'Send us files',desc:'Your own file drop for CPL projects.',url:'https://drop.slashyourenergycost.com/cpl',co:'cpl',k:'cpl files drop'},
+
+  // Redstone
+  rs_lan:{t:"Landry's / Saltgrass Energy Pilot",type:'doc',meta:'Prepared proposal',desc:"The pilot proposal for Landry's and Saltgrass.",url:'https://slashyourenergycost.com/redstone-landrys/',show:true,co:'redstone',k:'redstone landrys saltgrass pilot proposal'},
+  rs_calc:{t:'Redstone HVAC Savings Calculator',type:'calc',meta:'Calculator · Redstone',desc:'The Redstone-branded HVAC calculator.',url:'https://slashyourenergycost.com/redstone-calculator/',show:true,co:'redstone',k:'redstone calculator hvac'},
+  rs_drop:{t:'Ally Drop for Redstone',type:'action',meta:'Send us files',desc:'Your own file drop for Redstone projects.',url:'https://drop.slashyourenergycost.com/redstone',co:'redstone',k:'redstone files drop'},
+
+  // Maxari
+  m_drop:{t:'Ally Drop for Maxari',type:'action',meta:'Send us files',desc:'Your own file drop for Maxari projects.',url:'https://drop.slashyourenergycost.com/',co:'maxari',k:'maxari files drop'}
+};
+
+const PROGRAMS = [
+  {id:'energy',wm:'Energy<i>+</i>',name:'Energy+',brand:'Energy Plus',line:'Cut a building’s energy bill: HVAC, cryogenics, solar.',ess:['e_vid','e_one','e_calc','e_site','e_site_c'],
+    more:[['Proof that it works',['e_master','e_hotelv','e_opt2']],['HVAC',['e_suncore']],['Cryogenics',['e_cryo1','e_cryo2']],['HVAC Optimizer',['e_opt1','e_opt3']],['Industry pages',['e_super','e_hotel','e_solar','e_platform']]]},
+  {id:'build',wm:'Build<i>+</i>',name:'Build+',brand:'Build Plus',line:'Groundwork: In-Place BaseGrade for roads, lots and pads.',ess:['b_vid','b_over','b_calc','b_site'],
+    more:[['Proof that it works',['b_case','b_study','b_cement']],['For engineers',['b_tech','b_brief','b_eng','b_assume']],['More',['b_vid_es','b_vault']]]},
+  {id:'harvest',wm:'Harvest<i>+</i>',name:'Harvest+',brand:'Harvest Plus',line:'Provision: vertical farming and AquAlign.',ess:['h_farm','h_aqua'],more:[]},
+  {id:'gt',wm:'Ground Truth',name:'Ground Truth Venture Studio',brand:'Ground Truth Venture Studio',line:'For investors: what the Venture Studio builds and why.',ess:['g_site','g_one'],more:[]}
+];
+
+/* Company doors. Keys match PARTNERS keys; the logged-in partner (currentPartner) decides which one shows. */
+const COMPANIES = {
+  cpl:{name:'CPL',line:'Your CPL pages, proposals, estimator and file drop.',pages:['c_com','c_hot','c_sed','c_dc'],props:['c_vin','c_wil'],tools:['c_est'],drop:'c_drop'},
+  redstone:{name:'Redstone',line:'Your Redstone proposal, calculator and file drop.',pages:[],props:['rs_lan'],tools:['rs_calc'],drop:'rs_drop'},
+  maxari:{name:'Maxari',line:'Your Maxari file drop.',pages:[],props:[],tools:[],drop:'m_drop'}
+};
+
+const NEW_WEEK = ['glossary','r_paid','r_rate','d_formA'];
+const SYN = {pay:'pay',paid:'pay',money:'pay',commission:'pay',commissions:'pay',earn:'pay',payout:'pay',bribe:'bribe',bribery:'bribe',gift:'gift',gifts:'gift',contract:'contract',words:'words',definition:'words',definitions:'words',hvac:'hvac',bill:'bill',files:'files',upload:'files'};
+
+/* ---------- State ---------- */
+const S = {view:'home', prog:null, q:''};
+const myCo = () => (currentPartner && COMPANIES[currentPartner]) ? COMPANIES[currentPartner] : null;
+const userName = () => DISPLAY[currentUser] || cap(currentUser || 'friend');
+/* Per-person and per-partner visibility: co = that partner only; only/except = named users (the pepper/raul rule). */
+function vis(id){
+  const it = ITEMS[id];
+  if (it.co && it.co !== currentPartner) return false;
+  if (it.only && !it.only.includes(currentUser)) return false;
+  if (it.except && it.except.includes(currentUser)) return false;
+  return true;
+}
+
+const NAV = [
+  {id:'home',label:'Home',ic:'home'},
+  {id:'start',label:'Get Started',short:'Start',ic:'learn'},
+  {id:'show',label:'Show a Client',short:'Show',ic:'show'},
+  {id:'deal',label:'Work a Deal',short:'Deals',ic:'deal'},
+  {id:'rules',label:'Rules & Pay',short:'Rules',ic:'rules'}
+];
+
+const app = document.getElementById('app');
+const layer = document.getElementById('layer');
+const hesc = s => String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+function tags(it){
+  let h='';
+  if(it.must) h+='<span class="tag req">Required</span>';
+  if(it.isNew) h+='<span class="tag new">New</span>';
+  if(it.soon) h+='<span class="tag soon">Soon</span>';
+  return h;
+}
+function row(id){
+  if(!vis(id)) return '';
+  const it=ITEMS[id];
+  return `<li><button type="button" class="row${it.must?' must':''}" data-item="${id}">
+    <span class="thumb t-${it.type}">${I[it.type]}</span>
+    <span class="t"><span class="ttl">${hesc(it.t)}${tags(it)}</span><span class="meta">${hesc(it.meta)}</span></span>${I.chev}</button></li>`;
+}
+function panel(title,sub,ids,extra){
+  const rows = ids.map(row).join('');
+  if(!rows) return '';
+  return `<section class="panel"><div class="panel-h"><h3>${hesc(title)}</h3>${sub?`<p>${hesc(sub)}</p>`:''}</div>${extra||''}<ul class="rows">${rows}</ul></section>`;
+}
+function card(id,kicker){
+  if(!vis(id)) return '';
+  const it=ITEMS[id];
+  return `<button type="button" class="tile" data-item="${id}">
+    <span class="big t-${it.type}">${I[it.type]}</span>
+    ${kicker?`<span class="kicker">${hesc(kicker)}</span>`:''}
+    <span class="ttl">${hesc(it.t)}${tags(it)}</span><span class="meta">${hesc(it.meta)}</span></button>`;
+}
+function pageHead(title,sub,back){
+  return `${back?`<button type="button" class="back" data-go="${back[0]}">${I.left}${hesc(back[1])}</button>`:''}
+    <div class="page-h"><h1>${title}</h1>${sub?`<p>${hesc(sub)}</p>`:''}</div>`;
+}
+function door(id,ic,title,line,cls){
+  return `<button type="button" class="door ${cls||''}" data-go="${id}"><span class="ic">${I[ic]}</span><span class="t"><h2>${hesc(title)}</h2><p>${hesc(line)}</p></span>${I.chev}</button>`;
+}
+
+/* ---------- What's New & Next + Ally Level (kept from the previous hub, restyled) ---------- */
+function newsHTML(){
+  const counts = {}; RM_ORDER.forEach(s => counts[s] = ROADMAP.filter(r => r.status === s).length);
+  const toggle = RM_ORDER.map(s =>
+    `<button class="rm-tab" type="button" data-rm="${s}" aria-pressed="${s === roadmapFilter}">${hesc(RM_STATUS[s].label)}${counts[s] ? `<span class="rm-ct">${counts[s]}</span>` : ''}</button>`
+  ).join('');
+  let items = ROADMAP.filter(r => r.status === roadmapFilter);
+  if (roadmapFilter === 'requested') items = items.slice().sort((a, b) => (b.votes || 0) - (a.votes || 0));
+  const list = items.length ? roadmapListHTML(items) : `<div class="rm-empty">Nothing here right now. Check back soon.</div>`;
+  return `<div class="panel-h"><h3>What's New &amp; Next</h3></div><div class="rm-toggle">${toggle}</div><div id="news-list">${list}</div>`;
+}
+function tierHTML(){
+  return `<div class="panel-h"><h3>Your Ally Level</h3></div><div class="tier-wrap">
+    <div class="tier-row active"><div class="tier-node">1</div><div class="tier-card"><div class="tier-top"><span class="tier-title">Field Ally</span><span class="tier-badge current">Your Level</span></div>
+      <div class="tier-desc">Full access to core marketing materials and technical data. You are equipped to bring Energy Plus, Build Plus, and Harvest Plus solutions to market.</div></div></div>
+    <div class="tier-row locked"><div class="tier-node">2</div><div class="tier-card"><div class="tier-top"><span class="tier-title">Certified Ally</span><span class="tier-badge locked-badge">Locked</span></div>
+      <div class="tier-desc">Minimum revenue threshold. Grants access to our extended technology portfolio and advanced sales resources.</div></div></div>
+    <div class="tier-row locked"><div class="tier-node">3</div><div class="tier-card"><div class="tier-top"><span class="tier-title">Portfolio Ally</span><span class="tier-badge locked-badge">Locked</span></div>
+      <div class="tier-desc">Includes preferential terms and participation in company-wide profit distribution.</div></div></div>
+  </div>`;
+}
+
+/* ---------- Views ---------- */
+const V = {
+  home(){
+    const co=myCo();
+    return `<div class="page-h"><h1>Good to see you, ${hesc(userName())}.</h1><p>What do you need today?</p></div>
+      <div class="search">${I.search}<input id="q" type="search" placeholder="Search: pay, HVAC video, Form A…" value="${hesc(S.q)}" aria-label="Search everything" autocomplete="off" spellcheck="false">${S.q?'<button type="button" class="clear" id="qclear">Clear</button>':''}</div>
+      <div id="results"></div>
+      <div id="homebody">
+        <div class="doors">
+          ${co?door('company','company','Your Company: '+co.name,co.line,'company'):''}
+          ${door('start','learn','Get Started','The four things to read first. Full training coming soon.')}
+          ${door('show','show','Show a Client','Videos, handouts and calculators for every program.')}
+          ${door('deal','deal','Work a Deal','Send files, pull a bill, Form A and the Deal paperwork.')}
+          ${door('rules','rules','Rules & Pay','How you get paid, the rules, and the words we use.')}
+        </div>
+        <div class="sec-h"><h2>New for Allies</h2><span>${NEW_WEEK.filter(vis).length} items</span></div>
+        <div class="strip">${NEW_WEEK.map(id=>card(id)).join('')}</div>
+        <div class="sec-h"><h2>More for you</h2></div>
+        <div class="overview">
+          <section class="panel" id="news-panel">${newsHTML()}</section>
+          <section class="panel tier-panel">${tierHTML()}</section>
+        </div>
+      </div>`;
+  },
+  start(){
+    return pageHead('Get Started','New to the Ally Program? Read these four first.',['home','Home'])+
+      panel('Read these first','The words we use, how pay works, and the form that goes with every Deal.',['glossary','r_paid','d_formA','d_pack'])+
+      `<div class="empty" style="margin-top:16px"><b>Coming soon: the full onboarding program.</b><br>Welcome video, first-week steps and training videos. We will text every Ally when it is ready.</div>`;
+  },
+  show(){
+    return pageHead('Show a Client','Pick a program. Each one starts with the basics: a video, a handout, a calculator and the website.',['home','Home'])+
+      `<div class="cards kits" style="grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr))">${PROGRAMS.map(p=>`<button type="button" class="kit" data-prog="${p.id}">
+        <span class="wm">${p.wm}</span><p>${hesc(p.line)}</p><span class="cnt">${p.ess.filter(vis).length+p.more.reduce((a,m)=>a+m[1].filter(vis).length,0)} items ›</span></button>`).join('')}</div>`;
+  },
+  program(){
+    const p=PROGRAMS.find(x=>x.id===S.prog);
+    return pageHead(p.name,p.line,['show','All programs'])+
+      `<div class="sec-h" style="margin-top:0"><h2>Start with these</h2><span>Tap one, then Present or Share</span></div>
+      <div class="cards">${p.ess.map(id=>card(id,TYPE[ITEMS[id].type])).join('')}</div>
+      ${p.more.length?`<div class="sec-h"><h2>More on ${hesc(p.name)}</h2></div><div class="two">${p.more.map(m=>panel(m[0],'',m[1])).join('')}</div>`:''}`;
+  },
+  deal(){
+    const co=myCo(); const files = co ? co.drop : 'd_files';
+    return pageHead('Work a Deal','Everything you send us, and the paperwork for each Deal.',['home','Home'])+
+      `<div class="two">${panel('Send us something','We take it from there.',[files,'d_bill'])}
+       ${panel('Paperwork for every Deal','Register the Deal. Form A goes with it.',['d_reg','d_formA','d_formB'])}</div>
+      <div class="gap16"></div>
+      <div class="two">${panel('Disclosure documents','What the Agreement asks you to disclose, and what the client sees.',['d_exhibit','d_client','d_pack'])}
+      <div>${panel('Tools','Run the numbers with a client.',co?co.tools.concat('e_calc'):['e_calc','b_calc'])}<div class="gap16"></div>${panel('Need help?','We answer fast.',['d_req','d_dan'])}</div></div>`;
+  },
+  rules(){
+    return pageHead('Rules & Pay','How you get paid, the rules every Ally follows, and the words we use.',['home','Home'])+
+      `<div class="two">${panel('How pay works','You earn a share of Deal Profit, paid about 7 days after funds are Collected.',['r_paid','r_rate','r_ex','r_full'])}
+      <div>${panel('Your agreement and the words we use','Same words, same meaning, every time.',['agreement','glossary','d_exhibit'])}</div></div>
+      <div class="gap16"></div>
+      <div class="two">${panel('Conduct & anti-bribery','Three rules, no exceptions.',['r_abp','r_gov','r_gift'],
+        `<ul class="rules"><li>Never misstate savings or figures. Use only the numbers Energy+ gives you.</li><li>Never give anything of value to a public official.</li><li>Before you register a Deal, tell us in writing about any public office you hold or any personal interest in the client.</li></ul>`)}
+      <div>${panel('Growing with us','Recognition and helping new Allies.',['r_key','r_mentor'])}
+      <div class="gap16"></div>
+      <section class="panel"><details class="more"><summary>Company certifications: Information Security (ISO 27001)</summary><ul class="rows">${['i1','i2','i3','i4','i5','i6','i7'].map(row).join('')}</ul></details>
+      <details class="more"><summary>Company certifications: Quality (ISO 9001)</summary><ul class="rows">${['q1','q2','q3','q4','q5','q6'].map(row).join('')}</ul></details></section></div></div>`;
+  },
+  company(){
+    const co=myCo();
+    const pages = co.pages.length ? `<div class="sec-h" style="margin-top:0"><h2>Client pages</h2></div><div class="cards">${co.pages.map(id=>card(id,'Website')).join('')}</div><div class="gap16"></div>` : '';
+    const props = co.props.length ? panel('Prepared proposals','Ready to share with these clients.',co.props) : '';
+    const tools = co.tools.length ? panel('Tools','Run the numbers with a client.',co.tools) : '';
+    const drop = panel('Send us files','Plans, bills and site photos.',[co.drop]);
+    const right = tools + (tools ? '<div class="gap16"></div>' : '') + drop;
+    return pageHead('Your Company: '+co.name,co.line,['home','Home'])+ pages +
+      (props ? `<div class="two">${props}<div>${right}</div></div>` : `<div class="two"><div>${right}</div></div>`);
+  }
+};
+
+function render(focus){
+  if(S.view==='company' && !myCo()) S.view='home';
+  const v=S.view;
+  app.innerHTML = V[v]();
+  const active = v==='program'?'show':(v==='company'?'home':v);
+  const navHtml = (short)=>NAV.map(n=>`<button type="button" data-go="${n.id}"${n.id===active?' aria-current="page"':''}>${short?I[n.ic]:''}${hesc(short?(n.short||n.label):n.label)}</button>`).join('');
+  document.getElementById('tabs').innerHTML = navHtml(false);
+  document.getElementById('bottom').innerHTML = navHtml(true);
+  if(v==='home'){ bindSearch(); if(S.q) runSearch(); if(focus==='q'){const q=document.getElementById('q');q.focus();q.setSelectionRange(q.value.length,q.value.length);} }
+}
+function go(v){ S.view=v; if(v!=='home') S.q=''; render(); window.scrollTo(0,0); app.focus({preventScroll:true}); }
+
+/* ---------- Search ---------- */
+function bindSearch(){
+  const q=document.getElementById('q');
+  q.addEventListener('input',()=>{S.q=q.value;runSearch();
+    const c=document.getElementById('qclear');
+    if(S.q&&!c){q.insertAdjacentHTML('afterend','<button type="button" class="clear" id="qclear">Clear</button>')}
+    if(!S.q&&c)c.remove();});
+}
+function runSearch(){
+  const res=document.getElementById('results'), body=document.getElementById('homebody');
+  const words=S.q.toLowerCase().split(/\s+/).filter(Boolean);
+  if(!words.length){res.innerHTML='';body.hidden=false;return;}
+  const pool=Object.keys(ITEMS).filter(vis);
+  const hits=pool.filter(id=>{const it=ITEMS[id];const hay=(it.t+' '+it.meta+' '+it.desc+' '+it.k+' '+TYPE[it.type]).toLowerCase();
+    return words.every(w=>hay.includes(w)||(SYN[w]&&hay.includes(SYN[w])));});
+  body.hidden=true;
+  res.innerHTML = hits.length
+    ? `<section class="panel" style="margin-bottom:20px"><div class="panel-h"><h3>${hits.length} result${hits.length>1?'s':''} for “${hesc(S.q)}”</h3></div><ul class="rows">${hits.slice(0,12).map(row).join('')}</ul></section>`
+    : `<div class="empty" style="margin-bottom:20px"><b>Nothing found for “${hesc(S.q)}”.</b><br>Try a simpler word like “pay”, “video” or “HVAC”, or tap “Ask us for something” under Work a Deal.</div>`;
+}
+
+/* ---------- Sheet, share, present ---------- */
+let lastFocus=null;
+function copyText(text,okMsg){
+  const done=()=>showToast(okMsg);
+  if(navigator.clipboard&&navigator.clipboard.writeText) navigator.clipboard.writeText(text).then(done).catch(()=>fallbackCopy(text,done));
+  else fallbackCopy(text,done);
+}
+function openSheet(id){
+  const it=ITEMS[id]; lastFocus=document.activeElement;
+  const verb={video:'Watch the video',doc:'Open the document',calc:'Open the calculator',web:'Open the website',form:'Open the form',action:'Open'}[it.type];
+  const canShare = it.url && (it.show || it.share);
+  const msg = encodeURIComponent(it.t+': '+(it.url||''));
+  layer.innerHTML=`<div class="scrim" id="scrim"><div class="sheet" role="dialog" aria-modal="true" aria-labelledby="sh-t">
+    <div class="grab"></div>
+    <div class="hero t-${it.type}">${I[it.type]}</div>
+    <h2 id="sh-t">${hesc(it.t)}</h2><div class="meta">${hesc(it.meta)}${tags(it)}</div>
+    <p class="desc">${hesc(it.desc)}</p>
+    ${it.soon?`<div class="note"><b>Not ready yet.</b> We are finishing this one and will text every Ally when it is up.</div>`:''}
+    <div class="acts">
+      ${it.url?`<a class="btn" href="${hesc(it.url)}" target="_blank" rel="noopener">${verb}</a>`:''}
+      ${it.pw?`<button type="button" class="btn ghost" id="sh-pw">Copy password</button>`:''}
+      ${it.show&&it.url?`<button type="button" class="btn amber" id="sh-present">Present to a client</button>`:''}
+      ${canShare?`<button type="button" class="btn ghost" id="sh-share" aria-expanded="false">Share with a client</button>
+      <div id="sh-ways" hidden><div class="share">
+        <a class="btn ghost" href="sms:?&body=${msg}">Text</a>
+        <a class="btn ghost" href="mailto:?subject=${encodeURIComponent(it.t)}&body=${msg}">Email</a>
+        <button type="button" class="btn ghost" id="sh-copy">Copy link</button></div>
+        <div class="note" style="margin:10px 0 0;user-select:all;word-break:break-all">${hesc(it.url)}</div></div>`:''}
+    </div>
+    <button type="button" class="closeX" id="sh-close">Close</button></div></div>`;
+  const f=layer.querySelector('.acts a,.acts button,#sh-close'); f&&f.focus();
+  layer.querySelector('#scrim').addEventListener('click',e=>{if(e.target.id==='scrim')closeSheet()});
+  layer.querySelector('#sh-close').onclick=closeSheet;
+  const p=layer.querySelector('#sh-present'); if(p)p.onclick=()=>present(id);
+  const s=layer.querySelector('#sh-share'); if(s)s.onclick=()=>{const w=layer.querySelector('#sh-ways');w.hidden=!w.hidden;s.setAttribute('aria-expanded',!w.hidden)};
+  const c=layer.querySelector('#sh-copy'); if(c)c.onclick=()=>copyText(it.url,'Link copied');
+  const pw=layer.querySelector('#sh-pw'); if(pw)pw.onclick=()=>copyText(VAULT_PASSWORD,'Password copied');
+}
+function closeSheet(){layer.innerHTML='';lastFocus&&lastFocus.focus&&lastFocus.focus();}
+function present(id){
+  const it=ITEMS[id]; const prog=PROGRAMS.find(p=>p.ess.includes(id)||p.more.some(m=>m[1].includes(id)));
+  const wm = prog?prog.wm:'Energy<i>+</i>';
+  layer.innerHTML=`<div class="present" role="dialog" aria-modal="true" aria-label="Presenting ${hesc(it.t)}">
+    <div class="bar2"><b>${hesc(it.t)}</b><button type="button" class="x" id="px">Done</button></div>
+    <div class="stage"><div class="pagefake"><span class="wm">${wm}</span><h3>${hesc(it.t)}</h3>
+      <div class="ln" style="width:90%"></div><div class="ln" style="width:75%"></div><div class="blk"></div><div class="ln" style="width:85%"></div><div class="ln" style="width:60%"></div></div></div>
+    <div class="nav2"><a class="btn amber" href="${hesc(it.url)}" target="_blank" rel="noopener">Open it full screen</a></div>
+    <p style="text-align:center;color:#c6d7da;font-size:17px;margin:10px 0 0">Client view: only the document shows, nothing from the hub.</p></div>`;
+  layer.querySelector('#px').focus();
+  layer.querySelector('#px').onclick=closeSheet;
+}
+
+/* ---------- Events ---------- */
+document.addEventListener('click',e=>{
+  const g=e.target.closest('[data-go]'); if(g){ if(layer.innerHTML)closeSheet(); go(g.dataset.go); return; }
+  const it=e.target.closest('[data-item]'); if(it){ if(it.dataset.item==='d_req'){ openRequest(); return; } openSheet(it.dataset.item); return; }
+  const pr=e.target.closest('[data-prog]'); if(pr){ S.prog=pr.dataset.prog; go('program'); return; }
+  const rm=e.target.closest('[data-rm]'); if(rm){ roadmapFilter=rm.dataset.rm; const np=document.getElementById('news-panel'); if(np){ np.innerHTML=newsHTML(); const b=np.querySelector(`[data-rm="${roadmapFilter}"]`); b&&b.focus(); } return; }
+  if(e.target.id==='qclear'){ S.q=''; render('q'); }
+});
+document.addEventListener('keydown',e=>{ if(e.key==='Escape'&&layer.innerHTML) closeSheet(); });
+
+/* Hooks used by the login flow */
+window.renderHub = function(){ S.view='home'; S.q=''; S.prog=null; layer.innerHTML=''; render(); };
+window.resetHub = function(){ S.view='home'; S.q=''; S.prog=null; layer.innerHTML=''; app.innerHTML=''; };
+window.hubItemsForRequest = function(){
+  const out=[]; const seen=new Set();
+  Object.keys(ITEMS).forEach(id=>{
+    const it=ITEMS[id];
+    if(!it.url||!vis(id)) return;
+    const key=it.t+'|'+it.url; if(seen.has(key)) return; seen.add(key);
+    const prog=PROGRAMS.find(p=>p.ess.includes(id)||p.more.some(m=>m[1].includes(id)));
+    const group = prog ? prog.name : (it.co && COMPANIES[it.co] ? COMPANIES[it.co].name : (/^[iq]\d$/.test(id) ? 'ISO Documentation' : 'Ally Program'));
+    out.push({brand:group,name:it.t,url:it.url});
+  });
+  return out;
+};
+window.hubCurrentBrand = function(){ const p=PROGRAMS.find(x=>x.id===S.prog); return (S.view==='program'&&p)?p.brand:''; };
+})();
 
   /* ---- REMEMBERED SESSION: skip login if this rep signed in before ---- */
   try {
