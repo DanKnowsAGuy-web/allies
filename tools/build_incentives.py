@@ -34,7 +34,7 @@ MARK = re.compile(r"(/\* INCENTIVES:BEGIN[^\n]*\*/\r?\n)(.*?)(\r?\n/\* INCENTIVE
 
 UNKNOWN = "No confirmed demand charge on file yet, so we read it from the customer's bill."
 CHECKING = "Card is being checked. It opens here once it passes."
-DASHES = re.compile("[‒-―−]")
+DASHES = re.compile("[" + chr(0x2012) + "-" + chr(0x2015) + chr(0x2212) + "]")
 BANNED = re.compile(r"\btun(?:e|es|ed|ing)\b|energy[\s-]+(?:efficien|waste)|before you (?:spend|pay)|"
                     r"prove it before|proof before|on your own (?:meter|equipment|building)|prove every dollar", re.I)
 RID = re.compile(r"\s*\[[A-Za-z0-9][^\[\]\s]*\](?!\()")
