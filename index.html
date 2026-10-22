@@ -554,7 +554,7 @@
   .empty b{color:var(--on-teal)}
   .gap16{height:16px}
 
-  /* Home extras: What's New & Next + Ally Level, restyled to the new look */
+  /* Home extras: What's New & Next, restyled to the new look */
   .overview{display:grid;grid-template-columns:1fr;gap:16px;align-items:start}
   .overview .panel + .panel{margin-top:0}
   .rm-toggle{display:flex;flex-wrap:wrap;gap:8px;padding:8px 20px 6px}
@@ -1202,7 +1202,7 @@ const TYPE = {video:'Video', doc:'Document', calc:'Calculator', web:'Website', f
 const ITEMS = {
   // Get Started
   agreement:{t:'Ally Program Agreement',type:'doc',meta:'Read and sign',desc:'The agreement every Energy+ Ally signs. The Rate Schedule is part of it.',url:'https://bit.ly/EnergyPlusAllyAgreement',isNew:true,k:'contract sign agreement'},
-  r_sched:{t:'Rate Schedule',type:'doc',meta:'Part of the Agreement',desc:'Every role, its share of Deal Profit, the Closer bonuses and when each is paid.',url:'https://bit.ly/EnergyPlusAllyRateSchedule',isNew:true,k:'rate schedule pay commission percent bonus contract'},
+  r_sched:{t:'Rate Schedule',type:'doc',meta:'Part of the Agreement',desc:'Shares, fees for work, the bonuses and when each is paid.',url:'https://bit.ly/EnergyPlusAllyRateSchedule',isNew:true,k:'rate schedule pay commission percent bonus contract'},
 
   // Energy+
   e_vid:{t:'Your HVAC Savings',type:'video',meta:'Video',desc:'Short video on what HVAC savings look like for a building owner.',url:'https://bit.ly/HVAC_savings',show:true,k:'hvac video savings'},
@@ -1249,8 +1249,7 @@ const ITEMS = {
   // Work a Deal
   d_files:{t:'Send us project files',type:'action',meta:'Ally Drop',desc:'Drop in plans, bills and site photos. We turn them into a proposal and quote.',url:'https://drop.slashyourenergycost.com/',k:'files upload drop plans send'},
   d_bill:{t:'Get the power bill pulled',type:'action',meta:'Bill Audit',desc:'Send your client this link. It pulls their utility bill for us, no paperwork.',url:'https://bit.ly/EnergyPlusBillAudit',share:true,k:'bill audit utility power'},
-  d_reg:{t:'Register a Deal',type:'form',meta:'Form',desc:'Register each Deal with Energy+ before work begins.',soon:true,k:'register deal'},
-  d_formA:{t:'Deal Registration',type:'form',meta:'Required with every Deal',desc:'Tell us how you know the client. If it is missing, all payouts on that Deal can be put on hold.',url:'https://bit.ly/EnergyPlusFormAV2',must:true,isNew:true,k:'form a declaration relationship disclosure conflict'},
+  d_formA:{t:'Deal Registration',type:'form',meta:'Required with every Deal',desc:'Tell us how you know the client. If it is missing, all payouts on that Deal can be put on hold.',url:'https://bit.ly/EnergyPlusFormAV2',must:true,isNew:true,k:'declaration relationship disclosure conflict register registration'},
   d_liaison:{t:'Project Liaison Engagement Letter',type:'form',meta:'Goes with Form B',desc:'The letter that sets out the coordination work a Project Liaison does. It is attached to Form B.',url:'https://bit.ly/EnergyPlusLiaisonLetter',isNew:true,k:'liaison engagement letter form b employee'},
   d_formB:{t:'Form B: Employer Consent',type:'form',meta:'When the Agreement calls for it',desc:'Written consent from an employer, when your situation needs it.',url:'https://bit.ly/EnergyPlusFormBV2',isNew:true,k:'form b employer consent'},
   d_client:{t:'Client Disclosure Clause',type:'doc',meta:'Goes to the client',desc:'The disclosure wording the client sees.',url:'https://bit.ly/EnergyPlusClientDisclosureV2',isNew:true,k:'client disclosure clause'},
@@ -1259,12 +1258,9 @@ const ITEMS = {
 
   // Rules & Pay
   r_paid:{t:'Ally Overview',type:'doc',meta:'Overview',desc:'You earn a share of Deal Profit, paid about 7 days after the funds are Collected, with a statement every time.',url:'https://bit.ly/EnergyPlusAllyPay',isNew:true,k:'pay paid money commission earn payout statement overview'},
-  r_full:{t:'Ally Pay: Full Handout',type:'doc',meta:'All three in one file',desc:'Overview, rate table and examples together.',url:'https://bit.ly/EnergyPlusAllyPayFull',k:'pay money commission handout full'},
   r_abp:{t:'Anti-Bribery Policy',type:'doc',meta:'Policy · ABMS-001',desc:'Our anti-bribery policy under ISO 37001.',url:'https://bit.ly/anti-bribery_',k:'bribe bribery gift policy iso'},
   r_gov:{t:'Government Official Due Diligence',type:'doc',meta:'Due diligence · ABMS-002',desc:'Extra steps when a public official is involved.',url:'https://bit.ly/due-diligence_',k:'government official public bribe'},
   r_gift:{t:'Gifts & Hospitality Register',type:'doc',meta:'Register · ABMS-004',desc:'Log any gift or hospitality given or received.',url:'https://bit.ly/commission-gifts-reg',k:'gift hospitality meal register'},
-  r_key:{t:'Key Ally Status',type:'doc',meta:'Recognition',desc:'Non-cash benefits for the top Allies each year.',soon:true,k:'key ally status benefits'},
-  r_mentor:{t:'Referring an Ally',type:'doc',meta:'Grow the team',desc:'Bring in a new Ally and earn the Ally referral share on the buyer Deals they bring. See the Rate Schedule.',url:'https://bit.ly/EnergyPlusAllyRateSchedule',k:'referring ally referral recruit grow'},
 
   // ISO certifications
   i1:{t:'Information Security Policy',type:'doc',meta:'ISMS-001',url:'https://bit.ly/info-security_',desc:'ISO 27001.',k:'iso security'},
@@ -1409,7 +1405,7 @@ function door(id,ic,title,line,cls){
   return `<button type="button" class="door ${cls||''}" data-go="${id}"><span class="ic">${I[ic]}</span><span class="t"><h2>${hesc(title)}</h2><p>${hesc(line)}</p></span>${I.chev}</button>`;
 }
 
-/* ---------- What's New & Next + Ally Level (kept from the previous hub, restyled) ---------- */
+/* ---------- What's New & Next ---------- */
 function newsHTML(){
   const counts = {}; RM_ORDER.forEach(s => counts[s] = ROADMAP.filter(r => r.status === s).length);
   const toggle = RM_ORDER.map(s =>
@@ -1419,16 +1415,6 @@ function newsHTML(){
   if (roadmapFilter === 'requested') items = items.slice().sort((a, b) => (b.votes || 0) - (a.votes || 0));
   const list = items.length ? roadmapListHTML(items) : `<div class="rm-empty">Nothing here right now. Check back soon.</div>`;
   return `<div class="panel-h"><h3>What's New &amp; Next</h3></div><div class="rm-toggle">${toggle}</div><div id="news-list">${list}</div>`;
-}
-function tierHTML(){
-  return `<div class="panel-h"><h3>Your Ally Level</h3></div><div class="tier-wrap">
-    <div class="tier-row active"><div class="tier-node">1</div><div class="tier-card"><div class="tier-top"><span class="tier-title">Field Ally</span><span class="tier-badge current">Your Level</span></div>
-      <div class="tier-desc">Full access to core marketing materials and technical data. You are equipped to bring Energy Plus, Build Plus, and Harvest Plus solutions to market.</div></div></div>
-    <div class="tier-row locked"><div class="tier-node">2</div><div class="tier-card"><div class="tier-top"><span class="tier-title">Certified Ally</span><span class="tier-badge locked-badge">Locked</span></div>
-      <div class="tier-desc">Minimum revenue threshold. Grants access to our extended technology portfolio and advanced sales resources.</div></div></div>
-    <div class="tier-row locked"><div class="tier-node">3</div><div class="tier-card"><div class="tier-top"><span class="tier-title">Portfolio Ally</span><span class="tier-badge locked-badge">Locked</span></div>
-      <div class="tier-desc">Includes preferential terms and participation in company-wide profit distribution.</div></div></div>
-  </div>`;
 }
 
 /* ---------- Views ---------- */
@@ -1452,7 +1438,6 @@ const V = {
         <div class="sec-h"><h2>More for you</h2></div>
         <div class="overview">
           <section class="panel" id="news-panel">${newsHTML()}</section>
-          <section class="panel tier-panel">${tierHTML()}</section>
         </div>
       </div>`;
   },
@@ -1477,21 +1462,19 @@ const V = {
     const co=myCo(); const files = co ? co.drop : 'd_files';
     return pageHead('Work a Deal','Everything you send us, and the paperwork for each Deal.',['home','Home'])+
       `<div class="two">${panel('Send us something','We take it from there.',[files,'d_bill'])}
-       ${panel('Paperwork for every Deal','Register the Deal. Deal Registration goes with it.',['d_reg','d_formA','d_formB','d_liaison'])}</div>
+       ${panel('Paperwork for every Deal','Deal Registration goes with every Deal.',['d_formA','d_formB','d_liaison'])}</div>
       <div class="gap16"></div>
       <div class="two">${panel('Disclosure documents','What the client sees.',['d_client'])}
       <div>${panel('Tools','Run the numbers with a client.',co?co.tools.concat('e_calc'):['e_calc','b_calc'])}<div class="gap16"></div>${panel('Need help?','We answer fast.',['d_req','d_dan'])}</div></div>`;
   },
   rules(){
     return pageHead('Rules & Pay','How you get paid and the rules every Ally follows.',['home','Home'])+
-      `<div class="two">${panel('How pay works','You earn a share of Deal Profit, paid about 7 days after funds are Collected.',['r_paid','r_full'])}
+      `<div class="two">${panel('How pay works','You earn a share of Deal Profit, paid about 7 days after funds are Collected.',['r_paid'])}
       <div>${panel('Your agreement','The Agreement and its Rate Schedule.',['agreement','r_sched'])}</div></div>
       <div class="gap16"></div>
       <div class="two">${panel('Conduct & anti-bribery','Three rules, no exceptions.',['r_abp','r_gov','r_gift'],
         `<ul class="rules"><li>Never misstate savings or figures. Use only the numbers Energy+ gives you.</li><li>Never give anything of value to a public official.</li><li>Before you register a Deal, tell us in writing about any public office you hold or any personal interest in the client.</li></ul>`)}
-      <div>${panel('Growing with us','Recognition and helping new Allies.',['r_key','r_mentor'])}
-      <div class="gap16"></div>
-      <section class="panel"><details class="more"><summary>Company certifications: Information Security (ISO 27001)</summary><ul class="rows">${['i1','i2','i3','i4','i5','i6','i7'].map(row).join('')}</ul></details>
+      <div><section class="panel"><details class="more"><summary>Company certifications: Information Security (ISO 27001)</summary><ul class="rows">${['i1','i2','i3','i4','i5','i6','i7'].map(row).join('')}</ul></details>
       <details class="more"><summary>Company certifications: Quality (ISO 9001)</summary><ul class="rows">${['q1','q2','q3','q4','q5','q6'].map(row).join('')}</ul></details></section></div></div>`;
   },
   incentives(){
