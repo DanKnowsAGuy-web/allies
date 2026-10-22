@@ -1201,10 +1201,8 @@ const TYPE = {video:'Video', doc:'Document', calc:'Calculator', web:'Website', f
 /* ---------- Content: real links from the current hub and the Ally Program Bitly links ---------- */
 const ITEMS = {
   // Get Started
-  glossary:{t:'Glossary',type:'doc',meta:'The words we use',desc:'Ally, Key Ally, Project Liaison, Referring Ally, Deal Profit, Collected, the roles on a Deal and the relationship tiers, in plain words.',url:'https://bit.ly/EnergyPlusAllyGlossary',isNew:true,k:'words definitions terms meaning liaison referring roles tiers introducer closer'},
-  agreement:{t:'Ally Program Agreement',type:'doc',meta:'Read and sign',desc:'The agreement every Energy+ Ally signs. The Rate Schedule and the Conflicts and Disclosure Exhibit are part of it.',url:'https://bit.ly/EnergyPlusAllyAgreement',isNew:true,k:'contract sign agreement'},
+  agreement:{t:'Ally Program Agreement',type:'doc',meta:'Read and sign',desc:'The agreement every Energy+ Ally signs. The Rate Schedule is part of it.',url:'https://bit.ly/EnergyPlusAllyAgreement',isNew:true,k:'contract sign agreement'},
   r_sched:{t:'Rate Schedule',type:'doc',meta:'Part of the Agreement',desc:'Every role, its share of Deal Profit, the Closer bonuses and when each is paid.',url:'https://bit.ly/EnergyPlusAllyRateSchedule',isNew:true,k:'rate schedule pay commission percent bonus contract'},
-  r_ack:{t:'Ally Compensation Acknowledgment',type:'form',meta:'One page, signed with the Agreement',desc:'Confirms you have read how Allies are paid and the rules that go with it.',url:'https://bit.ly/EnergyPlusAllyAcknowledgment',isNew:true,k:'acknowledgment sign compensation pay contract'},
 
   // Energy+
   e_vid:{t:'Your HVAC Savings',type:'video',meta:'Video',desc:'Short video on what HVAC savings look like for a building owner.',url:'https://bit.ly/HVAC_savings',show:true,k:'hvac video savings'},
@@ -1252,19 +1250,15 @@ const ITEMS = {
   d_files:{t:'Send us project files',type:'action',meta:'Ally Drop',desc:'Drop in plans, bills and site photos. We turn them into a proposal and quote.',url:'https://drop.slashyourenergycost.com/',k:'files upload drop plans send'},
   d_bill:{t:'Get the power bill pulled',type:'action',meta:'Bill Audit',desc:'Send your client this link. It pulls their utility bill for us, no paperwork.',url:'https://bit.ly/EnergyPlusBillAudit',share:true,k:'bill audit utility power'},
   d_reg:{t:'Register a Deal',type:'form',meta:'Form',desc:'Register each Deal with Energy+ before work begins.',soon:true,k:'register deal'},
-  d_formA:{t:'Form A: Relationship Declaration',type:'form',meta:'Required with every Deal',desc:'Tell us how you know the client. If it is missing, all payouts on that Deal can be put on hold.',url:'https://bit.ly/EnergyPlusFormAV2',must:true,isNew:true,k:'form a declaration relationship disclosure conflict'},
+  d_formA:{t:'Deal Registration',type:'form',meta:'Required with every Deal',desc:'Tell us how you know the client. If it is missing, all payouts on that Deal can be put on hold.',url:'https://bit.ly/EnergyPlusFormAV2',must:true,isNew:true,k:'form a declaration relationship disclosure conflict'},
   d_liaison:{t:'Project Liaison Engagement Letter',type:'form',meta:'Goes with Form B',desc:'The letter that sets out the coordination work a Project Liaison does. It is attached to Form B.',url:'https://bit.ly/EnergyPlusLiaisonLetter',isNew:true,k:'liaison engagement letter form b employee'},
   d_formB:{t:'Form B: Employer Consent',type:'form',meta:'When the Agreement calls for it',desc:'Written consent from an employer, when your situation needs it.',url:'https://bit.ly/EnergyPlusFormBV2',isNew:true,k:'form b employer consent'},
-  d_exhibit:{t:'Conflicts and Disclosure Exhibit',type:'doc',meta:'Part of the Agreement',desc:'The rules for conflicts of interest and what you disclose.',url:'https://bit.ly/EnergyPlusConflictsExhibitV2',isNew:true,k:'conflict disclosure exhibit'},
   d_client:{t:'Client Disclosure Clause',type:'doc',meta:'Goes to the client',desc:'The disclosure wording the client sees.',url:'https://bit.ly/EnergyPlusClientDisclosureV2',isNew:true,k:'client disclosure clause'},
-  d_pack:{t:'Compliance Pack',type:'doc',meta:'All forms in one file',desc:'Form A, Form B, the exhibit and the client clause together.',url:'https://bit.ly/EnergyPlusAllyCompliance',isNew:true,k:'compliance pack forms'},
   d_req:{t:'Ask us for something',type:'action',meta:'Request a resource',desc:'Need a document or page we do not have yet? Tell us here.',k:'request help ask'},
   d_dan:{t:'Leave Dan a voice message',type:'action',meta:'Talk to Dan',desc:'Record a quick message on Telegram. Dan gets it on his phone.',url:'https://t.me/danknowsaguy',k:'dan help voice call telegram'},
 
   // Rules & Pay
-  r_paid:{t:'How You Get Paid',type:'doc',meta:'Pay 1 · Overview',desc:'You earn a share of Deal Profit, paid about 7 days after the funds are Collected, with a statement every time.',url:'https://bit.ly/EnergyPlusAllyPay',isNew:true,k:'pay paid money commission earn payout statement overview'},
-  r_rate:{t:'Rate Table',type:'doc',meta:'Pay 2 · What each role earns',desc:'The share for each role on a Deal, and the Closer bonuses.',url:'https://bit.ly/EnergyPlusAllyRates',isNew:true,k:'pay money commission rate schedule earn percent bonus'},
-  r_ex:{t:'Pay Examples',type:'doc',meta:'Pay 3 · Worked examples',desc:'Sample Deals worked through from Collected funds to your share.',url:'https://bit.ly/EnergyPlusAllyExamples',isNew:true,k:'pay money commission examples'},
+  r_paid:{t:'Ally Overview',type:'doc',meta:'Overview',desc:'You earn a share of Deal Profit, paid about 7 days after the funds are Collected, with a statement every time.',url:'https://bit.ly/EnergyPlusAllyPay',isNew:true,k:'pay paid money commission earn payout statement overview'},
   r_full:{t:'Ally Pay: Full Handout',type:'doc',meta:'All three in one file',desc:'Overview, rate table and examples together.',url:'https://bit.ly/EnergyPlusAllyPayFull',k:'pay money commission handout full'},
   r_abp:{t:'Anti-Bribery Policy',type:'doc',meta:'Policy · ABMS-001',desc:'Our anti-bribery policy under ISO 37001.',url:'https://bit.ly/anti-bribery_',k:'bribe bribery gift policy iso'},
   r_gov:{t:'Government Official Due Diligence',type:'doc',meta:'Due diligence · ABMS-002',desc:'Extra steps when a public official is involved.',url:'https://bit.ly/due-diligence_',k:'government official public bribe'},
@@ -1351,7 +1345,7 @@ const COMPANIES = {
   bigrock:{name:'Big Rock',line:'Your Big Rock and Manitou proposals and file drop.',pages:[],props:['br_card'],tools:[],drop:'br_drop'}
 };
 
-const NEW_WEEK = ['glossary','r_paid','r_rate','d_formA'];
+const NEW_WEEK = ['r_paid','d_formA'];
 const SYN = {pay:'pay',paid:'pay',money:'pay',commission:'pay',commissions:'pay',earn:'pay',payout:'pay',bribe:'bribe',bribery:'bribe',gift:'gift',gifts:'gift',contract:'contract',words:'words',definition:'words',definitions:'words',hvac:'hvac',bill:'bill',files:'files',upload:'files',incentive:'incentive',incentives:'incentive',rebates:'rebate',utilities:'utility',counties:'county',parishes:'parish',territories:'territory',cpace:'pace'};
 
 /* ---------- State ---------- */
@@ -1442,15 +1436,15 @@ const V = {
   home(){
     const co=myCo();
     return `<div class="page-h"><h1>Good to see you, ${hesc(userName())}.</h1><p>What do you need today?</p></div>
-      <div class="search">${I.search}<input id="q" type="search" placeholder="Search: pay, HVAC video, Form A…" value="${hesc(S.q)}" aria-label="Search everything" autocomplete="off" spellcheck="false">${S.q?'<button type="button" class="clear" id="qclear">Clear</button>':''}</div>
+      <div class="search">${I.search}<input id="q" type="search" placeholder="Search: pay, HVAC video, Deal Registration…" value="${hesc(S.q)}" aria-label="Search everything" autocomplete="off" spellcheck="false">${S.q?'<button type="button" class="clear" id="qclear">Clear</button>':''}</div>
       <div id="results"></div>
       <div id="homebody">
         <div class="doors">
           ${co?door('company','company','Your Company: '+co.name,co.line,'company'):''}
-          ${door('start','learn','Get Started','The four things to read first. Full training coming soon.')}
+          ${door('start','learn','Get Started','The first things to read. Full training coming soon.')}
           ${door('show','show','Show a Client','Videos, handouts and calculators for every program.')}
-          ${door('deal','deal','Work a Deal','Send files, pull a bill, Form A and the Deal paperwork.')}
-          ${door('rules','rules','Rules & Pay','How you get paid, the rules, and the words we use.')}
+          ${door('deal','deal','Work a Deal','Send files, pull a bill, Deal Registration and the Deal paperwork.')}
+          ${door('rules','rules','Rules & Pay','How you get paid and the rules.')}
           ${door('incentives','inc','Utility incentives','What each utility pays, by territory','inc')}
         </div>
         <div class="sec-h"><h2>New for Allies</h2><span>${NEW_WEEK.filter(vis).length} items</span></div>
@@ -1463,8 +1457,8 @@ const V = {
       </div>`;
   },
   start(){
-    return pageHead('Get Started','New to the Ally Program? Read these four first.',['home','Home'])+
-      panel('Read these first','The words we use, how pay works, and the form that goes with every Deal.',['glossary','r_paid','d_formA','d_pack'])+
+    return pageHead('Get Started','New to the Ally Program? Read these first.',['home','Home'])+
+      panel('Read these first','How pay works, and the form that goes with every Deal.',['r_paid','d_formA'])+
       `<div class="empty" style="margin-top:16px"><b>Coming soon: the full onboarding program.</b><br>Welcome video, first-week steps and training videos. We will text every Ally when it is ready.</div>`;
   },
   show(){
@@ -1483,15 +1477,15 @@ const V = {
     const co=myCo(); const files = co ? co.drop : 'd_files';
     return pageHead('Work a Deal','Everything you send us, and the paperwork for each Deal.',['home','Home'])+
       `<div class="two">${panel('Send us something','We take it from there.',[files,'d_bill'])}
-       ${panel('Paperwork for every Deal','Register the Deal. Form A goes with it.',['d_reg','d_formA','d_formB','d_liaison'])}</div>
+       ${panel('Paperwork for every Deal','Register the Deal. Deal Registration goes with it.',['d_reg','d_formA','d_formB','d_liaison'])}</div>
       <div class="gap16"></div>
-      <div class="two">${panel('Disclosure documents','What the Agreement asks you to disclose, and what the client sees.',['d_exhibit','d_client','d_pack'])}
+      <div class="two">${panel('Disclosure documents','What the client sees.',['d_client'])}
       <div>${panel('Tools','Run the numbers with a client.',co?co.tools.concat('e_calc'):['e_calc','b_calc'])}<div class="gap16"></div>${panel('Need help?','We answer fast.',['d_req','d_dan'])}</div></div>`;
   },
   rules(){
-    return pageHead('Rules & Pay','How you get paid, the rules every Ally follows, and the words we use.',['home','Home'])+
-      `<div class="two">${panel('How pay works','You earn a share of Deal Profit, paid about 7 days after funds are Collected.',['r_paid','r_rate','r_ex','r_full'])}
-      <div>${panel('Your agreement and the words we use','Same words, same meaning, every time.',['agreement','r_sched','r_ack','glossary','d_exhibit'])}</div></div>
+    return pageHead('Rules & Pay','How you get paid and the rules every Ally follows.',['home','Home'])+
+      `<div class="two">${panel('How pay works','You earn a share of Deal Profit, paid about 7 days after funds are Collected.',['r_paid','r_full'])}
+      <div>${panel('Your agreement','The Agreement and its Rate Schedule.',['agreement','r_sched'])}</div></div>
       <div class="gap16"></div>
       <div class="two">${panel('Conduct & anti-bribery','Three rules, no exceptions.',['r_abp','r_gov','r_gift'],
         `<ul class="rules"><li>Never misstate savings or figures. Use only the numbers Energy+ gives you.</li><li>Never give anything of value to a public official.</li><li>Before you register a Deal, tell us in writing about any public office you hold or any personal interest in the client.</li></ul>`)}
