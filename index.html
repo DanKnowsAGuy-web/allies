@@ -786,11 +786,11 @@
   /* Partner-exclusive experiences. Each partner's key doubles as their password: typing it
      unlocks a branded first tab + portal-bar logo. Partners never see each other's tab, and
      generic "build" logins see no partner tab at all. A partner whose ONLY password is their
-     key (like CPL) is always branded; one that also allows "build" (like Redstone) gets the
+     key (like CPL and Redstone) is always branded; one that also allows "build" gets the
      generic dashboard when they log in with "build". */
   const PARTNERS = {
     cpl:      { brand: 'CPL',      users: ['ron', 'jon', 'jonathan', 'billy'], passwords: ['cpl'],               dropUrl: 'https://drop.slashyourenergycost.com/cpl' },
-    redstone: { brand: 'Redstone', users: ['jason', 'kamal'],                  passwords: ['redstone', 'build'], dropUrl: 'https://drop.slashyourenergycost.com/redstone' },
+    redstone: { brand: 'Redstone', users: ['jason', 'kamal'],                  passwords: ['redstone'],           dropUrl: 'https://drop.slashyourenergycost.com/redstone' },
     maxari:   { brand: 'Maxari',   users: ['lisa', 'raya', 'chris'],           passwords: ['maxari'],            dropUrl: 'https://drop.slashyourenergycost.com/' },
     bigrock:  { brand: 'Big Rock', users: ['larry', 'brian'],                  passwords: ['bigrock'],           dropUrl: 'https://drop.slashyourenergycost.com/' },
   };
@@ -893,7 +893,7 @@
 
   /* ---- ACCESS FLOW ---- */
   const PASSWORD = "build"; // case-insensitive; default for everyone
-  const USER_PASSWORDS = { jim: "helm", chandler: "helm" }; // per-name overrides, also case-insensitive (partner passwords live in PARTNERS)
+  const USER_PASSWORDS = { jim: "helm", chandler: "helm", dave: "cryogen", tony: "cryogen", jeff: "cryogen" }; // per-name overrides, also case-insensitive (partner passwords live in PARTNERS)
   const LS_KEY = "repPortalUser"; // remembers the signed-in rep so they skip login next visit
   const LS_PARTNER = "repPortalPartner"; // remembers which partner experience they unlocked
 
