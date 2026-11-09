@@ -793,8 +793,9 @@
     redstone: { brand: 'Redstone', users: ['jason', 'kamal'],                  passwords: ['redstone'],           dropUrl: 'https://drop.slashyourenergycost.com/redstone' },
     maxari:   { brand: 'Maxari',   users: ['lisa', 'raya', 'chris'],           passwords: ['maxari'],            dropUrl: 'https://drop.slashyourenergycost.com/' },
     bigrock:  { brand: 'Big Rock', users: ['larry', 'brian'],                  passwords: ['bigrock'],           dropUrl: 'https://drop.slashyourenergycost.com/' },
+    cryogen:  { brand: 'Cryogenex', users: ['dave', 'tony', 'jeff'],           passwords: ['cryogen'],           dropUrl: 'https://drop.slashyourenergycost.com/' },
   };
-  let currentPartner = null;            // partner key (cpl | redstone | maxari | bigrock) or null for generic sessions
+  let currentPartner = null;            // partner key (cpl | redstone | maxari | bigrock | cryogen) or null for generic sessions
   let currentUser = ''; // lowercased first name of the logged-in rep; gates restricted items
 
   /* ---- NEWS / UPDATES (edit freely; the column width adapts to how many there are) ---- */
@@ -893,7 +894,7 @@
 
   /* ---- ACCESS FLOW ---- */
   const PASSWORD = "build"; // case-insensitive; default for everyone
-  const USER_PASSWORDS = { jim: "helm", chandler: "helm", dave: "cryogen", tony: "cryogen", jeff: "cryogen" }; // per-name overrides, also case-insensitive (partner passwords live in PARTNERS)
+  const USER_PASSWORDS = { jim: "helm", chandler: "helm" }; // per-name overrides, also case-insensitive (partner passwords live in PARTNERS)
   const LS_KEY = "repPortalUser"; // remembers the signed-in rep so they skip login next visit
   const LS_PARTNER = "repPortalPartner"; // remembers which partner experience they unlocked
 
@@ -1294,6 +1295,10 @@ const ITEMS = {
 
   // Maxari
   m_drop:{t:'Ally Drop for Maxari',type:'action',meta:'Send us files',desc:'Your own file drop for Maxari projects.',url:'https://drop.slashyourenergycost.com/',co:'maxari',k:'maxari files drop'},
+  cx_page:{t:'Energy Plus and CRYOGENX4',type:'web',meta:'Website · Co-branded',desc:'The co-branded page for any prospect, with the building walkthrough.',url:'https://slashyourenergycost.com/energy-plus/cryogenx4/',show:true,co:'cryogen',k:'cryogenex cryogenx4 co-branded website page walkthrough'},
+  cx_walk:{t:'Building Walkthrough',type:'calc',meta:'Walkthrough · 2 minutes',desc:'Pick the building type and tap through. It shows what the building overpays.',url:'https://slashyourenergycost.com/energy-plus/walkthrough/',show:true,co:'cryogen',k:'cryogenex walkthrough calculator overspend'},
+  cx_acad:{t:'Academy Sports + Outdoors',type:'doc',meta:'Prepared proposal',desc:'The Academy proposal page.',url:'https://slashyourenergycost.com/cryogenex-academy/',show:true,co:'cryogen',k:'cryogenex academy proposal'},
+  cx_drop:{t:'Ally Drop for Cryogenex',type:'action',meta:'Send us files',desc:'Send us bills, interval data and nameplate photos for Cryogenex projects.',url:'https://drop.slashyourenergycost.com/',co:'cryogen',k:'cryogenex files drop bills nameplate'},
   br_drop:{t:'Ally Drop for Big Rock',type:'action',meta:'Send us files',desc:'Send us bills, interval data and nameplate photos for Big Rock and Manitou projects.',url:'https://drop.slashyourenergycost.com/',co:'bigrock',k:'big rock manitou files drop bills'}
 };
 
@@ -1337,7 +1342,8 @@ const COMPANIES = {
   cpl:{name:'CPL',line:'Your CPL pages, proposals, estimator and file drop.',pages:['c_com','c_hot','c_sed','c_dc'],props:['c_vin','c_wil'],tools:['c_est'],drop:'c_drop'},
   redstone:{name:'Redstone',line:'Your Redstone proposal, calculator and file drop.',pages:[],props:['rs_lan'],tools:['rs_calc'],drop:'rs_drop'},
   maxari:{name:'Maxari',line:'Your Maxari file drop.',pages:[],props:[],tools:[],drop:'m_drop'},
-  bigrock:{name:'Big Rock',line:'Your Big Rock and Manitou file drop.',pages:[],props:[],tools:[],drop:'br_drop'}
+  bigrock:{name:'Big Rock',line:'Your Big Rock and Manitou file drop.',pages:[],props:[],tools:[],drop:'br_drop'},
+  cryogen:{name:'Cryogenex',line:'Your co-branded page, walkthrough, Academy proposal and file drop.',pages:['cx_page'],props:['cx_acad'],tools:['cx_walk'],drop:'cx_drop'}
 };
 
 const NEW_WEEK = ['r_paid','d_formA'];
